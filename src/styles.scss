@@ -1,1 +1,122 @@
 /* You can add global styles to this file, and also import other style files */
+/* Main style */
+$main_color: #fedc01;
+$second_color: #000000;
+img {
+  max-width: 100%;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: $second_color;
+}
+
+i {
+  line-height: 0;
+}
+/* End of main style */
+
+/* Start header component */
+
+header {
+  padding: 5px;
+}
+
+header .logo_img a:first-child img {
+  margin-right: 15px;
+  transform: scaleX(-1);
+}
+
+header ul {
+  margin: 0;
+}
+
+header .cart_account li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+header .cart_account li:first-child {
+  margin-left: 0;
+}
+
+header .cart_account li a {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+header .cart_account li a span {
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff4e50;
+  border-radius: 50%;
+  top: -5px;
+  left: -10px;
+}
+
+header .cart_account li:first-child a {
+  border-color: $main_color;
+  background: $main_color;
+}
+
+.scan_join {
+  padding: 15px 0;
+}
+
+.scan_join a {
+  display: inline-flex;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  /* padding: 10px 20px; */
+  border-radius: 30px;
+  text-align: center;
+  font-size: 18px;
+  width: 170px;
+  height: 50px;
+  justify-content: center;
+  position: relative;
+  padding-left: 50px;
+}
+
+.scan_join span {
+  position: absolute;
+  left: 0px;
+  width: 50px;
+  height: 50px;
+  background: #1d1c1c;
+  border-radius: 30px 5px 30px 30px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scan_join .header_link:first-child {
+  margin-right: 15px;
+}
+
+.scan_join .header_link:first-child a {
+  background: $main_color;
+  color: $second_color;
+}
+
+.scan_join .header_link:first-child span {
+  background: #efd005;
+}
+/* End header component */
