@@ -2,11 +2,11 @@ $flaticon-font: "flaticon";
 
 @font-face {
     font-family: $flaticon-font;
-    src: url("./flaticon.ttf?821926b5e165d769ad03404f0e8df2a7") format("truetype"),
-url("./flaticon.woff?821926b5e165d769ad03404f0e8df2a7") format("woff"),
-url("./flaticon.woff2?821926b5e165d769ad03404f0e8df2a7") format("woff2"),
-url("./flaticon.eot?821926b5e165d769ad03404f0e8df2a7#iefix") format("embedded-opentype"),
-url("./flaticon.svg?821926b5e165d769ad03404f0e8df2a7#flaticon") format("svg");
+    src: url("./flaticon.ttf?a382c2b16d457df9e3f221e8dea58d20") format("truetype"),
+url("./flaticon.woff?a382c2b16d457df9e3f221e8dea58d20") format("woff"),
+url("./flaticon.woff2?a382c2b16d457df9e3f221e8dea58d20") format("woff2"),
+url("./flaticon.eot?a382c2b16d457df9e3f221e8dea58d20#iefix") format("embedded-opentype"),
+url("./flaticon.svg?a382c2b16d457df9e3f221e8dea58d20#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -22,51 +22,58 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 
 $flaticon-map: (
     "add-user": "\f101",
-    "bag": "\f102",
-    "cancel": "\f103",
-    "choices": "\f104",
-    "credit-cards-payment": "\f105",
-    "customer": "\f106",
-    "delivery": "\f107",
-    "email": "\f108",
-    "exit": "\f109",
-    "facebook": "\f10a",
-    "fast": "\f10b",
-    "heart-1": "\f10c",
-    "heart": "\f10d",
-    "instagram": "\f10e",
-    "left-arrow": "\f10f",
-    "logout": "\f110",
-    "loupe": "\f111",
-    "menu": "\f112",
-    "messenger-1": "\f113",
-    "messenger": "\f114",
-    "minus": "\f115",
-    "open-box": "\f116",
-    "phone-call": "\f117",
-    "phone": "\f118",
-    "plus": "\f119",
-    "remove": "\f11a",
-    "right-arrow": "\f11b",
-    "rubbish-bin": "\f11c",
-    "sad": "\f11d",
-    "search": "\f11e",
-    "shopping-cart": "\f11f",
-    "snapchat": "\f120",
-    "star-1": "\f121",
-    "star": "\f122",
-    "upload": "\f123",
-    "user-1": "\f124",
-    "user-2": "\f125",
-    "user": "\f126",
-    "view": "\f127",
-    "visibility": "\f128",
-    "whatsapp": "\f129",
-    "youtube": "\f12a",
+    "add": "\f102",
+    "bag": "\f103",
+    "cancel": "\f104",
+    "choices": "\f105",
+    "credit-cards-payment": "\f106",
+    "customer": "\f107",
+    "delivery": "\f108",
+    "email": "\f109",
+    "exit": "\f10a",
+    "facebook": "\f10b",
+    "fast": "\f10c",
+    "heart-1": "\f10d",
+    "heart": "\f10e",
+    "instagram": "\f10f",
+    "left-arrow": "\f110",
+    "logout": "\f111",
+    "loupe": "\f112",
+    "menu": "\f113",
+    "messenger-1": "\f114",
+    "messenger": "\f115",
+    "minus": "\f116",
+    "open-box": "\f117",
+    "phone-call": "\f118",
+    "phone": "\f119",
+    "plus": "\f11a",
+    "qr-code-scan": "\f11b",
+    "remove": "\f11c",
+    "right-arrow": "\f11d",
+    "right": "\f11e",
+    "rubbish-bin": "\f11f",
+    "sad": "\f120",
+    "search": "\f121",
+    "shopping-cart-1": "\f122",
+    "shopping-cart": "\f123",
+    "snapchat": "\f124",
+    "star-1": "\f125",
+    "star": "\f126",
+    "upload": "\f127",
+    "user-1": "\f128",
+    "user-2": "\f129",
+    "user": "\f12a",
+    "view": "\f12b",
+    "visibility": "\f12c",
+    "whatsapp": "\f12d",
+    "youtube": "\f12e",
 );
 
 .flaticon-add-user:before {
     content: map-get($flaticon-map, "add-user");
+}
+.flaticon-add:before {
+    content: map-get($flaticon-map, "add");
 }
 .flaticon-bag:before {
     content: map-get($flaticon-map, "bag");
@@ -140,11 +147,17 @@ $flaticon-map: (
 .flaticon-plus:before {
     content: map-get($flaticon-map, "plus");
 }
+.flaticon-qr-code-scan:before {
+    content: map-get($flaticon-map, "qr-code-scan");
+}
 .flaticon-remove:before {
     content: map-get($flaticon-map, "remove");
 }
 .flaticon-right-arrow:before {
     content: map-get($flaticon-map, "right-arrow");
+}
+.flaticon-right:before {
+    content: map-get($flaticon-map, "right");
 }
 .flaticon-rubbish-bin:before {
     content: map-get($flaticon-map, "rubbish-bin");
@@ -154,6 +167,9 @@ $flaticon-map: (
 }
 .flaticon-search:before {
     content: map-get($flaticon-map, "search");
+}
+.flaticon-shopping-cart-1:before {
+    content: map-get($flaticon-map, "shopping-cart-1");
 }
 .flaticon-shopping-cart:before {
     content: map-get($flaticon-map, "shopping-cart");
