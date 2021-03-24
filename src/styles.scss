@@ -15,6 +15,11 @@ a {
   color: $second_color;
 }
 
+a:hover {
+  color: $second_color;
+  text-decoration: none;
+}
+
 i {
   line-height: 0;
 }
@@ -35,7 +40,8 @@ header ul {
   margin: 0;
 }
 
-header .cart_account li {
+header .cart_account li,
+footer ul li {
   display: inline-block;
   margin-left: 10px;
 }
@@ -44,7 +50,8 @@ header .cart_account li:first-child {
   margin-left: 0;
 }
 
-header .cart_account li a {
+header .cart_account li a,
+footer ul li a {
   display: flex;
   width: 50px;
   height: 50px;
@@ -120,3 +127,16 @@ header .cart_account li:first-child a {
   background: #efd005;
 }
 /* End header component */
+
+/* Start footer component */
+
+footer {
+  padding: 40px 0;
+}
+
+footer ul li:hover a {
+  background: $main_color;
+  border-color: $main_color;
+}
+
+/* End footer component */

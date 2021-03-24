@@ -1,11 +1,11 @@
 @font-face {
   font-family: "flaticon";
-  src: url("./flaticon.ttf?a382c2b16d457df9e3f221e8dea58d20") format("truetype"),
-    url("./flaticon.woff?a382c2b16d457df9e3f221e8dea58d20") format("woff"),
-    url("./flaticon.woff2?a382c2b16d457df9e3f221e8dea58d20") format("woff2"),
-    url("./flaticon.eot?a382c2b16d457df9e3f221e8dea58d20#iefix")
+  src: url("./flaticon.ttf?6a21ec7316206ea16a437842e74c6f02") format("truetype"),
+    url("./flaticon.woff?6a21ec7316206ea16a437842e74c6f02") format("woff"),
+    url("./flaticon.woff2?6a21ec7316206ea16a437842e74c6f02") format("woff2"),
+    url("./flaticon.eot?6a21ec7316206ea16a437842e74c6f02#iefix")
       format("embedded-opentype"),
-    url("./flaticon.svg?a382c2b16d457df9e3f221e8dea58d20#flaticon")
+    url("./flaticon.svg?6a21ec7316206ea16a437842e74c6f02#flaticon")
       format("svg");
 }
 
@@ -136,27 +136,30 @@ i[class*=" flaticon-"]:before {
 .flaticon-star:before {
   content: "\f126";
 }
-.flaticon-upload:before {
+.flaticon-twitter:before {
   content: "\f127";
 }
-.flaticon-user-1:before {
+.flaticon-upload:before {
   content: "\f128";
 }
-.flaticon-user-2:before {
+.flaticon-user-1:before {
   content: "\f129";
 }
-.flaticon-user:before {
+.flaticon-user-2:before {
   content: "\f12a";
 }
-.flaticon-view:before {
+.flaticon-user:before {
   content: "\f12b";
 }
-.flaticon-visibility:before {
+.flaticon-view:before {
   content: "\f12c";
 }
-.flaticon-whatsapp:before {
+.flaticon-visibility:before {
   content: "\f12d";
 }
-.flaticon-youtube:before {
+.flaticon-whatsapp:before {
   content: "\f12e";
+}
+.flaticon-youtube:before {
+  content: "\f12f";
 }

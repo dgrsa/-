@@ -2,11 +2,11 @@ $flaticon-font: "flaticon";
 
 @font-face {
     font-family: $flaticon-font;
-    src: url("./flaticon.ttf?a382c2b16d457df9e3f221e8dea58d20") format("truetype"),
-url("./flaticon.woff?a382c2b16d457df9e3f221e8dea58d20") format("woff"),
-url("./flaticon.woff2?a382c2b16d457df9e3f221e8dea58d20") format("woff2"),
-url("./flaticon.eot?a382c2b16d457df9e3f221e8dea58d20#iefix") format("embedded-opentype"),
-url("./flaticon.svg?a382c2b16d457df9e3f221e8dea58d20#flaticon") format("svg");
+    src: url("./flaticon.ttf?6a21ec7316206ea16a437842e74c6f02") format("truetype"),
+url("./flaticon.woff?6a21ec7316206ea16a437842e74c6f02") format("woff"),
+url("./flaticon.woff2?6a21ec7316206ea16a437842e74c6f02") format("woff2"),
+url("./flaticon.eot?6a21ec7316206ea16a437842e74c6f02#iefix") format("embedded-opentype"),
+url("./flaticon.svg?6a21ec7316206ea16a437842e74c6f02#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -59,14 +59,15 @@ $flaticon-map: (
     "snapchat": "\f124",
     "star-1": "\f125",
     "star": "\f126",
-    "upload": "\f127",
-    "user-1": "\f128",
-    "user-2": "\f129",
-    "user": "\f12a",
-    "view": "\f12b",
-    "visibility": "\f12c",
-    "whatsapp": "\f12d",
-    "youtube": "\f12e",
+    "twitter": "\f127",
+    "upload": "\f128",
+    "user-1": "\f129",
+    "user-2": "\f12a",
+    "user": "\f12b",
+    "view": "\f12c",
+    "visibility": "\f12d",
+    "whatsapp": "\f12e",
+    "youtube": "\f12f",
 );
 
 .flaticon-add-user:before {
@@ -182,6 +183,9 @@ $flaticon-map: (
 }
 .flaticon-star:before {
     content: map-get($flaticon-map, "star");
+}
+.flaticon-twitter:before {
+    content: map-get($flaticon-map, "twitter");
 }
 .flaticon-upload:before {
     content: map-get($flaticon-map, "upload");
