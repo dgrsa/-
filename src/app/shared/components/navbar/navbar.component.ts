@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageEmitterService } from '../../services/language-emmiter.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   isOpen: boolean = false;
   sidebarFlag: boolean = false;
-  constructor() {}
+  constructor(
+    public translate: TranslateService,
+    private changeLanguage: LanguageEmitterService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -28,5 +33,14 @@ export class NavbarComponent implements OnInit {
     } else {
       this.toggleNav('close');
     }
+  }
+
+  changeLang(language: string) {
+    this.translate.use(language);
+    localStorage.setItem('language', language);
+    this.changeLanguage.emitChange({
+      direction: language == 'ar' ? 'rtl' : 'ltr',
+    });
+    location.reload();
   }
 }

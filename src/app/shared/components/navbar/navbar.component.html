@@ -66,10 +66,12 @@
 
         <div class="language">
             <ul>
-                <li> <a href="javascript:void(0)">
+                <li [ngClass]="translate.currentLang == 'en' ? 'active' : ' '"> <a href="javascript:void(0)"
+                        (click)="changeLang('en')">
                         English</a>
                 </li>
-                <li><a href="javascript:void(0)">
+                <li [ngClass]="translate.currentLang == 'ar' ? 'active' : ' '"><a href="javascript:void(0)"
+                        (click)="changeLang('ar')">
                         Arabic
                     </a></li>
             </ul>
