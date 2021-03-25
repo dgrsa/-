@@ -72,11 +72,16 @@ i {
   border-radius: 30px;
   background: $main_color;
   color: $second_color;
+  min-width: 150px;
 }
 
 .myBtn.secondry {
   color: $main_color;
   background: $second_color;
+}
+
+.login .form_container {
+  max-height: 320px;
 }
 /* End of main style */
 
