@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-between">
             <div class="logo_img">
-                <a href=""><img src="./assets/imgs/menu-right.svg"></a>
+                <a href="javascript:void(0)" (click)="toggleNav('open')"><img src="./assets/imgs/menu-right.svg"></a>
                 <a href=""> <img src="./assets/imgs/logo.svg" alt="Logo image"> </a>
             </div>
             <div class="cart_account">
@@ -33,4 +33,47 @@
     </div>
 </header>
 
-<app-sidebar></app-sidebar>
+<div class="sidebar" [ngClass]="isOpen ? 'sidebar-open' : ''" (clickOutside)="onClickedOutside($event, sidebarFlag)">
+    <div class="sidebar-header">
+        <a href=""> <img src="./assets/imgs/logo.svg" alt="Logo image"> </a>
+        <a href="javascript:void(0)" (click)="toggleNav('close')"> <i class="flaticon-cancel"></i> </a>
+    </div>
+    <div class="pr-3 pt-3 pl-3 pb-3">
+        <div class="form_container">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search in resturant...">
+                    <button type="submit"> <i class="flaticon-search"></i> </button>
+                </div>
+            </form>
+        </div>
+        <div class="widget-language mb-4">
+            <ul>
+                <li> <a [routerLink]="['/']"> Home </a> </li>
+                <li routerLinkActive="active"> <a [routerLink]="['/profile']">
+                        Profile </a> </li>
+                <li routerLinkActive="active"> <a [routerLink]="['/privacy-policy']">
+                        Privacy & policy </a>
+                </li>
+                <li routerLinkActive="active"> <a [routerLink]="['/terms-conditions']">
+                        Terms & conditions </a>
+                </li>
+                <li routerLinkActive="active"> <a [routerLink]="['/about-us']">
+                        About Brodone </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="language">
+            <ul>
+                <li> <a href="javascript:void(0)">
+                        English</a>
+                </li>
+                <li><a href="javascript:void(0)">
+                        Arabic
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+    <img class="my_circle" src="./assets/imgs/circle.png">
+</div>

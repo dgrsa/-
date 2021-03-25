@@ -140,3 +140,99 @@ footer ul li:hover a {
 }
 
 /* End footer component */
+
+/* Start sidebar component */
+
+.sidebar {
+  position: fixed;
+  left: -400px;
+  background: #ffffff;
+  height: 100%;
+  top: 0;
+  width: 260px;
+  z-index: 9;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px #ddd;
+}
+
+.sidebar-open {
+  left: 0;
+}
+
+.sidebar-header {
+  padding: 15px 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-header a:hover {
+  color: $main_color;
+}
+
+.sidebar-header .flaticon-cancel::before {
+  font-size: 19px;
+}
+
+.sidebar ul li {
+  margin-top: 10px;
+}
+
+.sidebar ul li.active a,
+.sidebar ul li:hover a {
+  color: $second_color;
+}
+
+.sidebar h6 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1;
+  color: #000000;
+}
+
+.sidebar .social-links li {
+  margin-top: 0;
+}
+
+.sidebar .social-links i::before {
+  font-size: 22px;
+}
+
+.sidebar .form_container .form-group {
+  position: relative;
+}
+
+.sidebar .form_container .form-group .form-control {
+  padding-left: 40px;
+  border-radius: 30px;
+  border-color: $main_color;
+  min-height: 45px;
+}
+
+.sidebar .form_container .form-group button {
+  position: absolute;
+  border: none;
+  background: transparent;
+  top: 7px;
+  left: 0;
+  border-right: 1px solid #999;
+}
+
+.sidebar .language ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sidebar .language li {
+  display: inline-block;
+  margin-top: 0;
+}
+
+.sidebar .my_circle {
+  position: absolute;
+  bottom: 0;
+  width: 100px;
+}
+/* End sidebar component */
