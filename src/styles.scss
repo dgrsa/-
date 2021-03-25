@@ -23,6 +23,61 @@ a:hover {
 i {
   line-height: 0;
 }
+
+.breadcrum_bg {
+  background-image: url("./assets/imgs/breadcrumb_bg_large.png");
+  height: 200px;
+  background-position: center center;
+}
+
+.dark_color {
+  color: #c4c4c4;
+}
+
+.form_container {
+  max-height: 540px;
+}
+
+.form_container fieldset {
+  box-shadow: 0 0 10px #999999;
+  border-radius: 30px;
+  padding: 20px;
+  background: #ffffff;
+  transform: translateY(-140px);
+}
+
+.form_container .form-group {
+  position: relative;
+}
+
+.form_container .form-group .form-control {
+  padding-left: 40px;
+  min-height: 50px;
+  border-radius: 30px;
+  background: #f1f1f1;
+}
+
+.form_container .form-group i {
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  color: #b1b1b1;
+}
+
+::placeholder {
+  color: #b1b1b1;
+}
+
+.myBtn {
+  border-radius: 30px;
+  background: $main_color;
+  color: $second_color;
+}
+
+.myBtn.secondry {
+  color: $main_color;
+  background: $second_color;
+}
 /* End of main style */
 
 /* Start header component */
@@ -200,18 +255,18 @@ footer ul li:hover a {
   font-size: 22px;
 }
 
-.sidebar .form_container .form-group {
+.sidebar .form-container .form-group {
   position: relative;
 }
 
-.sidebar .form_container .form-group .form-control {
+.sidebar .form-container .form-group .form-control {
   padding-left: 40px;
   border-radius: 30px;
   border-color: $main_color;
   min-height: 45px;
 }
 
-.sidebar .form_container .form-group button {
+.sidebar .form-container .form-group button {
   position: absolute;
   border: none;
   background: transparent;
