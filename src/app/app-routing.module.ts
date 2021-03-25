@@ -12,6 +12,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/login/login.module').then((mod) => mod.LoginModule),
   },
+  {
+    path: 'password',
+    loadChildren: () =>
+      import('./pages/password/password.module').then(
+        (mod) => mod.PasswordModule
+      ),
+  },
 ];
 
 @NgModule({
