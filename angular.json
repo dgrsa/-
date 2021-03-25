@@ -29,7 +29,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/css/responsive.scss"
+              "src/assets/css/responsive.scss",
+              "src/assets/css/rtl.scss"
             ],
             "scripts": []
           },

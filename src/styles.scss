@@ -230,6 +230,10 @@ footer ul li:hover a {
   margin-top: 0;
 }
 
+.sidebar .language li.active a {
+  color: #ffc107;
+}
+
 .sidebar .my_circle {
   position: absolute;
   bottom: 0;
