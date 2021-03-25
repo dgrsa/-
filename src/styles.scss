@@ -46,18 +46,21 @@ i {
   transform: translateY(-140px);
 }
 
-.form_container .form-group {
+.form_container .form-group,
+.modal-body .form-group {
   position: relative;
 }
 
-.form_container .form-group .form-control {
+.form_container .form-group .form-control,
+.modal-body .form-control {
   padding-left: 40px;
   min-height: 50px;
   border-radius: 30px;
   background: #f1f1f1;
 }
 
-.form_container .form-group i {
+.form_container .form-group i,
+.modal-body .form-group i {
   position: absolute;
   left: 10px;
   top: 12px;
@@ -82,6 +85,18 @@ i {
 
 .login .form_container {
   max-height: 320px;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-content {
+  border-radius: 30px;
+}
+
+.modal-header .close {
+  outline: none;
 }
 /* End of main style */
 
