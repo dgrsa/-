@@ -87,6 +87,9 @@ i {
   max-height: 320px;
 }
 
+.reset-password .form_container {
+  max-height: 160px;
+}
 .modal-header {
   border: none;
 }
@@ -97,6 +100,22 @@ i {
 
 .modal-header .close {
   outline: none;
+}
+
+.modal-header .close i::before {
+  font-size: 18px;
+}
+
+.custom-checkbox .custom-control-label::before {
+  border-radius: 50%;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $main_color;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgb(254 220 1 / 40%);
 }
 /* End of main style */
 
