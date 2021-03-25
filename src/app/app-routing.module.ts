@@ -19,6 +19,11 @@ const routes: Routes = [
         (mod) => mod.PasswordModule
       ),
   },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then((mod) => mod.ProfileModule),
+  },
 ];
 
 @NgModule({
