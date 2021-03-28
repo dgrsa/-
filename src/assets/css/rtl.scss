@@ -59,6 +59,14 @@
   }
 
   .scan_join span {
-      border-radius: 5px 30px 30px;
+    border-radius: 5px 30px 30px;
+  }
+
+  .quantity form em:first-child {
+    border-radius: 0 0 30px 0;
+  }
+
+  .quantity form em:last-child {
+    border-radius: 0 0 0 30px;
   }
 }

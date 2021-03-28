@@ -84,6 +84,12 @@ i {
   background: $second_color;
 }
 
+.myBtn.dark {
+  background: $second_color;
+  color: $main_color;
+  padding: 10px 25px;
+}
+
 .login .form_container {
   max-height: 320px;
 }
@@ -151,12 +157,17 @@ i {
   padding: 15px 0;
 }
 
+.ptb-20 {
+  padding: 20px 0;
+}
+
 .bg_main_color {
   background: $main_color !important;
   color: $second_color !important;
 }
 
-.bg_main_color span {
+.bg_main_color span,
+.bg_main_color em {
   background: #efd005 !important;
 }
 /* End of main style */
@@ -237,7 +248,8 @@ header .cart_account li:first-child a {
   padding-left: 50px;
 }
 
-.scan_join span {
+.scan_join span,
+.scan_join em {
   position: absolute;
   left: 0px;
   width: 50px;
@@ -379,22 +391,22 @@ footer ul li:hover a {
 
 /* Start home component */
 
-.home .swiper-slide img {
+.main_slider .swiper-slide img {
   width: 100%;
   border-radius: 30px;
 }
 
-.home .swiper-pagination-bullet {
+.main_slider .swiper-pagination-bullet {
   width: 30px;
   height: 5px;
   border-radius: 5px;
 }
 
-.home .swiper-pagination-bullet-active {
+.main_slider .swiper-pagination-bullet-active {
   background: $main_color;
 }
 
-.home .caption {
+.main_slider .caption {
   position: absolute;
   text-align: center;
   transform: translate(-50%, -50%);
@@ -470,3 +482,108 @@ footer ul li:hover a {
   background: rgba(0, 0, 0, 0.7);
 }
 /* End home component */
+
+/* Start resturant details component */
+
+.form_container.res_info {
+  max-height: 160px;
+}
+
+.form_container.res_info .featured_item {
+  padding: 0;
+  box-shadow: none;
+}
+
+.filter label {
+  padding: 8px;
+  border-radius: 30px;
+  border: 1px solid #999;
+  text-align: center;
+  width: 100%;
+}
+
+.filter input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.filter input[type="radio"]:checked ~ label {
+  background: $main_color;
+  color: $second_color;
+  border-color: $main_color;
+}
+
+.resturant .featured_item {
+  padding-bottom: 60px;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.resturant .featured_item .image {
+  position: relative;
+  width: 170px;
+  height: 170px;
+}
+
+.resturant .featured_item .image img {
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+}
+
+.resturant .featured_item .image a {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: $main_color;
+  color: $second_color;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quantity form em {
+  width: 20%;
+  background: $second_color;
+  color: $main_color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quantity form input {
+  width: 60%;
+  text-align: center;
+}
+
+.quantity form em,
+.quantity form input {
+  min-height: 45px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.quantity form em:first-child {
+  border-radius: 0 0 0 30px;
+}
+
+.quantity form em:last-child {
+  border-radius: 0 0 30px 0;
+}
+
+.quantity {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+
+/* End resturant details component */
