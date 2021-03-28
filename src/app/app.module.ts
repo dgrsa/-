@@ -13,6 +13,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { CartComponent } from './shared/components/cart/cart.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -29,13 +31,16 @@ export function createTranslateLoader(http: HttpClient) {
     NavbarComponent,
     FooterComponent,
     SidebarComponent,
+    CartComponent,
   ],
+  entryComponents: [CartComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ClickOutsideModule,
     HttpClientModule,
     SwiperModule,
+    ModalModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LanguageEmitterService } from '../../services/language-emmiter.service';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +12,12 @@ import { LanguageEmitterService } from '../../services/language-emmiter.service'
 export class NavbarComponent implements OnInit {
   isOpen: boolean = false;
   sidebarFlag: boolean = false;
+  bsModalRef: BsModalRef;
+  hani = false;
   constructor(
     public translate: TranslateService,
-    private changeLanguage: LanguageEmitterService
+    private changeLanguage: LanguageEmitterService,
+    private modalService: BsModalService
   ) {}
 
   ngOnInit(): void {}
@@ -42,5 +47,10 @@ export class NavbarComponent implements OnInit {
       direction: language == 'ar' ? 'rtl' : 'ltr',
     });
     location.reload();
+  }
+
+  openCartModal() {
+    this.bsModalRef = this.modalService.show(CartComponent);
+    this.bsModalRef.content.closeBtnName = 'Close';
   }
 }
