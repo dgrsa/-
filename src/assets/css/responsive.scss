@@ -2,6 +2,9 @@
   .breadcrum_bg {
     background-image: url("../imgs/breadcrumb_bg1.png");
   }
+  p {
+    font-size: 15px;
+  }
 }
 @media (max-width: 360px) {
   .scan_join a {
@@ -13,5 +16,16 @@
   .scan_join span {
     width: 45px;
     height: 45px;
+  }
+}
+
+@media (min-width: 414px) {
+  .have_caffee .corners {
+    width: 100%;
+  }
+}
+@media (min-width: 415px) {
+  .have_caffee .corners {
+    display: none;
   }
 }
