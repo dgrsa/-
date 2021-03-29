@@ -42,6 +42,11 @@ const routes: Routes = [
         (mod) => mod.ResturantModule
       ),
   },
+  {
+    path: 'order',
+    loadChildren: () =>
+      import('./pages/order/order.module').then((mod) => mod.OrderModule),
+  },
 ];
 
 @NgModule({
