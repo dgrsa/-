@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { OrderRoutingModule } from './order-routing.module';
 import { OrderTrackingComponent } from './order-tracking/order-tracking.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
-  declarations: [OrderTrackingComponent],
+  declarations: [OrderTrackingComponent, OrdersComponent],
   imports: [
     CommonModule,
     OrderRoutingModule
