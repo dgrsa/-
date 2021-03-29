@@ -77,6 +77,7 @@ i {
   background: $main_color;
   color: $second_color;
   min-width: 150px;
+  min-height: 50px;
 }
 
 .myBtn.secondry {
@@ -615,22 +616,26 @@ footer ul li:hover a {
   margin-right: 10px;
 }
 
-.cart_item .quantity {
+.cart_item .quantity,
+.meal .quantity {
   position: static;
   max-width: 155px;
 }
 
-.cart_item .quantity form em:first-child {
+.cart_item .quantity form em:first-child,
+.meal .quantity form em:first-child {
   border-radius: 30px 0 0 30px;
   width: 30%;
 }
 
-.cart_item .quantity form em:last-child {
+.cart_item .quantity form em:last-child,
+.meal .quantity form em:last-child {
   border-radius: 0 30px 30px 0;
   width: 30%;
 }
 
-.cart_item .form-control {
+.cart_item .form-control,
+.meal .quantity .form-control {
   border-radius: 0;
   min-height: 45px;
   padding: 5px;
@@ -742,3 +747,31 @@ footer ul li:hover a {
   border-radius: 0 17px 17px 0;
 }
 /* End table modal component */
+
+/* Start meal component */
+
+.price_calories span {
+  padding: 10px 25px;
+  width: 49%;
+  font-weight: bold;
+  border-radius: 15px;
+  border: 2px solid transparent;
+}
+
+.price_calories span.price {
+  background: $main_color;
+}
+
+.price_calories span.calory {
+  border-color: $second_color;
+}
+
+.meal .quantity {
+  max-width: 250px;
+}
+
+.meal .myBtn {
+  border: none;
+  width: 100%;
+}
+/* End meal component */
