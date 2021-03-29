@@ -1,1 +1,88 @@
-<p>cart works!</p>
+<div class="modal-body cart">
+    <button type="button" (click)="bsModalRef.hide()" class="close"> <i class="flaticon-cancel"></i> </button>
+    <div class="text-center">
+        <h5> Shopping cart </h5>
+        <p class="dark_color"> What you have added to your cart of meals </p>
+    </div>
+
+    <div class="cart_item">
+        <div class="image">
+            <span> 2x </span>
+            <img src="./assets/imgs/products/meat.svg">
+        </div>
+        <div class="cart_info">
+            <span class="d-block"> باجيت الحلوم والمشروم </span>
+            <strong class="d-block dark_color"> 80 ر.س </strong>
+
+            <div class="quantity mt-3">
+                <form>
+                    <em> + </em>
+                    <input type="text" class="form-control" placeholder="2">
+                    <em> - </em>
+                </form>
+            </div>
+            <a class="cart_remove" href="#"> <i class="flaticon-rubbish-bin"></i> </a>
+        </div>
+    </div>
+
+    <div class="cart_item">
+        <div class="image">
+            <span> 2x </span>
+            <img src="./assets/imgs/products/meat.svg">
+        </div>
+        <div class="cart_info">
+            <span class="d-block"> باجيت الحلوم والمشروم </span>
+            <strong class="d-block dark_color"> 80 ر.س </strong>
+
+            <div class="quantity mt-3">
+                <form>
+                    <em> + </em>
+                    <input type="text" class="form-control" placeholder="2">
+                    <em> - </em>
+                </form>
+            </div>
+            <a class="cart_remove" href="#"> <i class="flaticon-rubbish-bin"></i> </a>
+        </div>
+    </div>
+
+    <div class="cart_item">
+        <div class="image">
+            <span> 2x </span>
+            <img src="./assets/imgs/products/meat.svg">
+        </div>
+        <div class="cart_info">
+            <span class="d-block"> باجيت الحلوم والمشروم </span>
+            <strong class="d-block dark_color"> 80 ر.س </strong>
+
+            <div class="quantity mt-3">
+                <form>
+                    <em> + </em>
+                    <input type="text" class="form-control" placeholder="2">
+                    <em> - </em>
+                </form>
+            </div>
+            <a class="cart_remove" href="#"> <i class="flaticon-rubbish-bin"></i> </a>
+        </div>
+    </div>
+
+    <div class="cart_price">
+        <table class="table w-100">
+            <tbody>
+                <tr>
+                    <th> Order total </th>
+                    <td> 160 ر.س </td>
+                </tr>
+                <tr>
+                    <th> No of meals </th>
+                    <td> 4 </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-between text-center">
+            <a href="#" class="myBtn secondry"> Add meals </a>
+            <a href="#" class="myBtn primary"> Checkout </a>
+        </div>
+    </div>
+
+</div>

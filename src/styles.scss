@@ -533,7 +533,8 @@ footer ul li:hover a {
   height: 170px;
 }
 
-.resturant .featured_item .image a {
+.resturant .featured_item .image a,
+.cart_item .image span {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -587,3 +588,85 @@ footer ul li:hover a {
 }
 
 /* End resturant details component */
+
+/* Start cart modal component */
+
+.cart_item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.cart_item:last-child {
+  border-bottom: 0;
+}
+
+.cart_item .image,
+.cart_item .image img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.cart_item .image {
+  margin-right: 10px;
+}
+
+.cart_item .quantity {
+  position: static;
+  max-width: 155px;
+}
+
+.cart_item .quantity form em:first-child {
+  border-radius: 30px 0 0 30px;
+  width: 30%;
+}
+
+.cart_item .quantity form em:last-child {
+  border-radius: 0 30px 30px 0;
+  width: 30%;
+}
+
+.cart_item .form-control {
+  border-radius: 0;
+  min-height: 45px;
+  padding: 5px;
+  width: 40%;
+}
+
+.cart_remove {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8393b;
+  color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.cart_remove i::before {
+  font-size: 20px;
+}
+
+.cart_item .image span {
+  width: 40px;
+  height: 40px;
+}
+
+.cart_price {
+  background: #f9f9f9;
+}
+
+.cart_price .myBtn {
+  width: 49%;
+  padding: 10px;
+}
+
+/* End cart modal component */
