@@ -2,11 +2,11 @@ $flaticon-font: "flaticon";
 
 @font-face {
     font-family: $flaticon-font;
-    src: url("./flaticon.ttf?5b693d1e430bf5808eff019d332ccb43") format("truetype"),
-url("./flaticon.woff?5b693d1e430bf5808eff019d332ccb43") format("woff"),
-url("./flaticon.woff2?5b693d1e430bf5808eff019d332ccb43") format("woff2"),
-url("./flaticon.eot?5b693d1e430bf5808eff019d332ccb43#iefix") format("embedded-opentype"),
-url("./flaticon.svg?5b693d1e430bf5808eff019d332ccb43#flaticon") format("svg");
+    src: url("./flaticon.ttf?3de73e56d53cefd8d9db01b3a98c9ebe") format("truetype"),
+url("./flaticon.woff?3de73e56d53cefd8d9db01b3a98c9ebe") format("woff"),
+url("./flaticon.woff2?3de73e56d53cefd8d9db01b3a98c9ebe") format("woff2"),
+url("./flaticon.eot?3de73e56d53cefd8d9db01b3a98c9ebe#iefix") format("embedded-opentype"),
+url("./flaticon.svg?3de73e56d53cefd8d9db01b3a98c9ebe#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -23,52 +23,59 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 $flaticon-map: (
     "add-user": "\f101",
     "add": "\f102",
-    "bag": "\f103",
-    "cancel": "\f104",
-    "choices": "\f105",
-    "credit-cards-payment": "\f106",
-    "customer": "\f107",
-    "delivery": "\f108",
-    "email": "\f109",
-    "exit": "\f10a",
-    "facebook": "\f10b",
-    "fast": "\f10c",
-    "heart-1": "\f10d",
-    "heart": "\f10e",
-    "instagram": "\f10f",
-    "left-arrow": "\f110",
-    "logout": "\f111",
-    "loupe": "\f112",
-    "menu": "\f113",
-    "messenger-1": "\f114",
-    "messenger": "\f115",
-    "minus": "\f116",
-    "open-box": "\f117",
-    "padlock": "\f118",
-    "phone-call": "\f119",
-    "phone": "\f11a",
-    "plus": "\f11b",
-    "qr-code-scan": "\f11c",
-    "remove": "\f11d",
-    "right-arrow": "\f11e",
-    "right": "\f11f",
-    "rubbish-bin": "\f120",
-    "sad": "\f121",
-    "search": "\f122",
-    "shopping-cart-1": "\f123",
-    "shopping-cart": "\f124",
-    "snapchat": "\f125",
-    "star-1": "\f126",
-    "star": "\f127",
-    "twitter": "\f128",
-    "upload": "\f129",
-    "user-1": "\f12a",
-    "user-2": "\f12b",
-    "user": "\f12c",
-    "view": "\f12d",
-    "visibility": "\f12e",
-    "whatsapp": "\f12f",
-    "youtube": "\f130",
+    "atm": "\f103",
+    "bag": "\f104",
+    "cancel": "\f105",
+    "choices": "\f106",
+    "credit-card": "\f107",
+    "credit-cards-payment": "\f108",
+    "customer": "\f109",
+    "delivery": "\f10a",
+    "edit": "\f10b",
+    "email": "\f10c",
+    "ewe": "\f10d",
+    "exit": "\f10e",
+    "facebook": "\f10f",
+    "fast": "\f110",
+    "finance": "\f111",
+    "heart-1": "\f112",
+    "heart": "\f113",
+    "instagram": "\f114",
+    "knife": "\f115",
+    "left-arrow": "\f116",
+    "logout": "\f117",
+    "loupe": "\f118",
+    "menu": "\f119",
+    "messenger-1": "\f11a",
+    "messenger": "\f11b",
+    "minus": "\f11c",
+    "open-box": "\f11d",
+    "padlock": "\f11e",
+    "phone-call": "\f11f",
+    "phone": "\f120",
+    "plus": "\f121",
+    "qr-code-scan": "\f122",
+    "remove": "\f123",
+    "right-arrow": "\f124",
+    "right": "\f125",
+    "rubbish-bin": "\f126",
+    "sad": "\f127",
+    "search": "\f128",
+    "shopping-cart-1": "\f129",
+    "shopping-cart": "\f12a",
+    "snapchat": "\f12b",
+    "star-1": "\f12c",
+    "star": "\f12d",
+    "symbols": "\f12e",
+    "twitter": "\f12f",
+    "upload": "\f130",
+    "user-1": "\f131",
+    "user-2": "\f132",
+    "user": "\f133",
+    "view": "\f134",
+    "visibility": "\f135",
+    "whatsapp": "\f136",
+    "youtube": "\f137",
 );
 
 .flaticon-add-user:before {
@@ -76,6 +83,9 @@ $flaticon-map: (
 }
 .flaticon-add:before {
     content: map-get($flaticon-map, "add");
+}
+.flaticon-atm:before {
+    content: map-get($flaticon-map, "atm");
 }
 .flaticon-bag:before {
     content: map-get($flaticon-map, "bag");
@@ -86,6 +96,9 @@ $flaticon-map: (
 .flaticon-choices:before {
     content: map-get($flaticon-map, "choices");
 }
+.flaticon-credit-card:before {
+    content: map-get($flaticon-map, "credit-card");
+}
 .flaticon-credit-cards-payment:before {
     content: map-get($flaticon-map, "credit-cards-payment");
 }
@@ -95,8 +108,14 @@ $flaticon-map: (
 .flaticon-delivery:before {
     content: map-get($flaticon-map, "delivery");
 }
+.flaticon-edit:before {
+    content: map-get($flaticon-map, "edit");
+}
 .flaticon-email:before {
     content: map-get($flaticon-map, "email");
+}
+.flaticon-ewe:before {
+    content: map-get($flaticon-map, "ewe");
 }
 .flaticon-exit:before {
     content: map-get($flaticon-map, "exit");
@@ -107,6 +126,9 @@ $flaticon-map: (
 .flaticon-fast:before {
     content: map-get($flaticon-map, "fast");
 }
+.flaticon-finance:before {
+    content: map-get($flaticon-map, "finance");
+}
 .flaticon-heart-1:before {
     content: map-get($flaticon-map, "heart-1");
 }
@@ -115,6 +137,9 @@ $flaticon-map: (
 }
 .flaticon-instagram:before {
     content: map-get($flaticon-map, "instagram");
+}
+.flaticon-knife:before {
+    content: map-get($flaticon-map, "knife");
 }
 .flaticon-left-arrow:before {
     content: map-get($flaticon-map, "left-arrow");
@@ -187,6 +212,9 @@ $flaticon-map: (
 }
 .flaticon-star:before {
     content: map-get($flaticon-map, "star");
+}
+.flaticon-symbols:before {
+    content: map-get($flaticon-map, "symbols");
 }
 .flaticon-twitter:before {
     content: map-get($flaticon-map, "twitter");
