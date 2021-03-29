@@ -664,9 +664,81 @@ footer ul li:hover a {
   background: #f9f9f9;
 }
 
-.cart_price .myBtn {
+.cart_price .myBtn,
+.table_modal .myBtn {
   width: 49%;
-  padding: 10px;
+  padding: 14px;
 }
 
 /* End cart modal component */
+
+/* Start table modal component */
+
+.table_modal .breadcrum_bg {
+  border-radius: 30px 30px 0 0;
+}
+
+.table_modal .close {
+  width: 45px;
+  height: 45px;
+  opacity: 1;
+}
+
+.table_modal .table_no .table_image,
+.table_modal .modal-body,
+.table_modal .image,
+.table_modal .table_no {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table_modal .modal-body {
+  flex-flow: column;
+  padding-top: 95px;
+}
+
+.table_modal .content {
+  width: 100%;
+}
+
+.table_modal .image {
+  width: 180px;
+  height: 180px;
+  background: #fff;
+  box-shadow: 0 0 10px #ddd;
+  border-radius: 30px;
+  position: absolute;
+  top: -110px;
+}
+
+.table_modal .table_no {
+  border: 2px solid #fedc01;
+  border-radius: 20px;
+  position: relative;
+  padding-left: 70px;
+  min-height: 72px;
+  flex-flow: column;
+}
+
+.table_modal .table_no .table_image {
+  position: absolute;
+  left: 0;
+  min-height: 70px;
+  min-width: 70px;
+  background: #fedc01;
+  border-radius: 17px 0 0 17px;
+  border: 2px solid #fedc01;
+}
+
+.table_modal.arabicStyle .table_no {
+  padding-right: 70px;
+  padding-left: 0;
+}
+
+.table_modal.arabicStyle .table_no .table_image {
+  right: 0;
+  left: auto;
+  border-radius: 0 17px 17px 0;
+}
+/* End table modal component */
