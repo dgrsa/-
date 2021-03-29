@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LanguageEmitterService } from '../../services/language-emmiter.service';
 import { CartComponent } from '../cart/cart.component';
+import { TableModalComponent } from '../table-modal/table-modal.component';
 
 @Component({
   selector: 'app-navbar',
@@ -51,6 +52,11 @@ export class NavbarComponent implements OnInit {
 
   openCartModal() {
     this.bsModalRef = this.modalService.show(CartComponent);
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+
+  openTableModal() {
+    this.bsModalRef = this.modalService.show(TableModalComponent);
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 }
