@@ -689,10 +689,10 @@ footer ul li:hover a {
   opacity: 1;
 }
 
-.table_modal .table_no .table_image,
+.table_no .table_image,
 .table_modal .modal-body,
 .table_modal .image,
-.table_modal .table_no {
+.table_no {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -717,7 +717,7 @@ footer ul li:hover a {
   top: -110px;
 }
 
-.table_modal .table_no {
+.table_no {
   border: 2px solid #fedc01;
   border-radius: 20px;
   position: relative;
@@ -726,7 +726,7 @@ footer ul li:hover a {
   flex-flow: column;
 }
 
-.table_modal .table_no .table_image {
+.table_no .table_image {
   position: absolute;
   left: 0;
   min-height: 70px;
@@ -775,3 +775,114 @@ footer ul li:hover a {
   width: 100%;
 }
 /* End meal component */
+
+/* Start order-tracking component */
+
+.order_info li {
+  position: relative;
+  padding-left: 120px;
+  margin-top: 8px;
+}
+
+.order_info li strong {
+  position: absolute;
+  left: 0;
+}
+
+.btn_group .myBtn {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_group .myBtn i,
+.btn_group .myBtn img {
+  margin-right: 5px;
+}
+
+.order_status li {
+  margin-top: 30px;
+  position: relative;
+}
+
+.order_status li::after {
+  content: "";
+  height: 60px;
+  width: 4px;
+  background: #dadada;
+  position: absolute;
+  left: 25px;
+  bottom: -40px;
+  z-index: 1;
+}
+
+.order_status li:last-child::after {
+  display: none;
+}
+
+.order_status li,
+.order_status li span,
+.order_status li a {
+  display: flex;
+  align-items: center;
+}
+
+.order_status li span,
+.order_status li a {
+  width: 50px;
+  height: 50px;
+  background: #f1f1f1;
+  border-radius: 50%;
+  justify-content: center;
+  margin-right: 15px;
+  z-index: 2;
+}
+
+.order_status li span i::before {
+  color: #797979;
+}
+
+.order_status li.active span {
+  background: $main_color;
+}
+
+.order_status li.active span i::before {
+  color: $second_color;
+}
+
+.order_status li a {
+  margin: 0;
+  position: absolute;
+  right: 0;
+  background: $main_color;
+}
+
+.track_order fieldset {
+  position: relative;
+  top: -110px;
+  background: #fff;
+  border-radius: 30px;
+  padding: 10px;
+  max-height: 720px;
+}
+
+.my_meals .cart_item {
+  border-top: 2px solid #dbdbdb;
+  padding-top: 10px;
+}
+
+.rate_form .form-control {
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+}
+
+.rate_form .myBtn {
+  width: 100%;
+  border: none;
+}
+
+.modal-body .rate_form .form-group i {
+  position: static;
+}
+/* End order-tracking component */

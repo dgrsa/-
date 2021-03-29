@@ -2,11 +2,11 @@ $flaticon-font: "flaticon";
 
 @font-face {
     font-family: $flaticon-font;
-    src: url("./flaticon.ttf?3de73e56d53cefd8d9db01b3a98c9ebe") format("truetype"),
-url("./flaticon.woff?3de73e56d53cefd8d9db01b3a98c9ebe") format("woff"),
-url("./flaticon.woff2?3de73e56d53cefd8d9db01b3a98c9ebe") format("woff2"),
-url("./flaticon.eot?3de73e56d53cefd8d9db01b3a98c9ebe#iefix") format("embedded-opentype"),
-url("./flaticon.svg?3de73e56d53cefd8d9db01b3a98c9ebe#flaticon") format("svg");
+    src: url("./flaticon.ttf?a6ba2fcd01a2ed5b85209b16bde5b90d") format("truetype"),
+url("./flaticon.woff?a6ba2fcd01a2ed5b85209b16bde5b90d") format("woff"),
+url("./flaticon.woff2?a6ba2fcd01a2ed5b85209b16bde5b90d") format("woff2"),
+url("./flaticon.eot?a6ba2fcd01a2ed5b85209b16bde5b90d#iefix") format("embedded-opentype"),
+url("./flaticon.svg?a6ba2fcd01a2ed5b85209b16bde5b90d#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -26,56 +26,61 @@ $flaticon-map: (
     "atm": "\f103",
     "bag": "\f104",
     "cancel": "\f105",
-    "choices": "\f106",
-    "credit-card": "\f107",
-    "credit-cards-payment": "\f108",
-    "customer": "\f109",
-    "delivery": "\f10a",
-    "edit": "\f10b",
-    "email": "\f10c",
-    "ewe": "\f10d",
-    "exit": "\f10e",
-    "facebook": "\f10f",
-    "fast": "\f110",
-    "finance": "\f111",
-    "heart-1": "\f112",
-    "heart": "\f113",
-    "instagram": "\f114",
-    "knife": "\f115",
-    "left-arrow": "\f116",
-    "logout": "\f117",
-    "loupe": "\f118",
-    "menu": "\f119",
-    "messenger-1": "\f11a",
-    "messenger": "\f11b",
-    "minus": "\f11c",
-    "open-box": "\f11d",
-    "padlock": "\f11e",
-    "phone-call": "\f11f",
-    "phone": "\f120",
-    "plus": "\f121",
-    "qr-code-scan": "\f122",
-    "remove": "\f123",
-    "right-arrow": "\f124",
-    "right": "\f125",
-    "rubbish-bin": "\f126",
-    "sad": "\f127",
-    "search": "\f128",
-    "shopping-cart-1": "\f129",
-    "shopping-cart": "\f12a",
-    "snapchat": "\f12b",
-    "star-1": "\f12c",
-    "star": "\f12d",
-    "symbols": "\f12e",
-    "twitter": "\f12f",
-    "upload": "\f130",
-    "user-1": "\f131",
-    "user-2": "\f132",
-    "user": "\f133",
-    "view": "\f134",
-    "visibility": "\f135",
-    "whatsapp": "\f136",
-    "youtube": "\f137",
+    "check-mark": "\f106",
+    "checked-1": "\f107",
+    "checked": "\f108",
+    "choices": "\f109",
+    "credit-card": "\f10a",
+    "credit-cards-payment": "\f10b",
+    "customer": "\f10c",
+    "delivery": "\f10d",
+    "edit": "\f10e",
+    "email": "\f10f",
+    "ewe": "\f110",
+    "exit": "\f111",
+    "facebook": "\f112",
+    "fast": "\f113",
+    "finance": "\f114",
+    "heart-1": "\f115",
+    "heart": "\f116",
+    "instagram": "\f117",
+    "knife": "\f118",
+    "left-arrow": "\f119",
+    "like": "\f11a",
+    "logout": "\f11b",
+    "loupe": "\f11c",
+    "menu": "\f11d",
+    "messenger-1": "\f11e",
+    "messenger": "\f11f",
+    "minus": "\f120",
+    "open-box": "\f121",
+    "padlock": "\f122",
+    "phone-call": "\f123",
+    "phone": "\f124",
+    "plus": "\f125",
+    "qr-code-scan": "\f126",
+    "refresh": "\f127",
+    "remove": "\f128",
+    "right-arrow": "\f129",
+    "right": "\f12a",
+    "rubbish-bin": "\f12b",
+    "sad": "\f12c",
+    "search": "\f12d",
+    "shopping-cart-1": "\f12e",
+    "shopping-cart": "\f12f",
+    "snapchat": "\f130",
+    "star-1": "\f131",
+    "star": "\f132",
+    "symbols": "\f133",
+    "twitter": "\f134",
+    "upload": "\f135",
+    "user-1": "\f136",
+    "user-2": "\f137",
+    "user": "\f138",
+    "view": "\f139",
+    "visibility": "\f13a",
+    "whatsapp": "\f13b",
+    "youtube": "\f13c",
 );
 
 .flaticon-add-user:before {
@@ -92,6 +97,15 @@ $flaticon-map: (
 }
 .flaticon-cancel:before {
     content: map-get($flaticon-map, "cancel");
+}
+.flaticon-check-mark:before {
+    content: map-get($flaticon-map, "check-mark");
+}
+.flaticon-checked-1:before {
+    content: map-get($flaticon-map, "checked-1");
+}
+.flaticon-checked:before {
+    content: map-get($flaticon-map, "checked");
 }
 .flaticon-choices:before {
     content: map-get($flaticon-map, "choices");
@@ -144,6 +158,9 @@ $flaticon-map: (
 .flaticon-left-arrow:before {
     content: map-get($flaticon-map, "left-arrow");
 }
+.flaticon-like:before {
+    content: map-get($flaticon-map, "like");
+}
 .flaticon-logout:before {
     content: map-get($flaticon-map, "logout");
 }
@@ -179,6 +196,9 @@ $flaticon-map: (
 }
 .flaticon-qr-code-scan:before {
     content: map-get($flaticon-map, "qr-code-scan");
+}
+.flaticon-refresh:before {
+    content: map-get($flaticon-map, "refresh");
 }
 .flaticon-remove:before {
     content: map-get($flaticon-map, "remove");

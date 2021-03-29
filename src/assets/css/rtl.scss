@@ -77,4 +77,59 @@
   .meal .quantity form em:first-child {
     border-radius: 0 30px 30px 0;
   }
+
+  .table_no {
+    padding-right: 70px;
+    padding-left: 0;
+  }
+
+  .table_image {
+    right: 0;
+    left: auto;
+    border-radius: 0 17px 17px 0;
+  }
+
+  .order_info li {
+    padding-left: 0;
+    padding-right: 120px;
+    text-align: right;
+  }
+
+  .order_info li strong {
+    right: 0;
+    left: auto;
+  }
+
+  .btn_group .myBtn i,
+  .btn_group .myBtn img {
+    margin-left: 5px;
+    margin-right: 0;
+  }
+
+  .cart_item .image {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+
+  .cart_item,
+  .order_status li {
+    text-align: right;
+  }
+
+  .order_status li::after {
+    right: 21px;
+    left: auto;
+  }
+
+  .order_status li span,
+  .order_status li a {
+    margin-right: 0;
+    margin-left: 15px;
+  }
+
+  .order_status li a {
+    right: auto;
+    left: 0;
+    margin: 0;
+  }
 }

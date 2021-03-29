@@ -1,1 +1,146 @@
-<p>order-tracking works!</p>
+<div class="breadcrum_bg"></div>
+
+<div class="track_order">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <fieldset>
+                    <div class="ptb-15 text-center">
+                        <h5> تتبع الطلب </h5>
+                        <p class="dark_color"> كن على اخر مستجدات طلبك </p>
+                    </div>
+
+                    <ul class="order_info">
+                        <li> <strong> Order number </strong> <span> : 16464648 </span> </li>
+                        <li> <strong> Order price </strong> <span> : 250 SAR </span> </li>
+                        <li> <strong> No of meals </strong> <span> : 2 </span> </li>
+                        <li> <strong> Order status </strong> <span> : preparing </span> </li>
+                    </ul>
+
+                    <div class="table_no">
+                        <div class="table_image">
+                            <img src="./assets/imgs/table.svg">
+                        </div>
+                        <span class="dark_color d-block"> رقم المنضدة </span>
+                        <strong class="d-block"> 15 </strong>
+                    </div>
+                    <div class="row btn_group">
+                        <div class="col-sm-6">
+                            <a href="#" class="myBtn primary"> <i class="flaticon-finance"></i> Checkout </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="#" class="myBtn secondry"> <img src="./assets/imgs/chef.svg"> Garcoon </a>
+                        </div>
+                    </div>
+
+                    <ul class="order_status ptb-20">
+                        <li class="active">
+                            <span> <i class="flaticon-check-mark"></i> </span>
+                            <div>
+                                <strong class="d-block"> Order has been sent </strong>
+                                <em class="d-block dark_color"> Order has been sent to resturant </em>
+                            </div>
+                        </li>
+
+                        <li>
+                            <span> <i class="flaticon-refresh"></i> </span>
+                            <div>
+                                <strong class="d-block"> Preparing your order </strong>
+                                <em class="d-block dark_color"> Your order has been prepared </em>
+                            </div>
+                        </li>
+
+                        <li>
+                            <span> <i class="flaticon-checked-1"></i> </span>
+                            <div>
+                                <strong class="d-block"> Order has been prepared </strong>
+                                <em class="d-block dark_color"> Order has been prepared to deliver to you </em>
+                            </div>
+                        </li>
+
+                        <li>
+                            <span> <i class="flaticon-like"></i> </span>
+                            <div>
+                                <strong class="d-block"> Deliverd order </strong>
+                                <em class="d-block dark_color"> You can rate your order now </em>
+                            </div>
+                            <a href="javascript: void(0)" (click)="openModal(template)" title="Rate order"> <i
+                                    class="flaticon-star-1"></i> </a>
+                        </li>
+                    </ul>
+
+                    <ng-template #template>
+                        <div class="modal-header">
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                <span aria-hidden="true">
+                                    <i class="flaticon-cancel"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="ptb-15 text-center">
+                                <h5> Rate your order </h5>
+                                <p> قيم التجربة لنعرف مدى رضاك عن الخدمة المقدمة
+                                    من المطعم </p>
+                            </div>
+                            <form class="rate_form">
+                                <div class="form-group text-center">
+                                    <i class="flaticon-star-1"></i>
+                                    <i class="flaticon-star-1"></i>
+                                    <i class="flaticon-star-1"></i>
+                                    <i class="flaticon-star-1"></i>
+                                    <i class="flaticon-star-1"></i>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="rate" placeholder="Enter your comment"
+                                        rows="3"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="myBtn"> Rate now </button>
+                                </div>
+                            </form>
+                        </div>
+                    </ng-template>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="my_meals ptb-40">
+    <div class="container">
+        <div class="ptb-15 text-center">
+            <h5> Your meals </h5>
+            <p class="dark_color"> ما قمت بطلبه من وجبات </p>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="cart_item">
+                    <div class="image">
+                        <span> 2x </span>
+                        <img src="./assets/imgs/products/meat.svg">
+                    </div>
+                    <div class="cart_info">
+                        <span class="d-block"> باجيت الحلوم والمشروم </span>
+                        <strong class="d-block dark_color"> 80 ر.س </strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="cart_item">
+                    <div class="image">
+                        <span> 2x </span>
+                        <img src="./assets/imgs/products/meat.svg">
+                    </div>
+                    <div class="cart_info">
+                        <span class="d-block"> باجيت الحلوم والمشروم </span>
+                        <strong class="d-block dark_color"> 80 ر.س </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
