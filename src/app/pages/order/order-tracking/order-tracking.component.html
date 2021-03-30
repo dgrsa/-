@@ -6,30 +6,43 @@
             <div class="col-12">
                 <fieldset>
                     <div class="ptb-15 text-center">
-                        <h5> تتبع الطلب </h5>
-                        <p class="dark_color"> كن على اخر مستجدات طلبك </p>
+                        <h5> {{'Order tracking'}} </h5>
+                        <p class="dark_color"> {{'Be up-to-date on your order' | translate}} </p>
                     </div>
 
                     <ul class="order_info">
-                        <li> <strong> Order number </strong> <span> : 16464648 </span> </li>
-                        <li> <strong> Order price </strong> <span> : 250 SAR </span> </li>
-                        <li> <strong> No of meals </strong> <span> : 2 </span> </li>
-                        <li> <strong> Order status </strong> <span> : preparing </span> </li>
+                        <li>
+                            <strong> {{'Order number' | translate}} </strong>
+                            <span> : 16464648 </span>
+                        </li>
+                        <li>
+                            <strong> {{'Order price' | translate}} </strong>
+                            <span> : 250 {{'SAR' | translate}} </span>
+                        </li>
+                        <li>
+                            <strong> {{'No of meals' | translate}} </strong>
+                            <span> : 2 </span>
+                        </li>
+                        <li>
+                            <strong> {{'Order status' | translate}} </strong>
+                            <span> : {{'Preparing' | translate}} </span>
+                        </li>
                     </ul>
-
                     <div class="table_no">
                         <div class="table_image">
                             <img src="./assets/imgs/table.svg">
                         </div>
-                        <span class="dark_color d-block"> رقم المنضدة </span>
+                        <span class="dark_color d-block"> {{'Table number' | translate}} </span>
                         <strong class="d-block"> 15 </strong>
                     </div>
                     <div class="row btn_group">
                         <div class="col-sm-6">
-                            <a href="#" class="myBtn primary"> <i class="flaticon-finance"></i> Checkout </a>
+                            <a href="#" class="myBtn primary"> <i class="flaticon-finance"></i>
+                                {{'Checkout' | translate}} </a>
                         </div>
                         <div class="col-sm-6">
-                            <a href="#" class="myBtn secondry"> <img src="./assets/imgs/chef.svg"> Garcoon </a>
+                            <a href="#" class="myBtn secondry"> <img src="./assets/imgs/chef.svg">
+                                {{'Call garcoon' | translate}} </a>
                         </div>
                     </div>
 
@@ -37,32 +50,33 @@
                         <li class="active">
                             <span> <i class="flaticon-check-mark"></i> </span>
                             <div>
-                                <strong class="d-block"> Order has been sent </strong>
-                                <em class="d-block dark_color"> Order has been sent to resturant </em>
+                                <strong class="d-block"> {{'Order has been sent' | translate}} </strong>
+                                <em class="d-block dark_color"> {{'Order has been sent to resturant' | translate}} </em>
                             </div>
                         </li>
 
                         <li>
                             <span> <i class="flaticon-refresh"></i> </span>
                             <div>
-                                <strong class="d-block"> Preparing your order </strong>
-                                <em class="d-block dark_color"> Your order has been prepared </em>
+                                <strong class="d-block"> {{'Preparing your order' | translate}} </strong>
+                                <em class="d-block dark_color"> {{'Your order has been prepared' | translate}} </em>
                             </div>
                         </li>
 
                         <li>
                             <span> <i class="flaticon-checked-1"></i> </span>
                             <div>
-                                <strong class="d-block"> Order has been prepared </strong>
-                                <em class="d-block dark_color"> Order has been prepared to deliver to you </em>
+                                <strong class="d-block"> {{'Order has been prepared' | translate}} </strong>
+                                <em class="d-block dark_color">
+                                    {{'Order has been prepared to deliver to you' | translate}} </em>
                             </div>
                         </li>
 
                         <li>
                             <span> <i class="flaticon-like"></i> </span>
                             <div>
-                                <strong class="d-block"> Deliverd order </strong>
-                                <em class="d-block dark_color"> You can rate your order now </em>
+                                <strong class="d-block"> {{'Deliverd order' | translate}} </strong>
+                                <em class="d-block dark_color"> {{'You can rate your order now' | translate}} </em>
                             </div>
                             <a href="javascript: void(0)" (click)="openModal(template)" title="Rate order"> <i
                                     class="flaticon-star-1"></i> </a>
@@ -77,11 +91,12 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body rate" [ngClass]="translate.currentLang == 'ar' ? 'arabicStyle' : ' '">
                             <div class="ptb-15 text-center">
-                                <h5> Rate your order </h5>
-                                <p> قيم التجربة لنعرف مدى رضاك عن الخدمة المقدمة
-                                    من المطعم </p>
+                                <h5> {{'Rate your order' | translate}} </h5>
+                                <p>
+                                    {{"Rate the order to" | translate}}
+                                </p>
                             </div>
                             <form class="rate_form">
                                 <div class="form-group text-center">
@@ -92,12 +107,12 @@
                                     <i class="flaticon-star-1"></i>
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" id="rate" placeholder="Enter your comment"
-                                        rows="3"></textarea>
+                                    <textarea class="form-control" id="rate"
+                                        [placeholder]="'Enter your comment' | translate" rows="3"></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="myBtn"> Rate now </button>
+                                    <button type="submit" class="myBtn"> {{'Rate now' | translate}} </button>
                                 </div>
                             </form>
                         </div>
@@ -111,8 +126,8 @@
 <div class="my_meals ptb-40">
     <div class="container">
         <div class="ptb-15 text-center">
-            <h5> Your meals </h5>
-            <p class="dark_color"> ما قمت بطلبه من وجبات </p>
+            <h5> {{'Your meals' | translate}} </h5>
+            <p class="dark_color"> {{'What meals you ordered' | translate}} </p>
         </div>
 
         <div class="row">

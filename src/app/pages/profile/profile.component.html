@@ -6,37 +6,37 @@
                 <form class="form_container">
                     <fieldset>
                         <div class="text-center">
-                            <h5> Account details </h5>
-                            <p class="dark_color"> All personal information </p>
+                            <h5> {{'Account details' | translate}} </h5>
+                            <p class="dark_color"> {{'All personal information' | translate}} </p>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" class="form-control" [placeholder]="'Username' | translate">
                             <i class="flaticon-user-1"></i>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Phone number">
+                            <input type="text" class="form-control" [placeholder]="'Phone number' | translate">
                             <i class="flaticon-phone-call"></i>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email">
+                            <input type="text" class="form-control" [placeholder]="'Email' | translate">
                             <i class="flaticon-email"></i>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Password">
+                            <input type="text" class="form-control" [placeholder]="'Password' | translate">
                             <i class="flaticon-padlock"></i>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Confirm password">
+                            <input type="text" class="form-control" [placeholder]="'Confirm password' | translate">
                             <i class="flaticon-padlock"></i>
                         </div>
 
                         <div class="text-center">
                             <div class="form-group">
-                                <button type="submit" class="btn myBtn"> Save changes </button>
+                                <button type="submit" class="btn myBtn"> {{'Save changes' | translate}} </button>
                             </div>
                         </div>
                     </fieldset>

@@ -25,10 +25,10 @@
         <div class="row scan_join justify-content-center">
             <div class="header_link">
                 <a href="javascript:void(0)" (click)="openTableModal()"> <span> <i class="flaticon-qr-code-scan"></i>
-                    </span> Scan code </a>
+                    </span> {{'Scan code' | translate}} </a>
             </div>
             <div class="header_link">
-                <a href="#"> <span> <i class="flaticon-add"></i> </span> Join with us </a>
+                <a href="#"> <span> <i class="flaticon-add"></i> </span> {{'Join with us' | translate}} </a>
             </div>
         </div>
     </div>
@@ -43,26 +43,26 @@
         <div class="form-container">
             <form>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search in resturant...">
+                    <input type="text" class="form-control" [placeholder]="'Search in resturant...' | translate">
                     <button type="submit"> <i class="flaticon-search"></i> </button>
                 </div>
             </form>
         </div>
         <div class="widget-language mb-4">
             <ul>
-                <li> <a [routerLink]="['/']"> Home </a> </li>
+                <li> <a [routerLink]="['/']"> {{'Home' | translate}} </a> </li>
                 <li routerLinkActive="active"> <a [routerLink]="['/profile']">
-                        Profile </a> </li>
+                        {{'Profile' | translate}} </a> </li>
                 <li routerLinkActive="active"> <a [routerLink]="['/contact-us']">
-                        Join with us </a> </li>
+                        {{'Join with us' | translate}} </a> </li>
                 <li routerLinkActive="active"> <a [routerLink]="['/privacy-policy']">
-                        Privacy & policy </a>
+                        {{'Privacy policy' | translate}} </a>
                 </li>
                 <li routerLinkActive="active"> <a [routerLink]="['/terms-conditions']">
-                        Terms & conditions </a>
+                        {{'Terms & conditions' | translate}} </a>
                 </li>
                 <li routerLinkActive="active"> <a [routerLink]="['/about-us']">
-                        About Brodone </a>
+                        {{'About Brodone' | translate}} </a>
                 </li>
             </ul>
         </div>
@@ -71,11 +71,11 @@
             <ul>
                 <li [ngClass]="translate.currentLang == 'en' ? 'active' : ' '"> <a href="javascript:void(0)"
                         (click)="changeLang('en')">
-                        English</a>
+                        {{'English' | translate}}</a>
                 </li>
                 <li [ngClass]="translate.currentLang == 'ar' ? 'active' : ' '"><a href="javascript:void(0)"
                         (click)="changeLang('ar')">
-                        Arabic
+                        {{'Arabic' | translate}}
                     </a></li>
             </ul>
         </div>

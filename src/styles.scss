@@ -78,6 +78,9 @@ i {
   color: $second_color;
   min-width: 150px;
   min-height: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .myBtn.secondry {
@@ -170,6 +173,26 @@ i {
 .bg_main_color span,
 .bg_main_color em {
   background: #efd005 !important;
+}
+
+.modal-body.arabicStyle {
+  direction: rtl;
+}
+
+.modal-body.arabicStyl .form-group .form-control,
+.modal-body.arabicStyle .form-control {
+  padding-left: 0.75rem;
+  padding-right: 40px;
+}
+
+.modal-body.arabicStyl .form-group i,
+.modal-body.arabicStyle .form-group i {
+  left: auto;
+  right: 10px;
+}
+
+.modal-body.arabicStyle.rate .form-control {
+  padding-right: 0.75rem;
 }
 /* End of main style */
 
@@ -751,7 +774,7 @@ footer ul li:hover a {
 /* Start meal component */
 
 .price_calories span {
-  padding: 10px 25px;
+  padding: 10px 20px;
   width: 49%;
   font-weight: bold;
   border-radius: 15px;

@@ -6,17 +6,17 @@
                 <form class="form_container">
                     <fieldset>
                         <div class="text-center">
-                            <h5> Login </h5>
-                            <p class="dark_color"> Log in to your account now and enjoy
-                                With all the features </p>
+                            <h5> {{'Login' | translate}} </h5>
+                            <p class="dark_color">
+                                {{'Log in to your account now and enjoy With all the features' | translate}} </p>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" class="form-control" [placeholder]="'Username' | translate">
                             <i class="flaticon-user-1"></i>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Confirm password">
+                            <input type="text" class="form-control" [placeholder]="'Password' | translate">
                             <i class="flaticon-padlock"></i>
                         </div>
 
@@ -24,21 +24,23 @@
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
                                 <label class="custom-control-label" for="customControlAutosizing">
-                                    Rermember me
+                                    {{'Remember me' | translate}}
                                 </label>
                             </div>
 
-                            <a href="javascript: void(0)" (click)="openModal(template)"> Forgot password? </a>
+                            <a href="javascript: void(0)" (click)="openModal(template)">
+                                {{'Forgot password?' | translate}} </a>
                         </div>
 
                         <div class="text-center">
                             <div class="form-group">
-                                <button type="submit" class="btn myBtn"> Login </button>
+                                <button type="submit" class="btn myBtn"> {{'Login' | translate}} </button>
                             </div>
-                            <p> Don’t have an account? </p>
+                            <p> {{'Don’t have an account?' | translate}} </p>
 
                             <div class="form-group">
-                                <a [routerLink]="['/signup']" class="secondry btn myBtn"> Create account </a>
+                                <a [routerLink]="['/signup']" class="secondry btn myBtn">
+                                    {{'Create account' | translate}} </a>
                             </div>
                         </div>
                     </fieldset>
@@ -50,19 +52,19 @@
                             <span aria-hidden="true"> <i class="flaticon-cancel"></i> </span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" [ngClass]="translate.currentLang == 'ar' ? 'arabicStyle': ' '">
                         <div class="text-center">
-                            <h4> Reset password </h4>
-                            <p> Enter the email to send the password recovery link </p>
+                            <h4> {{'Reset password' | translate}} </h4>
+                            <p> {{'Enter the email to send the password recovery link' | translate}} </p>
                         </div>
                         <form>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input type="text" class="form-control" [placeholder]="'Email' | translate">
                                 <i class="flaticon-email"></i>
                             </div>
 
                             <div class="form-group text-center">
-                                <button class="btn myBtn"> Send code </button>
+                                <button class="btn myBtn"> {{'Send code' | translate}} </button>
                             </div>
                         </form>
                     </div>

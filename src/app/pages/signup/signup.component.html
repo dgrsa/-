@@ -6,32 +6,33 @@
                 <form class="form_container">
                     <fieldset>
                         <div class="text-center">
-                            <h5> Create new account </h5>
-                            <p class="dark_color"> Create a new account and start using
-                                Broden </p>
+                            <h5> {{'Create new account' | translate}} </h5>
+                            <p class="dark_color">
+                                {{'Create a new account and start using Broden' | translate}}
+                            </p>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" class="form-control" [placeholder]="'Username' | translate">
                             <i class="flaticon-user-1"></i>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Phone number">
+                            <input type="text" class="form-control" [placeholder]="'Phone number' | translate">
                             <i class="flaticon-phone-call"></i>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email">
+                            <input type="text" class="form-control" [placeholder]="'Email' | translate">
                             <i class="flaticon-email"></i>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Password">
+                            <input type="text" class="form-control" [placeholder]="'Password' | translate">
                             <i class="flaticon-padlock"></i>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Confirm password">
+                            <input type="text" class="form-control" [placeholder]="'Confirm password' | translate">
                             <i class="flaticon-padlock"></i>
                         </div>
 
@@ -39,20 +40,20 @@
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
                                 <label class="custom-control-label" for="customControlAutosizing">
-                                    <span class="d-inline-block"> I have read and agree </span> <a
-                                        class="d-inline-block" href="#"> Terms & conditions </a>
+                                    <span class="d-inline-block"> {{'I have read and agree' | translate}} </span> <a
+                                        class="d-inline-block" href="#"> {{'Terms & conditions' | translate}} </a>
                                 </label>
                             </div>
                         </div>
 
                         <div class="text-center">
                             <div class="form-group">
-                                <button type="submit" class="btn myBtn"> Create account </button>
+                                <button type="submit" class="btn myBtn"> {{'Create account' | translate}} </button>
                             </div>
-                            <p> Have an account? </p>
+                            <p> {{'Have an account?' | translate}} </p>
 
                             <div class="form-group">
-                                <a href="#" class="secondry btn myBtn"> Create account </a>
+                                <a href="#" class="secondry btn myBtn"> {{'Login' | translate}} </a>
                             </div>
                         </div>
                     </fieldset>

@@ -113,7 +113,8 @@
 
   .cart_item,
   .order_status li,
-  .order_item {
+  .order_item,
+  .custom-control-label {
     text-align: right;
   }
 
@@ -142,5 +143,34 @@
   .order_details span {
     margin-right: 0;
     margin-left: 5px;
+  }
+  .form_container .form-group .form-control,
+  .modal-body .form-control {
+    padding-left: 0.75rem;
+    padding-right: 40px;
+  }
+
+  .form_container .form-group i,
+  .modal-body .form-group i {
+    left: auto;
+    right: 10px;
+  }
+
+  .custom-control {
+    padding-left: 0;
+    padding-right: 1.5rem;
+  }
+
+  .custom-control-label::before,
+  .custom-control-label::after {
+    right: 0;
+    left: auto;
+  }
+
+  .scan_join span,
+  .scan_join em {
+    right: 0;
+    left: auto;
+    border-radius: 5px 30px 30px 30px
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -8,7 +9,10 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class OrderTrackingComponent implements OnInit {
   modalRef: BsModalRef;
-  constructor(private modalService: BsModalService) {}
+  constructor(
+    private modalService: BsModalService,
+    public translate: TranslateService
+  ) {}
 
   ngOnInit(): void {}
 
