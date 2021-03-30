@@ -112,7 +112,8 @@
   }
 
   .cart_item,
-  .order_status li {
+  .order_status li,
+  .order_item {
     text-align: right;
   }
 
@@ -131,5 +132,15 @@
     right: auto;
     left: 0;
     margin: 0;
+  }
+
+  .order_item .image {
+    margin-left: 15px;
+    margin-right: 0;
+  }
+
+  .order_details span {
+    margin-right: 0;
+    margin-left: 5px;
   }
 }
