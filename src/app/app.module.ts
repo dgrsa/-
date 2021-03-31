@@ -16,6 +16,7 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { CartComponent } from './shared/components/cart/cart.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TableModalComponent } from './shared/components/table-modal/table-modal.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -43,6 +44,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     SwiperModule,
     ModalModule.forRoot(),
+    NgxSpinnerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
