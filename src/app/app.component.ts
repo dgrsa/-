@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { LanguageEmitterService } from './shared/services/language-emmiter.service';
 
 @Component({
@@ -10,10 +11,16 @@ import { LanguageEmitterService } from './shared/services/language-emmiter.servi
 export class AppComponent {
   title = 'prodone';
   options = { direction: 'ltr' };
+  deviceInfo;
   constructor(
     private translate: TranslateService,
-    private changeLang: LanguageEmitterService
+    private changeLang: LanguageEmitterService,
+    public deviceService: DeviceDetectorService
   ) {
+    this.detectMyDevice();
+    if (this.deviceService.isDesktop()) {
+      window.location.href = 'http://brodone.net';
+    }
     //subscribe to language change
     this.changeLang.changeEmitted$.subscribe((lang) => {
       // console.log(lang);
@@ -40,5 +47,10 @@ export class AppComponent {
     } else {
       localStorage.setItem('language', 'en');
     }
+  }
+
+  detectMyDevice() {
+    this.deviceInfo = this.deviceService.getDeviceInfo();
+    console.log(this.deviceInfo);
   }
 }

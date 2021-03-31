@@ -1,4 +1,4 @@
-<div class="main" [dir]="options.direction">
+<div *ngIf="!deviceService.isDesktop()" class="main" [dir]="options.direction">
     <ngx-spinner></ngx-spinner>
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>
