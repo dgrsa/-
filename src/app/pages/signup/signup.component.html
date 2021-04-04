@@ -1,5 +1,5 @@
 <div class="breadcrum_bg"></div>
-<section class="signup">
+<section class="signup" *ngIf="!isCodeSent">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-6">
@@ -11,17 +11,17 @@
                                 {{'Create a new account and start using Broden' | translate}}
                             </p>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <input type="text" class="form-control" [placeholder]="'Username' | translate">
                             <i class="flaticon-user-1"></i>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <input type="text" class="form-control" [placeholder]="'Phone number' | translate">
                             <i class="flaticon-phone-call"></i>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <input type="text" class="form-control" [placeholder]="'Email' | translate">
                             <i class="flaticon-email"></i>
                         </div>
@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <input type="text" class="form-control" [placeholder]="'Confirm password' | translate">
                             <i class="flaticon-padlock"></i>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <div class="custom-control custom-checkbox">
@@ -55,6 +55,33 @@
                             <div class="form-group">
                                 <a href="#" class="secondry btn myBtn"> {{'Login' | translate}} </a>
                             </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="confirm-code" *ngIf="isCodeSent">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <form class="form_container">
+                    <fieldset>
+                        <div class="text-center">
+                            <h5> {{'Confirm your phone' | translate}} </h5>
+                            <p class="dark_color">
+                                {{'Enter the sent code' | translate}}
+                            </p>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" [placeholder]="'Code' | translate">
+                            <i class="flaticon-check-mark"></i>
+                        </div>
+                        <div class="form-group text-center">
+                            <a href="#" class="secondry btn myBtn"> {{'Submit' | translate}} </a>
                         </div>
                     </fieldset>
                 </form>

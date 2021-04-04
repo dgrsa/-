@@ -94,8 +94,13 @@ i {
   padding: 10px 25px;
 }
 
-.login .form_container {
+.login .form_container,
+.signup .form_container {
   max-height: 320px;
+}
+
+.confirm-code .form_container {
+  max-height: 150px;
 }
 
 .reset-password .form_container {
