@@ -3,7 +3,8 @@
   a,
   div,
   section,
-  button {
+  button,
+  #swal2-content {
     font-family: "Almarai", sans-serif;
   }
   header .logo_img a:first-child img {
@@ -121,7 +122,8 @@
   .cart_item,
   .order_status li,
   .order_item,
-  .custom-control-label {
+  .custom-control-label,
+  form {
     text-align: right;
   }
 

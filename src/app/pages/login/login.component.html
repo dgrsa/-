@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-6">
-                <form class="form_container">
+                <form class="form_container" [formGroup]="loginFrom" (submit)="loginUser()">
                     <fieldset>
                         <div class="text-center">
                             <h5> {{'Login' | translate}} </h5>
@@ -11,19 +11,36 @@
                                 {{'Log in to your account now and enjoy With all the features' | translate}} </p>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" [placeholder]="'Username' | translate">
+                            <input type="text" class="form-control" [placeholder]="'Phone number' | translate"
+                                formControlName="phone">
                             <i class="flaticon-user-1"></i>
+                            <div class="form-control-feedback"
+                                *ngIf="((loginFrom.get('phone').touched) && (loginFrom.get('phone').invalid))">
+                                <span class="d-block" *ngIf="loginFrom.get('phone').errors.required"
+                                    class="text-danger">
+                                    {{ 'This field is requird' | translate }}
+                                </span>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" [placeholder]="'Password' | translate">
+                            <input type="password" class="form-control" [placeholder]="'Password' | translate"
+                                formControlName="password">
                             <i class="flaticon-padlock"></i>
+                            <div class="form-control-feedback"
+                                *ngIf="((loginFrom.get('password').touched) && (loginFrom.get('password').invalid))">
+                                <span class="d-block" *ngIf="loginFrom.get('password').errors.required"
+                                    class="text-danger">
+                                    {{ 'This field is requird' | translate }}
+                                </span>
+                            </div>
                         </div>
 
                         <div class="form-group d-flex justify-content-between">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">
+                                <input type="checkbox" class="custom-control-input" id="rememberMe"
+                                    formControlName="rememberMe">
+                                <label class="custom-control-label" for="rememberMe">
                                     {{'Remember me' | translate}}
                                 </label>
                             </div>

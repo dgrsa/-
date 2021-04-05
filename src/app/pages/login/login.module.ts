@@ -5,6 +5,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TranslateModule } from '@ngx-translate/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -13,6 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
     LoginRoutingModule,
     ModalModule.forRoot(),
     TranslateModule.forChild(),
+    ReactiveFormsModule,
   ],
 })
 export class LoginModule {}

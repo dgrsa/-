@@ -17,7 +17,6 @@ export class AppComponent {
     private changeLang: LanguageEmitterService,
     public deviceService: DeviceDetectorService
   ) {
-    this.detectMyDevice();
     if (this.deviceService.isDesktop()) {
       window.location.href = 'http://brodone.net';
     }
@@ -47,10 +46,5 @@ export class AppComponent {
     } else {
       localStorage.setItem('language', 'en');
     }
-  }
-
-  detectMyDevice() {
-    this.deviceInfo = this.deviceService.getDeviceInfo();
-    console.log(this.deviceInfo);
   }
 }

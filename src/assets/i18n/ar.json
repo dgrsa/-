@@ -81,5 +81,8 @@
     "Confirm your phone": "تأكيد رقم الجوال",
     "Code": "رمز التأكيد",
     "Compleate your registration and create password": "أكمل تسجيلك وأنشئ كلمة مرور",
-    "Create password": "إنشاء كلمة المرور"
+    "Create password": "إنشاء كلمة المرور",
+    "This field is requird": "هذا الحقل مطلوب",
+    "This account has not been activated yet": "لم يتم تفعيل هذا الحساب بعد",
+    "Account not found or incorrect credential.": "الحساب غير موجود أو بيانات الإعتماد غير صحيحة"
 }
