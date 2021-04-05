@@ -6,11 +6,33 @@
                 <a href=""> <img src="./assets/imgs/logo.svg" alt="Logo image"> </a>
             </div>
             <div class="cart_account">
-                <ul>
+                <ul class="d-flex">
                     <li routerLinkActive="active">
-                        <a [routerLink]="['/login']">
+                        <a [routerLink]="['/login']" *ngIf="!userData">
                             <i class="flaticon-user-1"></i>
                         </a>
+
+                        <div class="btn-group" dropdown *ngIf="userData">
+                            <a id="button-animated" dropdownToggle ria-controls="dropdown-animated">
+                                <i class="flaticon-user-1"></i>
+                            </a>
+                            <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu"
+                                aria-labelledby="button-animated">
+                                <li role="menuitem">
+                                    <a class="dropdown-item" [routerLink]="['/profile']">
+                                        <i class="flaticon-user"></i>
+                                        {{'My account' | translate}}</a>
+                                </li>
+                                <li role="menuitem"><a class="dropdown-item" [routerLink]="['/order/history']">
+                                        <i class="flaticon-choices"></i>
+                                        {{'Orders' | translate}}</a>
+                                </li>
+                                <li role="menuitem"><a class="dropdown-item" href="#">
+                                        <i class="flaticon-logout"></i>
+                                        {{ 'Logout' | translate }} </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
                         <a href="javascript: void(0)" (click)="openCartModal()">

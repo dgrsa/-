@@ -123,7 +123,8 @@
   .order_status li,
   .order_item,
   .custom-control-label,
-  form {
+  form,
+  .dropdown-menu.show li {
     text-align: right;
   }
 
@@ -149,7 +150,8 @@
     margin-right: 0;
   }
 
-  .order_details span {
+  .order_details span,
+  .dropdown-menu.show li i::before {
     margin-right: 0;
     margin-left: 5px;
   }
@@ -181,5 +183,10 @@
     right: 0;
     left: auto;
     border-radius: 5px 30px 30px 30px;
+  }
+
+  .dropdown-menu.show {
+    left: 0 !important;
+    right: auto !important;
   }
 }

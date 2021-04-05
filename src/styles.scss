@@ -307,6 +307,36 @@ header .cart_account li:first-child a {
 .scan_join .header_link:first-child span {
   background: #efd005;
 }
+
+.dropdown-menu.show li,
+.dropdown-menu.show li a.dropdown-item {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  border: none;
+  margin: 0 !important;
+  padding: 0;
+}
+
+.dropdown-menu.show li a.dropdown-item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dropdown-menu.show li i::before {
+  color: $main_color;
+  margin-right: 5px;
+}
+
+.dropdown-menu.show {
+  min-width: 210px;
+  border-radius: 15px;
+  right: 0 !important;
+  left: auto !important;
+}
 /* End header component */
 
 /* Start footer component */

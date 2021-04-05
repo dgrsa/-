@@ -84,5 +84,9 @@
     "Create password": "إنشاء كلمة المرور",
     "This field is requird": "هذا الحقل مطلوب",
     "This account has not been activated yet": "لم يتم تفعيل هذا الحساب بعد",
-    "Account not found or incorrect credential.": "الحساب غير موجود أو بيانات الإعتماد غير صحيحة"
+    "Account not found or incorrect credential.": "الحساب غير موجود أو بيانات الإعتماد غير صحيحة",
+    "My account": "حسابي",
+    "Orders": "سجل الطلبات",
+    "Logout": "تسجيل الخروج",
+    "This session has been expired. Please, Login agian": "انتهت هذه الجلسة. من فضل سجل الدخول مرة أخري"
 }

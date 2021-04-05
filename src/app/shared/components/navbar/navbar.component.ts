@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
 import { LanguageEmitterService } from '../../services/language-emmiter.service';
 import { CartComponent } from '../cart/cart.component';
 import { TableModalComponent } from '../table-modal/table-modal.component';
@@ -15,11 +17,18 @@ export class NavbarComponent implements OnInit {
   sidebarFlag: boolean = false;
   bsModalRef: BsModalRef;
   hani = false;
+  userData: any;
+  authsub: Subscription;
   constructor(
     public translate: TranslateService,
     private changeLanguage: LanguageEmitterService,
-    private modalService: BsModalService
-  ) {}
+    private modalService: BsModalService,
+    private authService: AuthService
+  ) {
+    this.authsub = this.authService.changeEmitted$.subscribe((value) => {
+      this.userData = value;
+    });
+  }
 
   ngOnInit(): void {}
 

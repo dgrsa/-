@@ -20,6 +20,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './shared/auth/auth.guard';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -42,6 +43,7 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [CartComponent, TableModalComponent],
   imports: [
     BrowserModule,
+    BsDropdownModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ClickOutsideModule,
