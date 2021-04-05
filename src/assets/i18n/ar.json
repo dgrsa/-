@@ -96,5 +96,10 @@
     "Code is incorrect": "رمز التأكيد غير صحيح",
     "Change password": "تغيير كلمة المرور",
     "User data has been updated": "تم تحديث هذه البيانات",
-    "Email is already existed": "هذا البريد الإلكتروني موجود مسبقا"
+    "Email is already existed": "هذا البريد الإلكتروني موجود مسبقا",
+    "Password has been changed": "تم تغيير كلمة المرور",
+    "Password must be more than 8 characters": "كلمة المرور يجب أن تكون أكثر من 8 حروف",
+    "Password must be less than 25 characters": "كلمة المرور يجب أن تكون أقل من 25 حرف",
+    "Password is incorrect": "كلمة المرور غير صحيحة",
+    "Something wrong happend":"حدث خطأ ما برجاء المحاولة لاحقاً"
 }

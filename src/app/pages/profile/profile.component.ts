@@ -19,6 +19,14 @@ export class ProfileComponent implements OnInit {
     name: new FormControl(),
     email: new FormControl([Validators.email]),
   });
+  public passwordForm = new FormGroup({
+    oldPassword: new FormControl('', Validators.required),
+    newPassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(25),
+    ]),
+  });
   userData: {};
   constructor(
     private spinner: NgxSpinnerService,
@@ -69,6 +77,47 @@ export class ProfileComponent implements OnInit {
         );
     } else {
       this.validateService.validateAllFormFields(this.mainInfoForm);
+    }
+  }
+
+  changePassword() {
+    if (this.passwordForm.valid) {
+      this.spinner.show();
+      this.authService
+        .changeUserpassword(this.passwordForm.value, this.userData['id'])
+        .subscribe(
+          (data) => {
+            if (data['success']) {
+              // console.log(data);
+              this.passwordForm.reset();
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'Password has been changed',
+                'success'
+              );
+              this.spinner.hide();
+            }
+          },
+          (err) => {
+            this.spinner.hide();
+            console.log(err);
+            if ((err['error']['message'] = 'incorrect Password')) {
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'Password is incorrect',
+                'error'
+              );
+            } else {
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'Something wrong happend',
+                'error'
+              );
+            }
+          }
+        );
+    } else {
+      this.validateService.validateAllFormFields(this.passwordForm);
     }
   }
 }

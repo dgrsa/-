@@ -32,7 +32,7 @@ export class ResetPasswordComponent implements OnInit {
     if (this.passwordForm.valid) {
       this.spinner.show();
       const sentData = this.passwordForm.value;
-      sentData['email'] = 'hany.gamal290@gmail.com';
+      sentData['email'] = this.cookieService.get('userEmail');
       this.authService.resetPassword(sentData).subscribe(
         (data) => {
           if (data['success']) {
