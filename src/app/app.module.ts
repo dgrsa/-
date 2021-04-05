@@ -17,6 +17,9 @@ import { CartComponent } from './shared/components/cart/cart.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TableModalComponent } from './shared/components/table-modal/table-modal.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CookieService } from 'ngx-cookie-service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard } from './shared/auth/auth.guard';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -39,6 +42,7 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [CartComponent, TableModalComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ClickOutsideModule,
     HttpClientModule,
@@ -54,6 +58,8 @@ export function createTranslateLoader(http: HttpClient) {
     }),
   ],
   providers: [
+    CookieService,
+    AuthGuard,
     {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG,
