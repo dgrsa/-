@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/auth/auth.guard';
+import { isLoggedIn } from './shared/auth/isLoggedIn.service';
 
 const routes: Routes = [
   {
@@ -18,11 +19,13 @@ const routes: Routes = [
     path: 'signup',
     loadChildren: () =>
       import('./pages/signup/signup.module').then((mod) => mod.SignupModule),
+    canActivate: [isLoggedIn],
   },
   {
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then((mod) => mod.LoginModule),
+    canActivate: [isLoggedIn],
   },
   {
     path: 'password',
