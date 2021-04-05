@@ -43,6 +43,7 @@ export class ResetPasswordComponent implements OnInit {
               'success'
             );
             this.spinner.hide();
+            this.cookieService.delete('userEmail');
             this.router.navigate(['/']);
           }
         },

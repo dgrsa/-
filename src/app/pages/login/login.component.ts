@@ -115,6 +115,7 @@ export class LoginComponent implements OnInit {
               'A message was sent to your email',
               'success'
             );
+            this.modalRef.hide();
             this.router.navigate(['/password/reset']);
             this.cookieService.set('userEmail', this.passwordForm.value.email);
           }

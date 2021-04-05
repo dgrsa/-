@@ -43,20 +43,23 @@ export class AuthGuard {
         );
         resolve(false);
       } else {
-        this.auth.getUserdata(this.userId).subscribe(
-          (data) => {
-            if (data['success']) {
-              this.auth.emitChange(this.userData);
-              environment.userInfo = data['data']['user'];
-              resolve(true);
-            }
-          },
-          (err) => {
-            console.log(err);
-            resolve(false);
-          }
-        );
+        resolve(true);
       }
+      // else {
+      //   this.auth.getUserdata(this.userId).subscribe(
+      //     (data) => {
+      //       if (data['success']) {
+      //         this.auth.emitChange(this.userData);
+      //         environment.userInfo = data['data']['user'];
+      //         resolve(true);
+      //       }
+      //     },
+      //     (err) => {
+      //       console.log(err);
+      //       resolve(false);
+      //     }
+      //   );
+      // }
     });
   }
 }
