@@ -92,5 +92,6 @@
     "A message was sent to your email": "تم إرسال رسالة إلي بريدك الإلكتروني",
     "Enter a valid email": "أدخل بريد إلكتروني صحيح",
     "This email was not found": "لم يتم العثور علي هذاالبريد الإلكتروني",
-    "Email must be a valid email": "يجب أن يكون البريد الإلكتروني صحيح"
+    "Email must be a valid email": "يجب أن يكون البريد الإلكتروني صحيح",
+    "Code is incorrect": "رمز التأكيد غير صحيح"
 }
