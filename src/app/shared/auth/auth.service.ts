@@ -48,4 +48,9 @@ export class AuthService {
     const URL = `${environment.BASE_URL}/client/${id}`;
     return this.http.get(URL, this.httpOptions);
   }
+
+  sendCode(sentData) {
+    const URL = `${environment.BASE_URL}/client/forgot-password`;
+    return this.http.post(URL, sentData);
+  }
 }
