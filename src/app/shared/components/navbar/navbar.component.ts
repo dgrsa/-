@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
 import { LanguageEmitterService } from '../../services/language-emmiter.service';
@@ -23,7 +24,8 @@ export class NavbarComponent implements OnInit {
     public translate: TranslateService,
     private changeLanguage: LanguageEmitterService,
     private modalService: BsModalService,
-    private authService: AuthService
+    private authService: AuthService,
+    private cookieService: CookieService
   ) {
     this.authsub = this.authService.changeEmitted$.subscribe((value) => {
       this.userData = value;
@@ -67,5 +69,11 @@ export class NavbarComponent implements OnInit {
   openTableModal() {
     this.bsModalRef = this.modalService.show(TableModalComponent);
     this.bsModalRef.content.closeBtnName = 'Close';
+  }
+
+  logout(): void {
+    this.cookieService.delete('Btoken', '/');
+    this.cookieService.delete('BuserId', '/');
+    window.location.href = '/';
   }
 }
