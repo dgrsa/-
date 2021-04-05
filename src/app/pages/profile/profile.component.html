@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-sm-6 form_container">
                 <fieldset>
-                    <form [formGroup]="mainInfoForm">
+                    <form [formGroup]="mainInfoForm" (submit)="updateUserData()">
                         <div class="text-center">
                             <h5> {{'Account details' | translate}} </h5>
                             <p class="dark_color"> {{'All personal information' | translate}} </p>

@@ -94,5 +94,7 @@
     "This email was not found": "لم يتم العثور علي هذاالبريد الإلكتروني",
     "Email must be a valid email": "يجب أن يكون البريد الإلكتروني صحيح",
     "Code is incorrect": "رمز التأكيد غير صحيح",
-    "Change password": "تغيير كلمة المرور"
+    "Change password": "تغيير كلمة المرور",
+    "User data has been updated": "تم تحديث هذه البيانات",
+    "Email is already existed": "هذا البريد الإلكتروني موجود مسبقا"
 }
