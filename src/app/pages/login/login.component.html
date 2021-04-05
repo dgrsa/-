@@ -74,14 +74,26 @@
                             <h4> {{'Reset password' | translate}} </h4>
                             <p> {{'Enter the email to send the password recovery link' | translate}} </p>
                         </div>
-                        <form>
+                        <form [formGroup]="passwordForm" novalidate (submit)="onEmailSubmit()">
                             <div class="form-group">
-                                <input type="text" class="form-control" [placeholder]="'Email' | translate">
+                                <input type="text" class="form-control" [placeholder]="'Email' | translate"
+                                    formControlName="email">
                                 <i class="flaticon-email"></i>
+                                <div class="form-control-feedback"
+                                    *ngIf="((passwordForm.get('email').touched) && (passwordForm.get('email').invalid))">
+                                    <span class="d-block" *ngIf="passwordForm.get('email').errors.required"
+                                        class="text-danger">
+                                        {{ 'This field is requird' | translate }}
+                                    </span>
+                                    <span class="d-block" *ngIf="passwordForm.get('email').errors.email"
+                                        class="text-danger">
+                                        {{ 'Enter a valid email' | translate }}
+                                    </span>
+                                </div>
                             </div>
 
                             <div class="form-group text-center">
-                                <button class="btn myBtn"> {{'Send code' | translate}} </button>
+                                <button type="submit" class="btn myBtn"> {{'Send code' | translate}} </button>
                             </div>
                         </form>
                     </div>

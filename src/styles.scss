@@ -798,6 +798,16 @@ footer ul li:hover a {
   border: 2px solid #fedc01;
 }
 
+.arabicStyle,
+.arabicStyl {
+  font-family: "Almarai", sans-serif;
+}
+
+.arabicStyle .form-group,
+.arabicStyl .form-group {
+  text-align: right;
+}
+
 .table_modal.arabicStyle .table_no {
   padding-right: 70px;
   padding-left: 0;
