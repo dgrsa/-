@@ -63,4 +63,9 @@ export class AuthService {
     const URL = `${environment.BASE_URL}/client/${id}`;
     return this.http.put(URL, userData, this.httpOptions);
   }
+
+  changeUserpassword(passwordData, id) {
+    const URL = `${environment.BASE_URL}/client/${id}/password`;
+    return this.http.put(URL, passwordData, this.httpOptions);
+  }
 }
