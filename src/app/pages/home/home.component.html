@@ -2,21 +2,14 @@
     <div class="main_slider">
         <div class="swiper-container" [swiper]="config">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
+                <div class="swiper-slide" *ngFor="let banner of editedBanner; let i = index">
                     <div class="overlay"></div>
                     <div class="caption">
-                        <h5 class="mt-2" class="main_color"> Scan code and order now </h5>
-                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                        <h5 class="mt-2" class="main_color"> {{ allBanners[i].title }} </h5>
+                        <p> {{ allBanners[i].description }} </p>
                     </div>
-                    <img src="./assets/imgs/slide1.svg" alt="slide image">
-                </div>
-                <div class="swiper-slide">
-                    <div class="overlay"></div>
-                    <div class="caption">
-                        <h5 class="mt-2" class="main_color"> Scan code and order now </h5>
-                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                    </div>
-                    <img src="./assets/imgs/slide1.svg" alt="slide image">
+                    <img *ngIf="!banner" src="https://dummyimage.com/420x200/8a8a8a/8a8a8a" alt="Banner image">
+                    <img *ngIf="banner" [src]="banner" alt="Banner image">
                 </div>
             </div>
             <div class="swiper-pagination"></div>
