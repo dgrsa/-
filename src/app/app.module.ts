@@ -21,6 +21,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { firebaseConfig } from './fireConfig';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -48,6 +51,8 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     ClickOutsideModule,
     HttpClientModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     SwiperModule,
     ModalModule.forRoot(),
     NgxSpinnerModule,

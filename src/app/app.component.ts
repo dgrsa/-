@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { firebaseConfig } from './fireConfig';
 import { LanguageEmitterService } from './shared/services/language-emmiter.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +19,7 @@ export class AppComponent {
     private changeLang: LanguageEmitterService,
     public deviceService: DeviceDetectorService
   ) {
+    firebase.initializeApp(firebaseConfig);
     if (this.deviceService.isDesktop()) {
       window.location.href = 'http://brodone.net';
     }
