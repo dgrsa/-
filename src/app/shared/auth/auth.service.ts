@@ -68,4 +68,9 @@ export class AuthService {
     const URL = `${environment.BASE_URL}/client/${id}/password`;
     return this.http.put(URL, passwordData, this.httpOptions);
   }
+
+  createUser(sentData) {
+    const URL = `${environment.BASE_URL}/client/signup`;
+    return this.http.post(URL, sentData, this.httpOptions);
+  }
 }
