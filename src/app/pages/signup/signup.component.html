@@ -1,9 +1,9 @@
 <div class="breadcrum_bg"></div>
-<section class="signup" *ngIf="!isCodeSent">
+<section class="signup" [hidden]="isCodeSent">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-6">
-                <form class="form_container">
+                <form class="form_container" [formGroup]="phoneFrom" novalidate (submit)="sendCode()">
                     <fieldset>
                         <div class="text-center">
                             <h5> {{'Create new account' | translate}} </h5>
@@ -11,49 +11,53 @@
                                 {{'Create a new account and start using Broden' | translate}}
                             </p>
                         </div>
-                        <!-- <div class="form-group">
-                            <input type="text" class="form-control" [placeholder]="'Username' | translate">
-                            <i class="flaticon-user-1"></i>
-                        </div> -->
-
                         <div class="form-group">
-                            <input type="text" class="form-control" [placeholder]="'Phone number' | translate">
+                            <input type="text" name="mobilePhone" class="form-control"
+                                [placeholder]="'Phone number' | translate" formControlName="phoneNumber">
                             <i class="flaticon-phone-call"></i>
-                        </div>
-
-                        <!-- <div class="form-group">
-                            <input type="text" class="form-control" [placeholder]="'Email' | translate">
-                            <i class="flaticon-email"></i>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" [placeholder]="'Password' | translate">
-                            <i class="flaticon-padlock"></i>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" [placeholder]="'Confirm password' | translate">
-                            <i class="flaticon-padlock"></i>
-                        </div> -->
-
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">
-                                    <span class="d-inline-block"> {{'I have read and agree' | translate}} </span> <a
-                                        class="d-inline-block" href="#"> {{'Terms & conditions' | translate}} </a>
-                                </label>
+                            <div class="form-control-feedback"
+                                *ngIf="((phoneFrom.get('phoneNumber').touched) && (phoneFrom.get('phoneNumber').invalid))">
+                                <span class="d-block" *ngIf="phoneFrom.get('phoneNumber').errors.required"
+                                    class="text-danger">
+                                    {{ 'This field is requird' | translate }}
+                                </span>
                             </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div id="recaptcha-container"></div>
                         </div>
 
                         <div class="text-center">
                             <div class="form-group">
-                                <button type="submit" class="btn myBtn"> {{'Create account' | translate}} </button>
+                                <button type="submit" class="btn myBtn">
+                                    {{'Submit' | translate}} </button>
                             </div>
                             <p> {{'Have an account?' | translate}} </p>
 
                             <div class="form-group">
-                                <a href="#" class="secondry btn myBtn"> {{'Login' | translate}} </a>
+                                <a [routerLink]="['/login']" class="secondry btn myBtn"> {{'Login' | translate}} </a>
+                            </div>
+                        </div>
+
+                        <div *ngIf="confirmationResult">
+                            <div class="form-group">
+                                <input type="text" class="form-control" [placeholder]="'Code' | translate"
+                                    formControlName="verificationCode">
+                                <i class="flaticon-check-mark"></i>
+                                <div class="form-control-feedback"
+                                    *ngIf="((phoneFrom.get('verificationCode').touched) && (phoneFrom.get('verificationCode').invalid))">
+                                    <span class="d-block" *ngIf="phoneFrom.get('verificationCode').errors.required"
+                                        class="text-danger">
+                                        {{ 'This field is requird' | translate }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="button" class="secondry btn myBtn" (click)="verifyLoginCode()">
+                                    {{'Submit' | translate}} </button>
                             </div>
                         </div>
                     </fieldset>
@@ -63,29 +67,3 @@
     </div>
 </section>
 
-<section class="confirm-code" *ngIf="isCodeSent">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-6">
-                <form class="form_container">
-                    <fieldset>
-                        <div class="text-center">
-                            <h5> {{'Confirm your phone' | translate}} </h5>
-                            <p class="dark_color">
-                                {{'Enter the sent code' | translate}}
-                            </p>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" [placeholder]="'Code' | translate">
-                            <i class="flaticon-check-mark"></i>
-                        </div>
-                        <div class="form-group text-center">
-                            <a href="#" class="secondry btn myBtn"> {{'Submit' | translate}} </a>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>

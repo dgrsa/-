@@ -84,7 +84,7 @@ i {
 }
 
 .myBtn.secondry {
-  color: $main_color;
+  color: $main_color !important;
   background: $second_color;
 }
 
@@ -93,9 +93,9 @@ i {
   color: $main_color;
   padding: 10px 25px;
 }
-
-.login .form_container,
-.signup .form_container {
+// ,
+// .signup .form_container
+.login .form_container {
   max-height: 335px;
 }
 

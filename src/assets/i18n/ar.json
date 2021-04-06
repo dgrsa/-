@@ -102,5 +102,12 @@
     "Password must be less than 25 characters": "كلمة المرور يجب أن تكون أقل من 25 حرف",
     "Password is incorrect": "كلمة المرور غير صحيحة",
     "Something wrong happend":"حدث خطأ ما برجاء المحاولة لاحقاً",
-    "Password reset": "تم إعادة تعيين كلمة المرور"
+    "Password reset": "تم إعادة تعيين كلمة المرور",
+    "Code has been sent": "تم إرسال رمز التحقق",
+    "This code is expired": "انتهت صلاحية هذا الرمز",
+    "This code is wrong": "هذا الرمز خاطئ",
+    "This mpbile phone is already exists":"رقم الجوال موجود مسبقاً",
+    "Invalid phone number": "رقم هاتف غير صحيح",
+    "Too many attempts. try later": "محاولات كثيرة. حاول لاحقاً",
+    "Account has been created": "تم إنشاء الحساب بنجاح"
 }
