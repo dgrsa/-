@@ -143,4 +143,61 @@ export class SignupComponent implements OnInit {
       this.validateService.validateAllFormFields(this.phoneFrom);
     }
   }
+
+  createUser(): void {
+    if (this.registerForm.valid) {
+      this.spinner.show();
+      const sentData = {};
+      sentData['password'] = this.registerForm.value.password;
+      sentData['phone'] = this.mobilePhone;
+      this.authService.createUser(sentData).subscribe(
+        (data) => {
+          if (data['success']) {
+            this.helperTool.showAlertWithTranslation(
+              '',
+              'Account has been created',
+              'success'
+            );
+            this.router.navigate(['/login']);
+            this.spinner.hide();
+          }
+        },
+        (err) => {
+          console.log(err);
+          this.spinner.hide();
+          for (let i = 0; i < err['error']['errors'].length; i++) {
+            const element = err['error']['errors'][i];
+            if (element['message'] == 'mobilePhone is already existed') {
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'This mpbile phone is already exists',
+                'error'
+              );
+            } else if (element['message'] == 'email is already existed') {
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'Email is already existed',
+                'error'
+              );
+            } else {
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'Something wrong happend',
+                'error'
+              );
+            }
+          }
+          if (err['errors'][0]['message'] == '"email" must be a valid email') {
+            this.helperTool.showAlertWithTranslation(
+              '',
+              'Email must be a valid email',
+              'error'
+            );
+          }
+        }
+      );
+    } else {
+      this.validateService.validateAllFormFields(this.registerForm);
+    }
+  }
 }
