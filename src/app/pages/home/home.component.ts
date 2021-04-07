@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { GeneralService } from 'src/app/shared/services/general.service';
+import { ResturantService } from 'src/app/shared/services/resturant.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,13 +14,17 @@ export class HomeComponent implements OnInit {
   allBanners = [];
   imageBaseURL = environment.imageBaseUrl;
   editedBanner: string[] = [];
+  offset = 1;
+  resturants = [];
   constructor(
     private spinner: NgxSpinnerService,
-    private generalService: GeneralService
+    private generalService: GeneralService,
+    private resturantService: ResturantService
   ) {}
 
   ngOnInit(): void {
     this.getBanners();
+    this.getResturant();
   }
 
   config: SwiperConfigInterface = {
@@ -52,6 +57,22 @@ export class HomeComponent implements OnInit {
             return `${this.imageBaseURL}/${banner['image']['for']}/${banner['image']['name']}`;
           });
           this.editedBanner = arr;
+        }
+      },
+      (err) => {
+        this.spinner.hide();
+        console.error(err);
+      }
+    );
+  }
+
+  getResturant(): void {
+    this.spinner.show();
+    this.resturantService.getResturant(this.offset - 1).subscribe(
+      (data) => {
+        if (data['success']) {
+          this.spinner.hide();
+          this.resturants = data['data']['rows'];
         }
       },
       (err) => {
