@@ -59,6 +59,14 @@ const routes: Routes = [
           import('./pages/order/order.module').then((mod) => mod.OrderModule),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'about-us',
+        loadChildren: () =>
+          import('./pages/about-us/about-us.module').then(
+            (mod) => mod.AboutUsModule
+          ),
+        canActivate: [AuthGuard],
+      },
     ],
     canActivate: [RemeberUserService],
   },

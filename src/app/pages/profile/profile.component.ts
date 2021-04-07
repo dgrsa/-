@@ -64,7 +64,7 @@ export class ProfileComponent implements OnInit {
           (err) => {
             this.spinner.hide();
             if (
-              err['error']['errors'][0]['message'] == 'email is already existed'
+              err['error']['errors'][0]['message'] == 'response.conflict.email'
             ) {
               this.helperTool.showAlertWithTranslation(
                 '',
