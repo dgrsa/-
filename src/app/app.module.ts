@@ -24,6 +24,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { firebaseConfig } from './fireConfig';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -42,6 +43,7 @@ export function createTranslateLoader(http: HttpClient) {
     SidebarComponent,
     CartComponent,
     TableModalComponent,
+    NotFoundComponent,
   ],
   entryComponents: [CartComponent, TableModalComponent],
   imports: [

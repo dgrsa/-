@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { isLoggedIn } from './shared/auth/isLoggedIn.service';
 import { RemeberUserService } from './shared/auth/remeber-user.service';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,8 @@ const routes: Routes = [
           ),
         canActivate: [AuthGuard],
       },
+      { path: 'not-found', component: NotFoundComponent },
+      { path: '**', redirectTo: '/not-found' },
     ],
     canActivate: [RemeberUserService],
   },
