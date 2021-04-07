@@ -173,7 +173,8 @@
   }
 
   .custom-control-label::before,
-  .custom-control-label::after {
+  .custom-control-label::after,
+  .sidebar .form-container .form-group button {
     right: 0;
     left: auto;
   }
@@ -188,5 +189,15 @@
   .dropdown-menu.show {
     left: 0 !important;
     right: auto !important;
+  }
+
+  .sidebar .form-container .form-group .form-control {
+    padding-right: 40px;
+    padding-left: 0;
+  }
+
+  .sidebar .form-container .form-group button {
+    border-right: 0;
+    border-left: 1px solid #999;
   }
 }

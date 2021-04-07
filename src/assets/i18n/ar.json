@@ -109,5 +109,6 @@
     "This mpbile phone is already exists":"رقم الجوال موجود مسبقاً",
     "Invalid phone number": "رقم هاتف غير صحيح",
     "Too many attempts. try later": "محاولات كثيرة. حاول لاحقاً",
-    "Account has been created": "تم إنشاء الحساب بنجاح"
+    "Account has been created": "تم إنشاء الحساب بنجاح",
+    "OOPS, PAGE NOT FOUND !": "نأسف لم يتم العثور علي هذه الصفحة!"
 }
