@@ -12,4 +12,9 @@ export class ResturantService {
     const URL = `${environment.BASE_URL}/resturant`;
     return this.http.get(URL, { params: { skip: skip } });
   }
+
+  getResturantById(id) {
+    const URL = `${environment.BASE_URL}/resturant/${id}`;
+    return this.http.get(URL);
+  }
 }
