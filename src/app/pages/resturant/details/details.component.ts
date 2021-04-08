@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { ResturantService } from 'src/app/shared/services/resturant.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-details',
@@ -12,14 +13,20 @@ import { ResturantService } from 'src/app/shared/services/resturant.service';
 export class DetailsComponent implements OnInit {
   resturant = {} as any;
   categories = [];
-  subCats = [] as any;
+  subCats = [];
+  meals = [];
+  imageBaseURL = environment.imageBaseUrl;
+  resturant_id;
+  subCatId;
   constructor(
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
     private resturantService: ResturantService
   ) {
     this.route.params.subscribe((params) => {
+      this.resturant_id = params['id'];
       this.getResturantById(params['id']);
+      this.getItems();
     });
   }
 
@@ -110,6 +117,11 @@ export class DetailsComponent implements OnInit {
     this.getSubCategory(event.target.value);
   }
 
+  onSubCatChanges(event): void {
+    this.subCatId = event.target.value;
+    this.getItems();
+  }
+
   getSubCategory(id): void {
     this.spinner.show();
     this.resturantService.getSubCategory(id).subscribe(
@@ -124,5 +136,23 @@ export class DetailsComponent implements OnInit {
         console.error(err);
       }
     );
+  }
+
+  getItems(): void {
+    this.spinner.show();
+    this.resturantService
+      .getResturantItems(this.resturant_id, this.subCatId)
+      .subscribe(
+        (data) => {
+          if (data['success']) {
+            this.spinner.hide();
+            this.meals = data['data']['rows'];
+          }
+        },
+        (err) => {
+          this.spinner.hide();
+          console.error(err);
+        }
+      );
   }
 }
