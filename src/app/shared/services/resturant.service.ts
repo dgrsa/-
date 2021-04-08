@@ -17,4 +17,9 @@ export class ResturantService {
     const URL = `${environment.BASE_URL}/resturant/${id}`;
     return this.http.get(URL);
   }
+
+  getCategory() {
+    const URL = `${environment.BASE_URL}/category`;
+    return this.http.get(URL);
+  }
 }
