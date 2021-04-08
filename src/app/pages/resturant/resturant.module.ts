@@ -6,6 +6,7 @@ import { DetailsComponent } from './details/details.component';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { MealDetailsComponent } from './meal-details/meal-details.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [DetailsComponent, MealDetailsComponent],
@@ -14,6 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ResturantRoutingModule,
     SwiperModule,
     TranslateModule.forChild(),
+    ReactiveFormsModule,
   ],
 })
 export class ResturantModule {}

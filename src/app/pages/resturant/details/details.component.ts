@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { CartService } from 'src/app/shared/services/cart.service';
 import { ResturantService } from 'src/app/shared/services/resturant.service';
 import { environment } from 'src/environments/environment';
 
@@ -21,7 +23,8 @@ export class DetailsComponent implements OnInit {
   constructor(
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
-    private resturantService: ResturantService
+    private resturantService: ResturantService,
+    private cartService: CartService
   ) {
     this.route.params.subscribe((params) => {
       this.resturant_id = params['id'];
@@ -147,6 +150,9 @@ export class DetailsComponent implements OnInit {
           if (data['success']) {
             this.spinner.hide();
             this.meals = data['data']['rows'];
+            this.meals.map((meal) => {
+              meal['selectedQuantity'] = 1;
+            });
           }
         },
         (err) => {
@@ -154,5 +160,21 @@ export class DetailsComponent implements OnInit {
           console.error(err);
         }
       );
+  }
+
+  changeQuantity(event, index): void {
+    if (event == '+') {
+      this.meals[index]['selectedQuantity'] =
+        1 + parseInt(this.meals[index]['selectedQuantity']);
+    } else {
+      this.meals[index]['selectedQuantity'] =
+        this.meals[index]['selectedQuantity'] == 1
+          ? 1
+          : parseInt(this.meals[index]['selectedQuantity']) - 1;
+    }
+  }
+
+  addToCart(meal) {
+    this.cartService.addToCart(meal);
   }
 }

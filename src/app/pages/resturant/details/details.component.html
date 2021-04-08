@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="row meals mt-3">
-            <div class="col-sm-6" *ngFor="let meal of meals">
+            <div class="col-sm-6" *ngFor="let meal of meals; let i = index">
                 <div class="featured_item">
                     <div class="image">
                         <a href="#"> <i class="flaticon-heart"></i> </a>
@@ -99,15 +99,17 @@
                     <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
                     <p> {{ meal.ingrediants }} </p>
                     <div class="scan_join">
-                        <a class="bg_main_color" href="#"><em><i class="flaticon-shopping-cart-1"></i></em>
+                        <a class="bg_main_color" href="javascript:void(0)" (click)="addToCart(meal)"><em><i
+                                    class="flaticon-shopping-cart-1"></i></em>
                             {{'Add to cart' | translate}}
                         </a>
                     </div>
                     <div class="quantity">
                         <form>
-                            <em> + </em>
-                            <input class="form-control" placeholder="1" id="quantity">
-                            <em> - </em>
+                            <em (click)="changeQuantity('+', i)"> + </em>
+                            <input class="form-control" placeholder="1" [id]="'quantity' + meal.id"
+                                [value]="meal.selectedQuantity" disabled>
+                            <em (click)="changeQuantity('-', i)"> - </em>
                         </form>
                     </div>
                 </div>
