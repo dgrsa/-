@@ -22,4 +22,9 @@ export class ResturantService {
     const URL = `${environment.BASE_URL}/category`;
     return this.http.get(URL);
   }
+
+  getSubCategory(id) {
+    const URL = `${environment.BASE_URL}/subcategory`;
+    return this.http.get(URL, { params: { parent_id: id } });
+  }
 }
