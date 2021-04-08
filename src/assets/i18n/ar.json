@@ -101,14 +101,15 @@
     "Password must be more than 8 characters": "كلمة المرور يجب أن تكون أكثر من 8 حروف",
     "Password must be less than 25 characters": "كلمة المرور يجب أن تكون أقل من 25 حرف",
     "Password is incorrect": "كلمة المرور غير صحيحة",
-    "Something wrong happend":"حدث خطأ ما برجاء المحاولة لاحقاً",
+    "Something wrong happend": "حدث خطأ ما برجاء المحاولة لاحقاً",
     "Password reset": "تم إعادة تعيين كلمة المرور",
     "Code has been sent": "تم إرسال رمز التحقق",
     "This code is expired": "انتهت صلاحية هذا الرمز",
     "This code is wrong": "هذا الرمز خاطئ",
-    "This mpbile phone is already exists":"رقم الجوال موجود مسبقاً",
+    "This mpbile phone is already exists": "رقم الجوال موجود مسبقاً",
     "Invalid phone number": "رقم هاتف غير صحيح",
     "Too many attempts. try later": "محاولات كثيرة. حاول لاحقاً",
     "Account has been created": "تم إنشاء الحساب بنجاح",
-    "OOPS, PAGE NOT FOUND !": "نأسف لم يتم العثور علي هذه الصفحة!"
+    "OOPS, PAGE NOT FOUND !": "نأسف لم يتم العثور علي هذه الصفحة!",
+    "All meals": "كل الوجبات"
 }

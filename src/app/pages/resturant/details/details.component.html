@@ -5,9 +5,11 @@
         <fieldset>
             <div class="featured_item">
                 <img src="./assets/imgs/products/Albaik_logo.svg">
-                <h5> Albaik resturant </h5>
-                <p> مطعم وجبات سريعة , فرايد شيكن , وجبات فراخ </p>
-                <a href="#" class="myBtn dark"> <img src="./assets/imgs/chef.svg"> {{ 'Call garcoon' | translate }} </a>
+                <h5> {{resturant.name}} </h5>
+                <p> {{resturant.subtitle}} </p>
+                <a href="#" class="myBtn dark">
+                    <img src="./assets/imgs/chef.svg"> {{ 'Call garcoon' | translate }}
+                </a>
             </div>
         </fieldset>
     </div>
@@ -56,22 +58,26 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <input type="radio" name="filter" id="filter_item1">
-                                <label for="filter_item1"> كل الوجبات </label>
+                                <label for="filter_item1"> {{ 'All meals' | translate }} </label>
                             </div>
 
-                            <div class="swiper-slide">
-                                <input type="radio" name="filter" id="filter_item2">
-                                <label for="filter_item2"> السندوتشات </label>
+                            <div class="swiper-slide" *ngFor="let cat of categories">
+                                <input type="radio" name="filter" [id]="cat.name + cat.id" [value]="cat.id"
+                                    (change)="onCatChanges($event)">
+                                <label [for]="cat.name + cat.id"> {{cat.name}} </label>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                            <div class="swiper-slide">
-                                <input type="radio" name="filter" id="filter_item3">
-                                <label for="filter_item3"> الأطباق الرئيسية </label>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <input type="radio" name="filter" id="filter_item4">
-                                <label for="filter_item4"> الإطباق الجانبية </label>
+            <div class="col-12 mt-2">
+                <div class="filter">
+                    <div class="swiper-container" [swiper]="filterConfig">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" *ngFor="let subcat of subCats">
+                                <input type="radio" name="filter" [id]="subcat.name + subcat.id" [value]="subcat.id">
+                                <label [for]="subcat.name + subcat.id"> {{subcat.name}} </label>
                             </div>
                         </div>
                     </div>
