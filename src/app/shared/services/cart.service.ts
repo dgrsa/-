@@ -11,6 +11,8 @@ export class CartService {
   CartData = {} as any;
   changeEmitted$ = this.cartChangeSource.asObservable();
   constructor(private helperTools: HelperToolsService) {
+    this.getCartItems();
+    this.UpdateCart();
   }
 
   emitChange(change: any) {
@@ -99,5 +101,39 @@ export class CartService {
     }
   }
 
-  
+  getCartItems(): void {
+    if (environment.userCart) {
+      const BrodoneCart = JSON.parse(localStorage.getItem('BrodoneCart'));
+      if (BrodoneCart) {
+        this.CartData = BrodoneCart;
+        this.UpdateCart();
+        return;
+      }
+    }
+    this.CartData = environment.userCart;
+    if (environment.userCart['totalItems'] == 0) {
+      this.emitChange(0);
+    }
+    // console.log(this.CartData);
+  }
+
+  UpdateCart() {
+    let totalPrice = 0;
+    const totalItems = this.CartData['meals'].length;
+    let totalQuantity = 0;
+    if (this.CartData['meals'].length == 0) {
+      this.CartData = environment.userCart;
+      localStorage.setItem('BrodoneCart', JSON.stringify(this.CartData));
+    }
+    environment.userCart.meals.map((meal) => {
+      totalPrice = totalPrice + meal.price;
+      totalQuantity = totalQuantity + meal.quantity;
+    });
+    this.CartData['totalItems'] = totalItems;
+    this.CartData['totalPrice'] = totalPrice;
+    this.CartData['totalQuantity'] = totalQuantity;
+    environment.userCart = this.CartData;
+    // console.log(this.CartData);
+    localStorage.setItem('BrodoneCart', JSON.stringify(this.CartData));
+  }
 }
