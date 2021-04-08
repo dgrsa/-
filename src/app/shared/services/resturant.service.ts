@@ -27,4 +27,18 @@ export class ResturantService {
     const URL = `${environment.BASE_URL}/subcategory`;
     return this.http.get(URL, { params: { parent_id: id } });
   }
+
+  getResturantItems(resturant_id = undefined, subcategory_id = undefined) {
+    const params = {} as any;
+    if (subcategory_id != undefined && subcategory_id != '') {
+      params['subcategory_id'] = subcategory_id;
+    }
+    if (resturant_id != undefined && resturant_id != '') {
+      params['resturant_id'] = resturant_id;
+    }
+    const URL = `${environment.BASE_URL}/item`;
+    return this.http.get(URL, {
+      params: params,
+    });
+  }
 }
