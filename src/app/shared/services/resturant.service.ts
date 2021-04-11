@@ -41,4 +41,9 @@ export class ResturantService {
       params: params,
     });
   }
+
+  getItemById(id) {
+    const URL = `${environment.BASE_URL}/item/${id}`;
+    return this.http.get(URL);
+  }
 }
