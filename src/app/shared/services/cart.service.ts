@@ -136,4 +136,20 @@ export class CartService {
     // console.log(this.CartData);
     localStorage.setItem('BrodoneCart', JSON.stringify(this.CartData));
   }
+
+  onDeleteCliced(i): void {
+    this.helperTools
+      .showConfirmAlert('', 'Are you sure')
+      .then((__) => {
+        this.CartData['mealsData'].splice(i, 1);
+        this.CartData['meals'].splice(i, 1);
+        localStorage.setItem('BrodoneCart', JSON.stringify(this.CartData));
+        environment.userCart = this.CartData;
+        this.UpdateCart();
+        this.emitChange(this.CartData['totalItems']);
+      })
+      .catch((err) => {
+        // UserCanceld
+      });
+  }
 }
