@@ -1,67 +1,30 @@
-<div class="modal-body cart">
+<div class="modal-body cart" [ngClass]="translate.currentLang == 'ar' ? 'arabicStyle': ' '">
     <button type="button" (click)="bsModalRef.hide()" class="close"> <i class="flaticon-cancel"></i> </button>
     <div class="text-center">
-        <h5> Shopping cart </h5>
-        <p class="dark_color"> What you have added to your cart of meals </p>
+        <h5> {{'Shopping cart' | translate}} </h5>
+        <p class="dark_color"> {{'What you have added to your cart of meals' | translate}} </p>
     </div>
 
-    <div class="cart_item">
+    <div class="cart_item" *ngFor="let meal of meal_data; let i = index">
         <div class="image">
-            <span> 2x </span>
-            <img src="./assets/imgs/products/meat.svg">
+            <span> {{cart_data['meals'][i].quantity}} </span>
+            <img *ngIf="!meal.images[0]" src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
+            <img *ngIf="meal.images[0]" [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name "
+                [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
         </div>
         <div class="cart_info">
-            <span class="d-block"> باجيت الحلوم والمشروم </span>
-            <strong class="d-block dark_color"> 80 ر.س </strong>
+            <span class="d-block"> {{meal.name}} </span>
+            <strong class="d-block dark_color"> {{ cart_data['meals'][i].price }} {{ 'SAR' | translate }} </strong>
 
             <div class="quantity mt-3">
                 <form>
-                    <em> + </em>
-                    <input type="text" class="form-control" placeholder="2">
-                    <em> - </em>
+                    <em (click)="onChangeQuantity(cart_data['meals'][i] , 1 , i)"> + </em>
+                    <input type="text" class="form-control" placeholder="2" [value]="cart_data['meals'][i].quantity">
+                    <em (click)="onChangeQuantity(cart_data['meals'][i] , -1 , i)"> - </em>
                 </form>
             </div>
-            <a class="cart_remove" href="#"> <i class="flaticon-rubbish-bin"></i> </a>
-        </div>
-    </div>
-
-    <div class="cart_item">
-        <div class="image">
-            <span> 2x </span>
-            <img src="./assets/imgs/products/meat.svg">
-        </div>
-        <div class="cart_info">
-            <span class="d-block"> باجيت الحلوم والمشروم </span>
-            <strong class="d-block dark_color"> 80 ر.س </strong>
-
-            <div class="quantity mt-3">
-                <form>
-                    <em> + </em>
-                    <input type="text" class="form-control" placeholder="2">
-                    <em> - </em>
-                </form>
-            </div>
-            <a class="cart_remove" href="#"> <i class="flaticon-rubbish-bin"></i> </a>
-        </div>
-    </div>
-
-    <div class="cart_item">
-        <div class="image">
-            <span> 2x </span>
-            <img src="./assets/imgs/products/meat.svg">
-        </div>
-        <div class="cart_info">
-            <span class="d-block"> باجيت الحلوم والمشروم </span>
-            <strong class="d-block dark_color"> 80 ر.س </strong>
-
-            <div class="quantity mt-3">
-                <form>
-                    <em> + </em>
-                    <input type="text" class="form-control" placeholder="2">
-                    <em> - </em>
-                </form>
-            </div>
-            <a class="cart_remove" href="#"> <i class="flaticon-rubbish-bin"></i> </a>
+            <a class="cart_remove" href="javascript:void(0)" (click)="deleteCatrItem(i)"> <i
+                    class="flaticon-rubbish-bin"></i> </a>
         </div>
     </div>
 
@@ -69,19 +32,19 @@
         <table class="table w-100">
             <tbody>
                 <tr>
-                    <th> Order total </th>
-                    <td> 160 ر.س </td>
+                    <th> {{'Total order' | translate}} </th>
+                    <td> {{cart_data['totalPrice']}} {{ "SAR" | translate }} </td>
                 </tr>
                 <tr>
-                    <th> No of meals </th>
-                    <td> 4 </td>
+                    <th> {{'No of meals' | translate}} </th>
+                    <td> {{ cart_data['totalItems'] }} </td>
                 </tr>
             </tbody>
         </table>
 
         <div class="d-flex justify-content-between text-center">
-            <a href="#" class="myBtn secondry"> Add meals </a>
-            <a href="#" class="myBtn primary"> Checkout </a>
+            <a href="#" class="myBtn secondry"> {{'Add meals' | translate}} </a>
+            <a href="#" class="myBtn primary"> {{'Checkout' | translate}} </a>
         </div>
     </div>
 

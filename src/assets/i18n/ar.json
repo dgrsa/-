@@ -114,5 +114,12 @@
     "All meals": "كل الوجبات",
     "This meal has been updated": "تم تحديث كمية هذه الوجبة",
     "Cart has been updated": "تم تحديث السلة",
-    "This meal added to cart": "تم إضافة هذه الوجبة إلي السلة"
+    "This meal added to cart": "تم إضافة هذه الوجبة إلي السلة",
+    "What you have added to your cart of meals": "ما أضفته إلى عربة الوجبات الخاصة بك",
+    "Shopping cart": "عربة التسوق",
+    "Total order": "إجمالي الطلب",
+    "Add meals": "إضافة وجبات",
+    "Confirm": "تأكيد",
+    "Cancel": "إلغاء",
+    "Are you sure": "هل أنت متأكد"
 }
