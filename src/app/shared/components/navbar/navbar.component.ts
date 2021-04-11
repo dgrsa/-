@@ -3,7 +3,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../../auth/auth.service';
+import { CartService } from '../../services/cart.service';
 import { LanguageEmitterService } from '../../services/language-emmiter.service';
 import { CartComponent } from '../cart/cart.component';
 import { TableModalComponent } from '../table-modal/table-modal.component';
@@ -20,15 +22,22 @@ export class NavbarComponent implements OnInit {
   hani = false;
   userData: any;
   authsub: Subscription;
+  cartCount = 0;
   constructor(
     public translate: TranslateService,
     private changeLanguage: LanguageEmitterService,
     private modalService: BsModalService,
     private authService: AuthService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private cartService: CartService
   ) {
+    this.cartCount = environment.userCart['meals'].length;
     this.authsub = this.authService.changeEmitted$.subscribe((value) => {
       this.userData = value;
+    });
+
+    cartService.changeEmitted$.subscribe((cartItems) => {
+      this.cartCount = cartItems;
     });
   }
 
