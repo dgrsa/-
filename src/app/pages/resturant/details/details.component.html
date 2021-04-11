@@ -95,7 +95,8 @@
                             [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name "
                             [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
                     </div>
-                    <h5 class="mt-2"> <a [routerLink]="['/resturant/meal-details']"> {{ meal.name }} </a> </h5>
+                    <h5 class="mt-2"> <a [routerLink]="['/resturant/meal-details/'+ meal.id]"> {{ meal.name }} </a>
+                    </h5>
                     <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
                     <p> {{ meal.ingrediants }} </p>
                     <div class="scan_join">

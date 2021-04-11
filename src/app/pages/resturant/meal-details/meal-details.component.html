@@ -5,11 +5,9 @@
                 <div class="main_slider">
                     <div class="swiper-container" [swiper]="config">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="./assets/imgs/products/meal.svg" alt="slide image">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./assets/imgs/products/meal.svg" alt="slide image">
+                            <div class="swiper-slide" *ngFor="let image of meal['images']">
+                                <img [src]="imageBaseUrl + '/' + image.for + '/' + image.name"
+                                    [alt]="'Meal image' | translate">
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>
@@ -21,13 +19,13 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="meal_info ptb-15">
-                            <h5> باجيت الحلوم والمشروم </h5>
+                            <h5> {{meal.name}} </h5>
 
                             <div class="price_calories d-flex justify-content-between align-items-center ptb-15">
-                                <span class="price"> 80 {{'SAR' | translate}} </span>
+                                <span class="price"> {{meal.price}} {{'SAR' | translate}} </span>
                                 <span class="calory"> 580 {{'Calories' | translate}} </span>
                             </div>
-                            <p> هذا نص تجريبي لاختبار شكل و حجم النصوص و طريقة عرضها في هذا المكان </p>
+                            <p> {{meal.ingrediants}} </p>
                         </div>
                     </div>
 
@@ -35,15 +33,17 @@
                         <div class="d-flex justify-content-center">
                             <div class="quantity mt-3">
                                 <form>
-                                    <em> + </em>
-                                    <input type="text" class="form-control" placeholder="2">
-                                    <em> - </em>
+                                    <em (click)="changeQuantity('+')"> + </em>
+                                    <input class="form-control" placeholder="1" [id]="'quantity' + meal.id"
+                                        [value]="meal.selectedQuantity" disabled>
+                                    <em (click)="changeQuantity('-')"> - </em>
                                 </form>
                             </div>
                         </div>
 
                         <div class="ptb-15">
-                            <button type="button" class="myBtn secondy"> {{'Add to cart' | translate}} </button>
+                            <button type="button" class="myBtn secondy" (click)="addToCart(meal)"> 
+                                {{'Add to cart' | translate}} </button>
                         </div>
                     </div>
                 </div>
