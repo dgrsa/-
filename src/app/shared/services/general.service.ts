@@ -8,8 +8,12 @@ import { environment } from 'src/environments/environment';
 export class GeneralService {
   constructor(private http: HttpClient) {}
 
-  getBanners() {
+  getBanners(resturant_id = undefined) {
+    const params = {} as any;
+    if (resturant_id != undefined) {
+      params['resturant_id'] = resturant_id;
+    }
     const URL = `${environment.BASE_URL}/banner`;
-    return this.http.get(URL);
+    return this.http.get(URL, { params: params });
   }
 }
