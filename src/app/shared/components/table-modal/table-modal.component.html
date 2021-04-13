@@ -5,24 +5,33 @@
     <div class="modal-body text-center">
 
         <div class="image">
-            <img src="./assets/imgs/products/Albaik_logo.svg">
+            <img *ngIf="table.resturant?.image"
+                [src]="imageBaseURL + '/' + table.resturant?.image?.for + '/' + table.resturant?.image?.name "
+                [alt]="table.resturant?.image?.alt" [title]="table.resturant?.image?.description">
+            <img *ngIf="!table.resturant?.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
         </div>
 
         <div class="content">
-            <h5> مطعم دجاج البيك </h5>
-            <p class="dark_color"> مطعم وجبات سريعة , فرايد شيكن , وجبات فراخ </p>
+            <h5> {{table.resturant?.name}} </h5>
+            <p class="dark_color"> {{table.resturant?.subtitle}} </p>
             <div class="table_no">
                 <div class="table_image">
                     <img src="./assets/imgs/table.svg">
                 </div>
-                <span class="dark_color d-block"> رقم المنضدة </span>
-                <strong class="d-block"> 15 </strong>
+                <div>
+                    <span class="dark_color d-block"> {{'Table number' | translate}} </span>
+                    <strong class="d-block"> {{table.tableNumber}} </strong>
+                </div>
+                <div>
+                    <span class="dark_color d-block"> {{'Capacity' | translate}} </span>
+                    <strong class="d-block"> {{table.capacity}} </strong>
+                </div>
             </div>
         </div>
 
         <div class="d-flex justify-content-between text-center mt-3 w-100">
-            <a href="#" class="myBtn secondry"> Garcoon </a>
-            <a href="#" class="myBtn primary"> Order now </a>
+            <a href="#" class="myBtn secondry"> {{'Call garcoon' | translate}} </a>
+            <a href="#" class="myBtn primary"> {{'Order now' | translate}} </a>
         </div>
     </div>
 </section>
