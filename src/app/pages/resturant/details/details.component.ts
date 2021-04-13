@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { GeneralService } from 'src/app/shared/services/general.service';
 import { ResturantService } from 'src/app/shared/services/resturant.service';
 import { environment } from 'src/environments/environment';
 
@@ -20,15 +21,19 @@ export class DetailsComponent implements OnInit {
   imageBaseURL = environment.imageBaseUrl;
   resturant_id;
   subCatId;
+  allBanners = [];
+  editedBanners = [];
   constructor(
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
     private resturantService: ResturantService,
-    private cartService: CartService
+    private cartService: CartService,
+    private generalService: GeneralService
   ) {
     this.route.params.subscribe((params) => {
       this.resturant_id = params['id'];
       this.getResturantById(params['id']);
+      this.getBanners(params['id']);
       this.getItems();
     });
   }
@@ -176,5 +181,25 @@ export class DetailsComponent implements OnInit {
 
   addToCart(meal) {
     this.cartService.addToCart(meal);
+  }
+
+  getBanners(id) {
+    this.spinner.show();
+    this.generalService.getBanners(id).subscribe(
+      (data) => {
+        if (data['success']) {
+          this.spinner.hide();
+          this.allBanners = data['data']['rows'];
+          const arr: string[] = this.allBanners.map((banner) => {
+            return `${this.imageBaseURL}/${banner['image']['for']}/${banner['image']['name']}`;
+          });
+          this.editedBanners = arr;
+        }
+      },
+      (err) => {
+        this.spinner.hide();
+        console.error(err);
+      }
+    );
   }
 }
