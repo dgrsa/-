@@ -22,6 +22,7 @@
     "@angular/router": "~11.2.1",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
+    "angular2-qrscanner": "^1.0.7",
     "awesome-phonenumber": "^2.48.0",
     "firebase": "^7.13.1",
     "ng-click-outside": "^6.0.0",

@@ -25,6 +25,8 @@ import { firebaseConfig } from './fireConfig';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { NgQrScannerModule } from 'angular2-qrscanner';
+import { ScanCodeComponent } from './shared/components/scan-code/scan-code.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -44,6 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     CartComponent,
     TableModalComponent,
     NotFoundComponent,
+    ScanCodeComponent,
   ],
   entryComponents: [CartComponent, TableModalComponent],
   imports: [
@@ -58,6 +61,7 @@ export function createTranslateLoader(http: HttpClient) {
     SwiperModule,
     ModalModule.forRoot(),
     NgxSpinnerModule,
+    NgQrScannerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
