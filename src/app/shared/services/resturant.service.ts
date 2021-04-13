@@ -18,6 +18,11 @@ export class ResturantService {
     return this.http.get(URL);
   }
 
+  getTableById(id, table_id) {
+    const URL = `${environment.BASE_URL}/resturant/${id}/table/${table_id}`;
+    return this.http.get(URL);
+  }
+
   getCategory() {
     const URL = `${environment.BASE_URL}/category`;
     return this.http.get(URL);
