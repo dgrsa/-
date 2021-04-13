@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { TableModalComponent } from 'src/app/shared/components/table-modal/table-modal.component';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { GeneralService } from 'src/app/shared/services/general.service';
 import { ResturantService } from 'src/app/shared/services/resturant.service';
@@ -23,18 +25,27 @@ export class DetailsComponent implements OnInit {
   subCatId;
   allBanners = [];
   editedBanners = [];
+  bsModalRef: BsModalRef;
+  tableData = {} as any;
   constructor(
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
     private resturantService: ResturantService,
     private cartService: CartService,
-    private generalService: GeneralService
+    private generalService: GeneralService,
+    private modalService: BsModalService
   ) {
     this.route.params.subscribe((params) => {
       this.resturant_id = params['id'];
       this.getResturantById(params['id']);
       this.getBanners(params['id']);
       this.getItems();
+    });
+
+    this.route.queryParams.subscribe((params) => {
+      if (params['table']) {
+        this.getTableById(this.resturant_id, params['table']);
+      }
     });
   }
 
@@ -201,5 +212,31 @@ export class DetailsComponent implements OnInit {
         console.error(err);
       }
     );
+  }
+
+  getTableById(id, table_id): void {
+    this.spinner.show();
+    this.resturantService.getTableById(id, table_id).subscribe(
+      (data) => {
+        if (data['success']) {
+          this.tableData = data['data'];
+          this.openTableModal();
+          this.spinner.hide();
+        }
+      },
+      (err) => {
+        this.spinner.hide();
+        console.error(err);
+      }
+    );
+  }
+
+  openTableModal() {
+    const initialState = {
+      table: this.tableData,
+    } as any;
+    this.bsModalRef = this.modalService.show(TableModalComponent, {
+      initialState,
+    });
   }
 }

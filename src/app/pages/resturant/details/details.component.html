@@ -4,7 +4,10 @@
     <div class="container">
         <fieldset>
             <div class="featured_item">
-                <img src="./assets/imgs/products/Albaik_logo.svg">
+                <img *ngIf="resturant.image"
+                    [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name "
+                    [alt]="resturant.image?.alt" [title]="resturant.image?.description">
+                <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
                 <h5> {{resturant.name}} </h5>
                 <p> {{resturant.subtitle}} </p>
                 <a href="#" class="myBtn dark">
