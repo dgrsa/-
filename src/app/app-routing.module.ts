@@ -4,6 +4,7 @@ import { AuthGuard } from './shared/auth/auth.guard';
 import { isLoggedIn } from './shared/auth/isLoggedIn.service';
 import { RemeberUserService } from './shared/auth/remeber-user.service';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { ScanCodeComponent } from './shared/components/scan-code/scan-code.component';
 
 const routes: Routes = [
   {
@@ -68,6 +69,7 @@ const routes: Routes = [
           ),
         canActivate: [AuthGuard],
       },
+      { path: 'scan-code', component: ScanCodeComponent },
       { path: 'not-found', component: NotFoundComponent },
       { path: '**', redirectTo: '/not-found' },
     ],
