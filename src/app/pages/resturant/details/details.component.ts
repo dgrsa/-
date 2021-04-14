@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { TableModalComponent } from 'src/app/shared/components/table-modal/table-modal.component';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { GeneralService } from 'src/app/shared/services/general.service';
+import { HelperToolsService } from 'src/app/shared/services/helper-tools.service';
 import { ResturantService } from 'src/app/shared/services/resturant.service';
 import { environment } from 'src/environments/environment';
 
@@ -33,7 +35,9 @@ export class DetailsComponent implements OnInit {
     private resturantService: ResturantService,
     private cartService: CartService,
     private generalService: GeneralService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private coockieService: CookieService,
+    private helperTool: HelperToolsService
   ) {
     this.route.params.subscribe((params) => {
       this.resturant_id = params['id'];
@@ -44,6 +48,8 @@ export class DetailsComponent implements OnInit {
 
     this.route.queryParams.subscribe((params) => {
       if (params['table']) {
+        this.coockieService.set('table', params['table'], 1);
+        // this.coockieService.set('resturant_id', this.resturant_id);
         this.getTableById(this.resturant_id, params['table']);
       }
     });
@@ -226,6 +232,13 @@ export class DetailsComponent implements OnInit {
       },
       (err) => {
         this.spinner.hide();
+        if (err['status'] == 404) {
+          this.helperTool.showAlertWithTranslation(
+            '',
+            'Inside this restaurant there is no table with this number',
+            'error'
+          );
+        }
         console.error(err);
       }
     );
