@@ -124,5 +124,7 @@
     "Are you sure": "هل أنت متأكد",
     "Order now": "أطلب الأن",
     "Capacity": "السعة",
-    "You haven not added any products to the cart yet": "لم تضف منتجات إلي العربة بعد"
+    "You haven not added any products to the cart yet": "لم تضف منتجات إلي العربة بعد",
+    "You are not allowed to add a product from this restaurant": "غير مسموح لك إضافة منتج من هذا المطعم",
+    "Inside this restaurant there is no table with this number": "لا يوجد داخل هذا المطعم منضده بهذا الرقم"
 }

@@ -26,7 +26,10 @@ export class CartService {
     if (environment.userCart.meals.length >= 1) {
       for (let i = 0; i < environment.userCart.meals.length; i++) {
         const element = environment.userCart.meals[i];
-        if (element.id == meal.id) {
+        if (
+          element.id == meal.id &&
+          environment.userCart.mealsData[i].resturant_id == meal.resturant_id
+        ) {
           element.quantity = element.quantity + meal['selectedQuantity'];
           element.price = element.quantity * meal.price;
           environment.userCart.meals.map((meal) => {
@@ -49,7 +52,10 @@ export class CartService {
           break;
         } else if (i + 1 != environment.userCart.meals.length) {
           continue;
-        } else {
+        } else if (
+          element.id != meal.id &&
+          environment.userCart.mealsData[i].resturant_id == meal.resturant_id
+        ) {
           final.id = meal.id;
           final.quantity = meal['selectedQuantity'];
           final.price = meal['selectedQuantity'] * meal.price;
@@ -75,6 +81,12 @@ export class CartService {
           );
           meal['selectedQuantity'] = 1;
           break;
+        } else {
+          this.helperTools.showAlertWithTranslation(
+            '',
+            'You are not allowed to add a product from this restaurant',
+            'error'
+          );
         }
       }
     } else if (environment.userCart.meals.length == 0) {
