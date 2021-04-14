@@ -775,6 +775,17 @@ footer ul li:hover a {
 .arabicStyle.cart .table th {
   text-align: right;
 }
+
+.empty_cart {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty_cart p {
+  font-size: 20px;
+}
 /* End cart modal component */
 
 /* Start table modal component */
