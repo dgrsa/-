@@ -343,6 +343,7 @@ header .cart_account li:first-child a {
 
 footer {
   padding: 40px 0;
+  padding-bottom: 70px;
 }
 
 footer ul li:hover a {
@@ -554,6 +555,21 @@ footer ul li:hover a {
 
 .resturant {
   margin-top: 20px;
+}
+
+.resturant .cart_details {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: #f1f1f1;
+  z-index: 2;
+  padding: 15px;
+}
+
+.resturant .cart_details div {
+  background: $main_color;
+  padding: 15px;
+  border-radius: 30px;
 }
 
 .form_container.res_info {

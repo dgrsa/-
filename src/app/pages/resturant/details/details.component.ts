@@ -29,6 +29,7 @@ export class DetailsComponent implements OnInit {
   editedBanners = [];
   bsModalRef: BsModalRef;
   tableData = {} as any;
+  totalPrice;
   constructor(
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
@@ -39,6 +40,12 @@ export class DetailsComponent implements OnInit {
     private coockieService: CookieService,
     private helperTool: HelperToolsService
   ) {
+    this.totalPrice = JSON.parse(
+      localStorage.getItem('BrodoneCart')
+    ).totalPrice;
+    this.cartService.changeEmitted$.subscribe((value) => {
+      this.totalPrice = environment.userCart.totalPrice;
+    });
     this.route.params.subscribe((params) => {
       this.resturant_id = params['id'];
       this.getResturantById(params['id']);

@@ -114,4 +114,10 @@
             </div>
         </div>
     </div>
+    <div class="cart_details" *ngIf="totalPrice">
+        <div class="d-flex aligin-items-center justify-content-between">
+            <strong> {{'Shopping cart' | translate}} </strong>
+            <span> {{totalPrice}} {{ 'SAR' | translate }} </span>
+        </div>
+    </div>
 </section>

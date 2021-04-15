@@ -1,11 +1,11 @@
 @font-face {
   font-family: "flaticon";
-  src: url("./flaticon.ttf?a6ba2fcd01a2ed5b85209b16bde5b90d") format("truetype"),
-    url("./flaticon.woff?a6ba2fcd01a2ed5b85209b16bde5b90d") format("woff"),
-    url("./flaticon.woff2?a6ba2fcd01a2ed5b85209b16bde5b90d") format("woff2"),
-    url("./flaticon.eot?a6ba2fcd01a2ed5b85209b16bde5b90d#iefix")
+  src: url("./flaticon.ttf?277781b10c9c241be08096b2f9110f04") format("truetype"),
+    url("./flaticon.woff?277781b10c9c241be08096b2f9110f04") format("woff"),
+    url("./flaticon.woff2?277781b10c9c241be08096b2f9110f04") format("woff2"),
+    url("./flaticon.eot?277781b10c9c241be08096b2f9110f04#iefix")
       format("embedded-opentype"),
-    url("./flaticon.svg?a6ba2fcd01a2ed5b85209b16bde5b90d#flaticon")
+    url("./flaticon.svg?277781b10c9c241be08096b2f9110f04#flaticon")
       format("svg");
 }
 
@@ -82,123 +82,129 @@ i[class*=" flaticon-"]:before {
 .flaticon-finance:before {
   content: "\f114";
 }
-.flaticon-heart-1:before {
+.flaticon-four-squares-button-of-view-options:before {
   content: "\f115";
 }
-.flaticon-heart:before {
+.flaticon-heart-1:before {
   content: "\f116";
 }
-.flaticon-instagram:before {
+.flaticon-heart:before {
   content: "\f117";
 }
-.flaticon-knife:before {
+.flaticon-instagram:before {
   content: "\f118";
 }
-.flaticon-left-arrow:before {
+.flaticon-knife:before {
   content: "\f119";
 }
-.flaticon-like:before {
+.flaticon-left-arrow:before {
   content: "\f11a";
 }
-.flaticon-logout:before {
+.flaticon-like:before {
   content: "\f11b";
 }
-.flaticon-loupe:before {
+.flaticon-logout:before {
   content: "\f11c";
 }
-.flaticon-menu:before {
+.flaticon-loupe:before {
   content: "\f11d";
 }
-.flaticon-messenger-1:before {
+.flaticon-menu:before {
   content: "\f11e";
 }
-.flaticon-messenger:before {
+.flaticon-messenger-1:before {
   content: "\f11f";
 }
-.flaticon-minus:before {
+.flaticon-messenger:before {
   content: "\f120";
 }
-.flaticon-open-box:before {
+.flaticon-minus:before {
   content: "\f121";
 }
-.flaticon-padlock:before {
+.flaticon-open-box:before {
   content: "\f122";
 }
-.flaticon-phone-call:before {
+.flaticon-padlock:before {
   content: "\f123";
 }
-.flaticon-phone:before {
+.flaticon-phone-call:before {
   content: "\f124";
 }
-.flaticon-plus:before {
+.flaticon-phone:before {
   content: "\f125";
 }
-.flaticon-qr-code-scan:before {
+.flaticon-plus:before {
   content: "\f126";
 }
-.flaticon-refresh:before {
+.flaticon-qr-code-scan:before {
   content: "\f127";
 }
-.flaticon-remove:before {
+.flaticon-rectangles-couple:before {
   content: "\f128";
 }
-.flaticon-right-arrow:before {
+.flaticon-refresh:before {
   content: "\f129";
 }
-.flaticon-right:before {
+.flaticon-remove:before {
   content: "\f12a";
 }
-.flaticon-rubbish-bin:before {
+.flaticon-right-arrow:before {
   content: "\f12b";
 }
-.flaticon-sad:before {
+.flaticon-right:before {
   content: "\f12c";
 }
-.flaticon-search:before {
+.flaticon-rubbish-bin:before {
   content: "\f12d";
 }
-.flaticon-shopping-cart-1:before {
+.flaticon-sad:before {
   content: "\f12e";
 }
-.flaticon-shopping-cart:before {
+.flaticon-search:before {
   content: "\f12f";
 }
-.flaticon-snapchat:before {
+.flaticon-shopping-cart-1:before {
   content: "\f130";
 }
-.flaticon-star-1:before {
+.flaticon-shopping-cart:before {
   content: "\f131";
 }
-.flaticon-star:before {
+.flaticon-snapchat:before {
   content: "\f132";
 }
-.flaticon-symbols:before {
+.flaticon-star-1:before {
   content: "\f133";
 }
-.flaticon-twitter:before {
+.flaticon-star:before {
   content: "\f134";
 }
-.flaticon-upload:before {
+.flaticon-symbols:before {
   content: "\f135";
 }
-.flaticon-user-1:before {
+.flaticon-twitter:before {
   content: "\f136";
 }
-.flaticon-user-2:before {
+.flaticon-upload:before {
   content: "\f137";
 }
-.flaticon-user:before {
+.flaticon-user-1:before {
   content: "\f138";
 }
-.flaticon-view:before {
+.flaticon-user-2:before {
   content: "\f139";
 }
-.flaticon-visibility:before {
+.flaticon-user:before {
   content: "\f13a";
 }
-.flaticon-whatsapp:before {
+.flaticon-view:before {
   content: "\f13b";
 }
-.flaticon-youtube:before {
+.flaticon-visibility:before {
   content: "\f13c";
+}
+.flaticon-whatsapp:before {
+  content: "\f13d";
+}
+.flaticon-youtube:before {
+  content: "\f13e";
 }
