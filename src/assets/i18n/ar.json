@@ -128,5 +128,10 @@
     "You are not allowed to add a product from this restaurant": "غير مسموح لك إضافة منتج من هذا المطعم",
     "Inside this restaurant there is no table with this number": "لا يوجد داخل هذا المطعم منضده بهذا الرقم",
     "This order has been created": "تم إنشاء الطلب بنجاح",
-    "Please log in first": "من فضلك سجل الدخول أولا"
+    "Please log in first": "من فضلك سجل الدخول أولا",
+    "Submit order": "تأكيد الطلب",
+    "Card number": "رقم البطاقة",
+    "Card owner": "إسم صاحب البطاقة",
+    "Card expiry date": "تاريخ إنتهاء البطاقة",
+    "CVV": "رمز الحماية"
 }

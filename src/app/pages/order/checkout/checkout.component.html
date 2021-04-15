@@ -1,1 +1,57 @@
-<p>checkout works!</p>
+<section class="checkout">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="checkout_item">
+                    <input type="radio" name="paymentMethod" id="chackout">
+                    <label for="chackout"> <img src="./assets/imgs/stc.png"> <span> {{ 'STC pay' | translate }} </span>
+                    </label>
+                </div>
+
+                <div class="checkout_item">
+                    <input type="radio" name="paymentMethod" id="visa">
+                    <label for="visa"> <img src="./assets/imgs/vissa.png"> <span> {{ 'Visa/ Master' | translate
+                            }} </span> </label>
+                </div>
+
+                <div class="checkout_item">
+                    <input type="radio" name="paymentMethod" id="cash">
+                    <label for="cash"> <img src="./assets/imgs/cash.jpg"> <span> {{ 'Cash' | translate }} </span>
+                    </label>
+                </div>
+
+                <div class="checkout_item">
+                    <input type="radio" name="paymentMethod" id="mada">
+                    <label for="mada"> <img src="./assets/imgs/mada.png"> <span> {{ 'Mada' | translate }} </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <form>
+                    <div class="form-group">
+                        <input type="text" id="cardNumber" name="cardNumber" class="form-control"
+                            [placeholder]="'Card number' | translate">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="cardName" name="cardName" class="form-control"
+                            [placeholder]="'Card owner' | translate">
+                    </div>
+                    <div class="row">
+                        <div class="col-8 form-group">
+                            <input type="text" id="date" name="date" class="form-control"
+                                [placeholder]="'Card expiry date' | translate">
+                        </div>
+                        <div class="col-4 form-group">
+                            <input type="text" id="date" name="date" class="form-control"
+                                [placeholder]="'CVV' | translate">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn myBtn"> {{'Submit order' | translate}} </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1193,3 +1193,41 @@ footer ul li:hover a {
   border-radius: 30px;
 }
 /* End all orders component */
+
+/* Start checkout component */
+
+.checkout_item {
+  display: inline-block;
+  margin-right: 10px;
+  width: 20%;
+}
+
+.checkout_item img {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+.checkout_item input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkout_item label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+.checkout_item input[type="radio"]:checked ~ label {
+  background: #fedc01;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+.checkout .form-control {
+  min-height: 45px;
+  border-radius: 30px;
+  background: #f1f1f1;
+}
+/* End checkout component */
