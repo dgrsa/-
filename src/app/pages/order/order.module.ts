@@ -6,9 +6,10 @@ import { OrderTrackingComponent } from './order-tracking/order-tracking.componen
 import { OrdersComponent } from './orders/orders.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TranslateModule } from '@ngx-translate/core';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
-  declarations: [OrderTrackingComponent, OrdersComponent],
+  declarations: [OrderTrackingComponent, OrdersComponent, CheckoutComponent],
   imports: [
     CommonModule,
     OrderRoutingModule,
