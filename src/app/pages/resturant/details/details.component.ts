@@ -30,6 +30,8 @@ export class DetailsComponent implements OnInit {
   bsModalRef: BsModalRef;
   tableData = {} as any;
   totalPrice;
+  isSquares = true;
+  isRectangles = false;
   constructor(
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
@@ -99,13 +101,15 @@ export class DetailsComponent implements OnInit {
     observeSlideChildren: true,
     freeMode: true,
     spaceBetween: 20,
-    centeredSlides: true,
     breakpoints: {
+      768: {
+        slidesPerView: 4,
+      },
       576: {
         slidesPerView: 3,
       },
-      768: {
-        slidesPerView: 4,
+      414: {
+        slidesPerView: 3,
       },
       320: {
         slidesPerView: 2,
@@ -258,5 +262,15 @@ export class DetailsComponent implements OnInit {
     this.bsModalRef = this.modalService.show(TableModalComponent, {
       initialState,
     });
+  }
+
+  changeMe(event): void {
+    if (event == 'squares') {
+      this.isSquares = true;
+      this.isRectangles = false;
+    } else {
+      this.isSquares = false;
+      this.isRectangles = true;
+    }
   }
 }

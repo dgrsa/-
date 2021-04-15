@@ -41,12 +41,19 @@
                 </div>
             </div>
             <div class="col-12">
-                <div class="col-12">
-                    <div class="text-center ptb-20">
-                        <h5> {{'Food menu' | translate}} </h5>
-                        <p> {{'Choose the required meals, each according to his department' | translate}} </p>
-                    </div>
+                <div class="text-center ptb-15">
+                    <h5> {{'Food menu' | translate}} </h5>
+                    <p> {{'Choose the required meals, each according to his department' | translate}} </p>
                 </div>
+            </div>
+
+            <div class="col-12 filter_items text-center mb-3">
+                <a href="javascript:void(0)" (click)="changeMe('rectangles')" [ngClass]="{'active': isRectangles}">
+                    <i class="flaticon-rectangles-couple"></i>
+                </a>
+                <a href="javascript:void(0)" (click)="changeMe('squares')" [ngClass]="{'active': isSquares}">
+                    <i class="flaticon-four-squares-button-of-view-options"></i>
+                </a>
             </div>
 
             <div class="col-12">
@@ -82,8 +89,8 @@
                 </div>
             </div>
         </div>
-        <div class="row meals mt-3">
-            <div class="col-sm-6" *ngFor="let meal of meals; let i = index">
+        <div class="row meals mt-3" *ngIf="isSquares">
+            <div class="col-6" *ngFor="let meal of meals; let i = index">
                 <div class="featured_item">
                     <div class="image">
                         <a href="#"> <i class="flaticon-heart"></i> </a>
@@ -101,6 +108,40 @@
                                     class="flaticon-shopping-cart-1"></i></em>
                             {{'Add to cart' | translate}}
                         </a>
+                    </div>
+                    <div class="quantity">
+                        <form>
+                            <em (click)="changeQuantity('+', i)"> + </em>
+                            <input class="form-control" placeholder="1" [id]="'quantity' + meal.id"
+                                [value]="meal.selectedQuantity" disabled>
+                            <em (click)="changeQuantity('-', i)"> - </em>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row meals mt-3" *ngIf="isRectangles">
+            <div class="col-12" *ngFor="let meal of meals; let i = index">
+                <div class="one_item d-flex">
+                    <div class="image">
+                        <a href="#"> <i class="flaticon-heart"></i> </a>
+                        <img *ngIf="!meal.images[0]" src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
+                        <img *ngIf="meal.images[0]"
+                            [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name "
+                            [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
+                    </div>
+                    <div>
+                        <h5 class="mt-2"> <a [routerLink]="['/resturant/meal-details/'+ meal.id]"> {{ meal.name }} </a>
+                        </h5>
+                        <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
+                        <p> {{ meal.ingrediants }} </p>
+                        <div class="scan_join">
+                            <a class="bg_main_color" href="javascript:void(0)" (click)="addToCart(meal)"><em><i
+                                        class="flaticon-shopping-cart-1"></i></em>
+                                {{'Add to cart' | translate}}
+                            </a>
+                        </div>
                     </div>
                     <div class="quantity">
                         <form>
