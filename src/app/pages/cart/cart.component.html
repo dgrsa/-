@@ -1,1 +1,62 @@
-<p>cart works!</p>
+<div class="modal-body cart" [ngClass]="translate.currentLang == 'ar' ? 'arabicStyle': ' '">
+    <div class="text-center">
+        <h5> {{'Shopping cart' | translate}} </h5>
+        <p class="dark_color"> {{'What you have added to your cart of meals' | translate}} </p>
+    </div>
+
+    <div *ngIf="meal_data.length > 0">
+        <div class="cart_item" *ngFor="let meal of meal_data; let i = index">
+            <div class="image">
+                <span> {{cart_data['meals'][i].quantity}} </span>
+                <img *ngIf="!meal.images[0]" src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
+                <img *ngIf="meal.images[0]"
+                    [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name "
+                    [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
+            </div>
+            <div class="cart_info">
+                <span class="d-block"> {{meal.name}} </span>
+                <strong class="d-block dark_color"> {{ cart_data['meals'][i].price }} {{ 'SAR' | translate }} </strong>
+
+                <div class="quantity mt-3">
+                    <form>
+                        <em (click)="onChangeQuantity(cart_data['meals'][i] , 1 , i)"> + </em>
+                        <input type="text" class="form-control" placeholder="2"
+                            [value]="cart_data['meals'][i].quantity">
+                        <em (click)="onChangeQuantity(cart_data['meals'][i] , -1 , i)"> - </em>
+                    </form>
+                </div>
+                <a class="cart_remove" href="javascript:void(0)" (click)="deleteCatrItem(i)"> <i
+                        class="flaticon-rubbish-bin"></i> </a>
+            </div>
+        </div>
+
+        <div class="cart_price">
+            <table class="table w-100">
+                <tbody>
+                    <tr>
+                        <th> {{'Total order' | translate}} </th>
+                        <td> {{cart_data['totalPrice']}} {{ "SAR" | translate }} </td>
+                    </tr>
+                    <tr>
+                        <th> {{'No of meals' | translate}} </th>
+                        <td> {{ cart_data['totalItems'] }} </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between text-center">
+                <a [routerLink]="['/resturant/details/' + meal_data[0].resturant_id]" class="myBtn secondry">
+                    {{'Add meals' | translate}} </a>
+                <a href="javascript: void(0)" class="myBtn primary"> {{'Checkout' | translate}}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="empty_cart" *ngIf="meal_data.length == 0">
+        <p>
+            {{ 'You haven not added any products to the cart yet' | translate }}
+        </p>
+    </div>
+
+</div>
