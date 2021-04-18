@@ -67,7 +67,11 @@ const routes: Routes = [
           import('./pages/about-us/about-us.module').then(
             (mod) => mod.AboutUsModule
           ),
-        canActivate: [AuthGuard],
+      },
+      {
+        path: 'cart',
+        loadChildren: () =>
+          import('./pages/cart/cart.module').then((mod) => mod.CartModule),
       },
       { path: 'scan-code', component: ScanCodeComponent },
       { path: 'not-found', component: NotFoundComponent },
