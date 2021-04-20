@@ -73,4 +73,9 @@ export class AuthService {
     const URL = `${environment.BASE_URL}/client/signup`;
     return this.http.post(URL, sentData, this.httpOptions);
   }
+
+  createOrder(sentData, userId) {
+    const URL = `${environment.BASE_URL}/client/${userId}/order`;
+    return this.http.post(URL, sentData, this.httpOptions);
+  }
 }
