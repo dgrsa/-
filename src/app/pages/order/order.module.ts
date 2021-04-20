@@ -7,6 +7,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TranslateModule } from '@ngx-translate/core';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [OrderTrackingComponent, OrdersComponent, CheckoutComponent],
@@ -15,6 +16,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     OrderRoutingModule,
     TabsModule.forRoot(),
     TranslateModule.forChild(),
+    ReactiveFormsModule,
   ],
 })
 export class OrderModule {}

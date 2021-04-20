@@ -47,7 +47,7 @@
             <div class="d-flex justify-content-between text-center">
                 <a [routerLink]="['/resturant/details/' + meal_data[0].resturant_id]" class="myBtn secondry">
                     {{'Add meals' | translate}} </a>
-                <a href="javascript: void(0)" class="myBtn primary"> {{'Checkout' | translate}}
+                <a [routerLink]="['/order/checkout']" class="myBtn primary"> {{'Checkout' | translate}}
                 </a>
             </div>
         </div>

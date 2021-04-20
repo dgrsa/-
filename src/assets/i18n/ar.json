@@ -134,5 +134,7 @@
     "Card owner": "إسم صاحب البطاقة",
     "Card expiry date": "تاريخ إنتهاء البطاقة",
     "CVV": "رمز الحماية",
-    "Notes": "ملاحظات"
+    "Notes": "ملاحظات",
+    "This order hass been created": "تم إنشاء الطلب",
+    "Pleas, Scan QR code first": "من فضلك امسح الكود أولاً"
 }
