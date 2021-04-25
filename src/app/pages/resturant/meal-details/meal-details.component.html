@@ -25,7 +25,7 @@
                                 <span class="price"> {{meal.price}} {{'SAR' | translate}} </span>
                                 <span class="calory"> 580 {{'Calories' | translate}} </span>
                             </div>
-                            <p> {{meal.ingrediants}} </p>
+                            <p [innerHTML]="meal.ingrediants"></p>
                         </div>
                     </div>
 

@@ -102,7 +102,7 @@
                     <h5 class="mt-2"> <a [routerLink]="['/resturant/meal-details/'+ meal.id]"> {{ meal.name }} </a>
                     </h5>
                     <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
-                    <p> {{ meal.ingrediants }} </p>
+                    <p [innerHTML]="meal.ingrediants.slice(0,199)"></p>
                     <div class="scan_join">
                         <a class="bg_main_color" href="javascript:void(0)" (click)="addToCart(meal)"><em><i
                                     class="flaticon-shopping-cart-1"></i></em>
@@ -135,7 +135,7 @@
                         <h5 class="mt-2"> <a [routerLink]="['/resturant/meal-details/'+ meal.id]"> {{ meal.name }} </a>
                         </h5>
                         <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
-                        <p> {{ meal.ingrediants }} </p>
+                        <p [innerHTML]="meal.ingrediants.slice(0,199)"></p>
                         <div class="scan_join">
                             <a class="bg_main_color" href="javascript:void(0)" (click)="addToCart(meal)"><em><i
                                         class="flaticon-shopping-cart-1"></i></em>
