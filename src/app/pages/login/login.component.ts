@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/shared/auth/auth.service';
 import { HelperToolsService } from 'src/app/shared/services/helper-tools.service';
 import { ValidateFormService } from 'src/app/shared/services/validate-form.service';
 import { environment } from 'src/environments/environment';
+declare var require: any;
+var PhoneNumber = require('awesome-phonenumber');
 
 @Component({
   selector: 'app-login',
@@ -45,59 +47,70 @@ export class LoginComponent implements OnInit {
 
   loginUser(): void {
     if (this.loginFrom.valid) {
-      this.spinner.show();
-      const sentDat = {};
-      sentDat['phone'] = this.loginFrom.value.phone;
-      sentDat['password'] = this.loginFrom.value.password;
-      this.authService.loginUser(sentDat).subscribe(
-        (data) => {
-          if (data['success']) {
-            this.expiredIn = new Date(
-              +data['data']['token']['expiresIn'] * 1000
-            );
-            environment.userInfo = data['data']['user'];
-            this.authService.emitChange({
-              name: 'user_login',
-              user_data: data['data']['user'],
-            });
-            this.authService.emitTokenChange(
-              data['data']['token']['accessToken']
-            );
-            this.cookieService.set(
-              'Btoken',
-              data['data']['token']['accessToken'],
-              this.expiredIn
-            );
-            this.cookieService.set(
-              'BuserId',
-              data['data']['user']['id'],
-              this.expiredIn
-            );
-            this.router.navigate(['/']);
+      var pn = new PhoneNumber(this.loginFrom.value.phone, 'EG');
+      if (pn.isMobile() && pn.isValid()) {
+        this.spinner.show();
+        const sentDat = {};
+        sentDat['phone'] = pn.getNumber('e164');
+        sentDat['password'] = this.loginFrom.value.password;
+        this.authService.loginUser(sentDat).subscribe(
+          (data) => {
+            if (data['success']) {
+              this.expiredIn = new Date(
+                +data['data']['token']['expiresIn'] * 1000
+              );
+              environment.userInfo = data['data']['user'];
+              this.authService.emitChange({
+                name: 'user_login',
+                user_data: data['data']['user'],
+              });
+              this.authService.emitTokenChange(
+                data['data']['token']['accessToken']
+              );
+              this.cookieService.set(
+                'Btoken',
+                data['data']['token']['accessToken'],
+                this.expiredIn
+              );
+              this.cookieService.set(
+                'BuserId',
+                data['data']['user']['id'],
+                this.expiredIn
+              );
+              this.router.navigate(['/']);
+              this.spinner.hide();
+            }
+          },
+          (err) => {
+            console.log(err);
+            if (
+              err['error']['message'] == 'controllers.auth.notActiveAccount'
+            ) {
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'This account has not been activated yet',
+                'error'
+              );
+            }
+            if (
+              err['error']['message'] == 'controllers.auth.incorrectCredential'
+            ) {
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'Account not found or incorrect credential.',
+                'error'
+              );
+            }
             this.spinner.hide();
           }
-        },
-        (err) => {
-          console.log(err);
-          if (err['error']['message'] == 'controllers.auth.notActiveAccount') {
-            this.helperTool.showAlertWithTranslation(
-              '',
-              'This account has not been activated yet',
-              'error'
-            );
-          }
-          if (
-            err['error']['message'] == 'controllers.auth.incorrectCredential'
-          ) {
-            this.helperTool.showAlertWithTranslation(
-              '',
-              'Account not found or incorrect credential.',
-              'error'
-            );
-          }
-          this.spinner.hide();
-        }
-      );
+        );
+      } else {
+        this.helperTool.showAlertWithTranslation(
+          '',
+          'Invalid phone number',
+          'error'
+        );
+      }
     } else {
       this.validForm.validateAllFormFields(this.loginFrom);
     }
