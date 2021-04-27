@@ -116,11 +116,16 @@ export class CheckoutComponent implements OnInit {
       if (this.orderData.tableNumber) {
         this.createOrder();
       } else {
-        this.helperTool.showAlertWithTranslation(
-          '',
-          'Pleas, Scan QR code first',
-          'error'
-        );
+        this.helperTool
+          .showConfirmAlert('', 'Pleas, Scan QR code first')
+          .then((__) => {
+            this.router.navigate(['/scan-code'], {
+              queryParams: { checkout: 1 },
+            });
+          })
+          .catch((err) => {
+            // UserCanceld
+          });
       }
     } else {
       this.validateForm.validateAllFormFields(this.orderForm);
