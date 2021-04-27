@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NavigationEnd, Router, RoutesRecognized } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RoutesRecognized,
+} from '@angular/router';
 import { QrScannerComponent } from 'angular2-qrscanner';
 import { filter, pairwise } from 'rxjs/operators';
 import { CartService } from '../../services/cart.service';
@@ -13,17 +18,16 @@ export class ScanCodeComponent implements OnInit {
   @ViewChild(QrScannerComponent, { static: true })
   qrScannerComponent: QrScannerComponent;
   previousUrl: string;
-  constructor(private router: Router, private cartService: CartService) {
-    this.router.events
-      .pipe(
-        filter((evt: any) => evt instanceof RoutesRecognized),
-        pairwise()
-      )
-      .subscribe((events: RoutesRecognized[]) => {
-        if (events[0].urlAfterRedirects == '/order/checkout') {
-          this.previousUrl = events[0].urlAfterRedirects;
-        }
-      });
+  constructor(
+    private router: Router,
+    private cartService: CartService,
+    private route: ActivatedRoute
+  ) {
+    route.queryParams.subscribe((params) => {
+      if (params['checkout']) {
+        this.previousUrl = '/order/checkout';
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -59,7 +63,11 @@ export class ScanCodeComponent implements OnInit {
         this.cartService.tableNumber = result.split('?table=', 2);
         this.router.navigate([this.previousUrl]);
       } else {
-        window.location.href = result;
+        if (result.includes('https://')) {
+          window.location.href = result;
+        } else {
+          window.location.href = `https://${result}`;
+        }
       }
     });
   }
