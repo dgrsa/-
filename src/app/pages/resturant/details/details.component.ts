@@ -56,10 +56,10 @@ export class DetailsComponent implements OnInit {
     });
 
     this.route.queryParams.subscribe((params) => {
-      if (params['table']) {
+      if (params['tableId']) {
         this.coockieService.set('table', params['table'], 1);
         // this.coockieService.set('resturant_id', this.resturant_id);
-        this.getTableById(this.resturant_id, params['table']);
+        this.getTableById(this.resturant_id, params['tableId']);
       }
     });
   }
