@@ -23,9 +23,9 @@ export class ResturantService {
     return this.http.get(URL);
   }
 
-  getCategory() {
+  getCategory(resturant_id) {
     const URL = `${environment.BASE_URL}/category`;
-    return this.http.get(URL);
+    return this.http.get(URL, { params: { resturant_id: resturant_id } });
   }
 
   getSubCategory(id) {

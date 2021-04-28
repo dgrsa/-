@@ -135,7 +135,7 @@ export class DetailsComponent implements OnInit {
 
   getCategory(): void {
     this.spinner.show();
-    this.resturantService.getCategory().subscribe(
+    this.resturantService.getCategory(this.resturant_id).subscribe(
       (data) => {
         if (data['success']) {
           this.spinner.hide();
