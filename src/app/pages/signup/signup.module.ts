@@ -6,9 +6,10 @@ import { SignupComponent } from './signup.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { CreatePasswordComponent } from './create-password/create-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmCodeComponent } from './confirm-code/confirm-code.component';
 
 @NgModule({
-  declarations: [SignupComponent, CreatePasswordComponent],
+  declarations: [SignupComponent, CreatePasswordComponent, ConfirmCodeComponent],
   imports: [
     CommonModule,
     SignupRoutingModule,
