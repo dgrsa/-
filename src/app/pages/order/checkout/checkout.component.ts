@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/shared/auth/auth.service';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { GeneralService } from 'src/app/shared/services/general.service';
 import { HelperToolsService } from 'src/app/shared/services/helper-tools.service';
+import { ResturantService } from 'src/app/shared/services/resturant.service';
 import { ValidateFormService } from 'src/app/shared/services/validate-form.service';
 import { environment } from 'src/environments/environment';
 
@@ -26,7 +27,7 @@ export class CheckoutComponent implements OnInit {
   mealsData = [];
   constructor(
     private spinner: NgxSpinnerService,
-    private generalService: GeneralService,
+    private resturantService: ResturantService,
     private coockieService: CookieService,
     private validateForm: ValidateFormService,
     private authService: AuthService,
@@ -45,18 +46,20 @@ export class CheckoutComponent implements OnInit {
 
   getPaymentMethods(): void {
     this.spinner.show();
-    this.generalService.getPayments(undefined).subscribe(
-      (data) => {
-        if (data['success']) {
-          this.methods = data['data']['rows'];
+    this.resturantService
+      .getResturantById(this.mealsData[0].resturant_id)
+      .subscribe(
+        (data) => {
+          if (data['success']) {
+            this.methods = data['data']['payments'];
+            this.spinner.hide();
+          }
+        },
+        (err) => {
+          console.error(err);
           this.spinner.hide();
         }
-      },
-      (err) => {
-        console.error(err);
-        this.spinner.hide();
-      }
-    );
+      );
   }
 
   createOrder(): void {
