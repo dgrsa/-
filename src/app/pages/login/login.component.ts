@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
   });
   expiredIn: Date;
+  fromLogin: boolean = false;
   constructor(
     private modalService: BsModalService,
     public translate: TranslateService,
@@ -36,8 +37,15 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private helperTool: HelperToolsService,
     private router: Router,
-    private validForm: ValidateFormService
-  ) {}
+    private validForm: ValidateFormService,
+    private route: ActivatedRoute
+  ) {
+    this.route.queryParams.subscribe((params) => {
+      if (params['cartlogin']) {
+        this.fromLogin = true;
+      }
+    });
+  }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -77,7 +85,11 @@ export class LoginComponent implements OnInit {
                 data['data']['user']['id'],
                 this.expiredIn
               );
-              this.router.navigate(['/']);
+              if (this.fromLogin) {
+                this.router.navigate(['/cart']);
+              } else {
+                this.router.navigate(['/']);
+              }
               this.spinner.hide();
             }
           },
