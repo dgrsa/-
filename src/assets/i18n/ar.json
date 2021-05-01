@@ -136,5 +136,7 @@
     "CVV": "رمز الحماية",
     "Notes": "ملاحظات",
     "This order hass been created": "تم إنشاء الطلب",
-    "Pleas, Scan QR code first": "من فضلك امسح الكود أولاً"
+    "Pleas, Scan QR code first": "من فضلك امسح الكود أولاً",
+    "Enter the same password": "أدخل نفس كلمة المرور",
+    "The phone number has been confirmed": "تم تأكيد رقم الهاتف"
 }

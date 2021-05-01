@@ -14,6 +14,7 @@ export class AuthService {
   tokenChangeEmitted$ = this.emitToken.asObservable();
   token;
   httpOptions;
+  mobilePhone;
   constructor(private http: HttpClient, private cookieService: CookieService) {
     this.tokenChangeEmitted$.subscribe((token) => {
       this.token = token;
