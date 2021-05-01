@@ -61,6 +61,10 @@ export class ScanCodeComponent implements OnInit {
     this.qrScannerComponent.capturedQr.subscribe((result) => {
       if (this.previousUrl) {
         this.cartService.tableNumber = result.split('?table=', 2);
+        this.cartService.tableNumber = this.cartService.tableNumber[1].slice(
+          0,
+          1
+        );
         this.router.navigate([this.previousUrl]);
       } else {
         if (result.includes('https://')) {
