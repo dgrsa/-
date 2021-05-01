@@ -38,7 +38,7 @@ export class AuthGuard {
         this.router.navigate(['/']);
         this.helperTool.showAlertWithTranslation(
           '',
-          'This session has been expired. Please, Login agian',
+          'This session has been expired. Please, Login again',
           'error'
         );
         resolve(false);

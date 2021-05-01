@@ -20,6 +20,7 @@ export class CheckoutComponent implements OnInit {
   methods = [];
   public orderForm = new FormGroup({
     payment_id: new FormControl('', Validators.required),
+    notes: new FormControl(''),
   });
   orderData = {} as any;
   imageBaseUrl = environment.imageBaseUrl;
@@ -37,7 +38,8 @@ export class CheckoutComponent implements OnInit {
   ) {
     this.mealsData = this.cartService.CartData['mealsData'];
     this.cartData = this.cartService.CartData;
-    this.orderData.tableNumber = cartService.tableNumber;
+    this.orderData.tableNumber = parseInt(cartService.tableNumber);
+    this.orderForm.patchValue(cartService.orderData);
   }
 
   ngOnInit(): void {
@@ -125,6 +127,7 @@ export class CheckoutComponent implements OnInit {
             this.router.navigate(['/scan-code'], {
               queryParams: { checkout: 1 },
             });
+            this.cartService.orderData = this.orderForm.value;
           })
           .catch((err) => {
             // UserCanceld

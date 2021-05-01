@@ -88,7 +88,7 @@
     "My account": "حسابي",
     "Orders": "سجل الطلبات",
     "Logout": "تسجيل الخروج",
-    "This session has been expired. Please, Login agian": "انتهت هذه الجلسة. من فضل سجل الدخول مرة أخري",
+    "This session has been expired. Please, Login again": "انتهت هذه الجلسة. من فضل سجل الدخول مرة أخري",
     "A message was sent to your email": "تم إرسال رسالة إلي بريدك الإلكتروني",
     "Enter a valid email": "أدخل بريد إلكتروني صحيح",
     "This email was not found": "لم يتم العثور علي هذاالبريد الإلكتروني",
@@ -138,5 +138,7 @@
     "This order hass been created": "تم إنشاء الطلب",
     "Pleas, Scan QR code first": "من فضلك امسح الكود أولاً",
     "Enter the same password": "أدخل نفس كلمة المرور",
-    "The phone number has been confirmed": "تم تأكيد رقم الهاتف"
+    "The phone number has been confirmed": "تم تأكيد رقم الهاتف",
+    "Select payment method": "اختر وسيلة الدفع",
+    "Please login to be able to complete the order": "من فضلك سجل دخول لتتمكن من استكمال الطلب"
 }

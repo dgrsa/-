@@ -10,6 +10,7 @@ export class CartService {
   private cartChangeSource = new Subject<any>();
   CartData = {} as any;
   tableNumber = undefined;
+  orderData = {} as any;
   changeEmitted$ = this.cartChangeSource.asObservable();
   constructor(private helperTools: HelperToolsService) {
     this.getCartItems();
