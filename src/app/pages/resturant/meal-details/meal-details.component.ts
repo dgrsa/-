@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { CartService } from 'src/app/shared/services/cart.service';
@@ -18,7 +19,8 @@ export class MealDetailsComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
     private resturantService: ResturantService,
-    private cartService: CartService
+    private cartService: CartService,
+    public translate: TranslateService
   ) {
     route.params.subscribe((params) => {
       this.getItem(params['id']);

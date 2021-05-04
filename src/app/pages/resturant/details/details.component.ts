@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -40,7 +41,8 @@ export class DetailsComponent implements OnInit {
     private generalService: GeneralService,
     private modalService: BsModalService,
     private coockieService: CookieService,
-    private helperTool: HelperToolsService
+    private helperTool: HelperToolsService,
+    public translate: TranslateService
   ) {
     this.totalPrice = JSON.parse(
       localStorage.getItem('BrodoneCart')
@@ -150,7 +152,13 @@ export class DetailsComponent implements OnInit {
   }
 
   onCatChanges(event): void {
-    this.getSubCategory(event.target.value);
+    if (event == '') {
+      this.subCatId = undefined;
+      this.subCats = [];
+      this.getItems();
+    } else {
+      this.getSubCategory(event.target.value);
+    }
   }
 
   onSubCatChanges(event): void {

@@ -61,14 +61,17 @@
                     <div class="swiper-container" [swiper]="filterConfig">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <input type="radio" name="filter" id="filter_item1">
+                                <input type="radio" name="filter" id="filter_item1" (change)="onCatChanges('')">
                                 <label for="filter_item1"> {{ 'All meals' | translate }} </label>
                             </div>
 
                             <div class="swiper-slide" *ngFor="let cat of categories">
-                                <input type="radio" name="filter" [id]="cat.name + cat.id" [value]="cat.id"
+                                <input type="radio" name="filter" [id]="cat.nameEn + cat.id" [value]="cat.id"
                                     (change)="onCatChanges($event)">
-                                <label [for]="cat.name + cat.id"> {{cat.name}} </label>
+                                <label *ngIf="translate.currentLang == 'ar'" [for]="cat.name + cat.id"> {{cat.name}}
+                                </label>
+                                <label *ngIf="translate.currentLang == 'en'" [for]="cat.nameEn + cat.id"> {{cat.nameEn}}
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -82,7 +85,12 @@
                             <div class="swiper-slide" *ngFor="let subcat of subCats">
                                 <input type="radio" name="filter" [id]="subcat.name + subcat.id" [value]="subcat.id"
                                     (change)="onSubCatChanges($event)">
-                                <label [for]="subcat.name + subcat.id"> {{subcat.name}} </label>
+                                <label *ngIf="translate.currentLang == 'ar'" [for]="subcat.name + subcat.id">
+                                    {{subcat.name}}
+                                </label>
+                                <label *ngIf="translate.currentLang == 'en'" [for]="subcat.nameEn + subcat.id">
+                                    {{subcat.nameEn}}
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -99,10 +107,15 @@
                             [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name "
                             [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
                     </div>
-                    <h5 class="mt-2"> <a [routerLink]="['/resturant/meal-details/'+ meal.id]"> {{ meal.name }} </a>
+                    <h5 class="mt-2">
+                        <a *ngIf="translate.currentLang == 'ar'" [routerLink]="['/resturant/meal-details/'+ meal.id]">
+                            {{ meal.name }} </a>
+                        <a *ngIf="translate.currentLang == 'en'" [routerLink]="['/resturant/meal-details/'+ meal.id]">
+                            {{ meal.nameEn }} </a>
                     </h5>
                     <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
-                    <p [innerHTML]="meal.ingrediants.slice(0,199)"></p>
+                    <p *ngIf="translate.currentLang == 'ar'" [innerHTML]="meal.ingrediants?.slice(0,199)"></p>
+                    <p *ngIf="translate.currentLang == 'en'" [innerHTML]="meal.ingrediantsEn?.slice(0,199)"></p>
                     <div class="scan_join">
                         <a class="bg_main_color" href="javascript:void(0)" (click)="addToCart(meal)"><em><i
                                     class="flaticon-shopping-cart-1"></i></em>
@@ -132,10 +145,17 @@
                             [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
                     </div>
                     <div>
-                        <h5 class="mt-2"> <a [routerLink]="['/resturant/meal-details/'+ meal.id]"> {{ meal.name }} </a>
+                        <h5 class="mt-2">
+                            <a *ngIf="translate.currentLang == 'ar'"
+                                [routerLink]="['/resturant/meal-details/'+ meal.id]">
+                                {{ meal.name }} </a>
+                            <a *ngIf="translate.currentLang == 'en'"
+                                [routerLink]="['/resturant/meal-details/'+ meal.id]">
+                                {{ meal.nameEn }} </a>
                         </h5>
                         <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
-                        <p [innerHTML]="meal.ingrediants.slice(0,199)"></p>
+                        <p *ngIf="translate.currentLang == 'ar'" [innerHTML]="meal.ingrediants?.slice(0,199)"></p>
+                        <p *ngIf="translate.currentLang == 'en'" [innerHTML]="meal.ingrediantsEn?.slice(0,199)"></p>
                         <div class="scan_join">
                             <a class="bg_main_color" href="javascript:void(0)" (click)="addToCart(meal)"><em><i
                                         class="flaticon-shopping-cart-1"></i></em>

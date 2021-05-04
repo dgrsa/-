@@ -14,7 +14,8 @@
                     [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
             </div>
             <div class="cart_info">
-                <span class="d-block"> {{meal.name}} </span>
+                <span *ngIf="translate.currentLang == 'ar'" class="d-block"> {{meal.name}} </span>
+                <span *ngIf="translate.currentLang == 'en'" class="d-block"> {{meal.nameEn}} </span>
                 <strong class="d-block dark_color"> {{ cart_data['meals'][i].price }} {{ 'SAR' | translate }} </strong>
 
                 <div class="quantity mt-3">

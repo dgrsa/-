@@ -19,13 +19,19 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="meal_info ptb-15">
-                            <h5> {{meal.name}} </h5>
+                            <h5 *ngIf="translate.currentLang == 'ar'"> {{meal.name}} </h5>
+                            <h5 *ngIf="translate.currentLang == 'en'"> {{meal.nameEn}} </h5>
 
                             <div class="price_calories d-flex justify-content-between align-items-center ptb-15">
                                 <span class="price"> {{meal.price}} {{'SAR' | translate}} </span>
-                                <span class="calory"> 580 {{'Calories' | translate}} </span>
+                                <!-- <span class="calory"> 580 {{'Calories' | translate}} </span> -->
                             </div>
-                            <p [innerHTML]="meal.ingrediants"></p>
+                            <a *ngIf="translate.currentLang == 'ar'"
+                                [routerLink]="['/resturant/meal-details/'+ meal.id]">
+                                {{ meal.name }} </a>
+                            <a *ngIf="translate.currentLang == 'en'"
+                                [routerLink]="['/resturant/meal-details/'+ meal.id]">
+                                {{ meal.nameEn }} </a>
                         </div>
                     </div>
 
@@ -42,7 +48,7 @@
                         </div>
 
                         <div class="ptb-15">
-                            <button type="button" class="myBtn secondy" (click)="addToCart(meal)"> 
+                            <button type="button" class="myBtn secondy" (click)="addToCart(meal)">
                                 {{'Add to cart' | translate}} </button>
                         </div>
                     </div>

@@ -116,7 +116,7 @@ export class SignupComponent implements OnInit {
       this.windowRef.confirmationResult
         .confirm(this.phoneFrom.value.verificationCode)
         .then((result) => {
-          this.authService.mobilePhone = this.phoneFrom.value.phoneNumber;
+          this.authService.mobilePhone = this.mobilePhone;
           this.isCodeSent = result.user;
           this.helperTool.showAlertWithTranslation(
             '',
