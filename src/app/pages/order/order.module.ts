@@ -8,6 +8,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TranslateModule } from '@ngx-translate/core';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [OrderTrackingComponent, OrdersComponent, CheckoutComponent],
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TabsModule.forRoot(),
     TranslateModule.forChild(),
     ReactiveFormsModule,
+    NgxPaginationModule
   ],
 })
 export class OrderModule {}

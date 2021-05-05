@@ -11,29 +11,37 @@
                 <div class="col-12">
                     <tabset>
                         <tab [heading]="'Current orders' | translate" id="tab1">
-                            <div class="order_item d-flex mt-4">
-                                <div class="image">
-                                    <img src="./assets/imgs/products/Albaik_logo.svg">
+                            <div class="order_item d-flex mt-4"
+                                *ngFor="let order of currentOrders | paginate: { itemsPerPage: 10, currentPage: page, id: 'first' }">
+                                <div class=" image">
+                                    <img *ngIf="!order.resturant?.image"
+                                        src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
+                                    <img *ngIf="order.resturant?.image"
+                                        [src]="ImageBaseUrl + '/' + order.for + '/' + order.name">
                                 </div>
                                 <div>
-                                    <h5> مطعم دجاج البيك </h5>
+                                    <h5> {{order.resturant?.name}} </h5>
 
                                     <ul class="order_info">
                                         <li>
                                             <strong> {{'Order number' | translate}} </strong>
-                                            <span> : 16464648 </span>
+                                            <span> : {{order.id}} </span>
                                         </li>
                                         <li>
                                             <strong> {{'Order price' | translate}} </strong>
-                                            <span> : 250 {{'SAR' | translate}} </span>
+                                            <span> : {{order.total_price}} {{'SAR' | translate}} </span>
                                         </li>
                                         <li>
                                             <strong> {{'No of meals' | translate}} </strong>
-                                            <span> : 2 </span>
+                                            <span> : {{order.total_items}} </span>
                                         </li>
                                         <li>
                                             <strong> {{'Order status' | translate}} </strong>
-                                            <span> : {{'Preparing' | translate}} </span>
+                                            <span> : {{ order.status | translate}} </span>
+                                        </li>
+                                        <li>
+                                            <strong> {{'Payment method' | translate}} </strong>
+                                            <span> : {{ order.payment?.name | translate}} </span>
                                         </li>
                                     </ul>
 
@@ -43,96 +51,44 @@
                                 </div>
                             </div>
 
-                            <div class="order_item d-flex mt-4">
-                                <div class="image">
-                                    <img src="./assets/imgs/products/Albaik_logo.svg">
-                                </div>
-                                <div>
-                                    <h5> مطعم دجاج البيك </h5>
-
-                                    <ul class="order_info">
-                                        <li>
-                                            <strong> {{'Order number' | translate}} </strong>
-                                            <span> : 16464648 </span>
-                                        </li>
-                                        <li>
-                                            <strong> {{'Order price' | translate}} </strong>
-                                            <span> : 250 {{'SAR' | translate}} </span>
-                                        </li>
-                                        <li>
-                                            <strong> {{'No of meals' | translate}} </strong>
-                                            <span> : 2 </span>
-                                        </li>
-                                        <li>
-                                            <strong> {{'Order status' | translate}} </strong>
-                                            <span> : {{'Preparing' | translate}} </span>
-                                        </li>
-                                    </ul>
-
-                                    <a class="order_details" href="#"> <span> <i class="flaticon-left-arrow"></i>
-                                        </span>
-                                        {{'Order details' | translate}} </a>
-                                </div>
-                            </div>
-
-                            <div class="order_item d-flex mt-4">
-                                <div class="image">
-                                    <img src="./assets/imgs/products/Albaik_logo.svg">
-                                </div>
-                                <div>
-                                    <h5> مطعم دجاج البيك </h5>
-
-                                    <ul class="order_info">
-                                        <li>
-                                            <strong> {{'Order number' | translate}} </strong>
-                                            <span> : 16464648 </span>
-                                        </li>
-                                        <li>
-                                            <strong> {{'Order price' | translate}} </strong>
-                                            <span> : 250 {{'SAR' | translate}} </span>
-                                        </li>
-                                        <li>
-                                            <strong> {{'No of meals' | translate}} </strong>
-                                            <span> : 2 </span>
-                                        </li>
-                                        <li>
-                                            <strong> {{'Order status' | translate}} </strong>
-                                            <span> : {{'Preparing' | translate}} </span>
-                                        </li>
-                                    </ul>
-
-                                    <a class="order_details" href="#"> <span> <i class="flaticon-left-arrow"></i>
-                                        </span>
-                                        {{'Order details' | translate}} </a>
-                                </div>
+                            <div class="text-center mt-4">
+                                <pagination-controls *ngIf="counter > 10" id="first"
+                                    (pageChange)="loadMore($event, 'current')" previousLabel="" nextLabel="">
+                                </pagination-controls>
                             </div>
                         </tab>
                         <tab [heading]="'Previous orders' | translate">
-                            <div class="order_item d-flex mt-4">
-                                <div class="image">
-                                    <img src="./assets/imgs/products/Albaik_logo.svg">
+                            <div class="order_item d-flex mt-4"
+                                *ngFor="let order of orders | paginate: { itemsPerPage: 10, currentPage: pPage, id: 'second' }">
+                                <div class=" image">
+                                    <img *ngIf="!order.resturant?.image"
+                                        src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
+                                    <img *ngIf="order.resturant?.image"
+                                        [src]="ImageBaseUrl + '/' + order.for + '/' + order.name">
                                 </div>
                                 <div>
-                                    <h5> مطعم دجاج البيك </h5>
+                                    <h5> {{order.resturant?.name}} </h5>
 
                                     <ul class="order_info">
                                         <li>
                                             <strong> {{'Order number' | translate}} </strong>
-                                            <span> : 16464648 </span>
+                                            <span> : {{order.id}} </span>
                                         </li>
                                         <li>
                                             <strong> {{'Order price' | translate}} </strong>
-                                            <span> : 250 {{'SAR' | translate}} </span>
+                                            <span> : {{order.total_price}} {{'SAR' | translate}} </span>
                                         </li>
                                         <li>
                                             <strong> {{'No of meals' | translate}} </strong>
-                                            <span> : 2 </span>
+                                            <span> : {{order.total_items}} </span>
                                         </li>
                                         <li>
                                             <strong> {{'Order status' | translate}} </strong>
-                                            <span> : {{'Preparing' | translate}} </span>
+                                            <span> : {{ order.status | translate}} </span>
                                         </li>
-                                        <li> <strong> {{'Order date' | translate}} </strong> <span> : 12/3/2021 </span>
+                                        <li>
+                                            <strong> {{'Payment method' | translate}} </strong>
+                                            <span> : {{ order.payment?.name | translate}} </span>
                                         </li>
                                     </ul>
 
@@ -144,51 +100,16 @@
                                         <i class="flaticon-star-1"></i>
                                     </div>
 
-                                    <a class="order_details" href="#"> <span> <i class="flaticon-left-arrow"></i>
+                                    <a class="order_details" [routerLink]="['/order/tracking/' + order.id]"> <span> <i
+                                                class="flaticon-left-arrow"></i>
                                         </span>
                                         {{'Order details' | translate}} </a>
                                 </div>
-                            </div>
 
-                            <div class="order_item d-flex mt-4">
-                                <div class="image">
-                                    <img src="./assets/imgs/products/Albaik_logo.svg">
-                                </div>
-                                <div>
-                                    <h5> مطعم دجاج البيك </h5>
-
-                                    <ul class="order_info">
-                                        <li>
-                                            <strong> {{'Order number' | translate}} </strong>
-                                            <span> : 16464648 </span>
-                                        </li>
-                                        <li>
-                                            <strong> {{'Order price' | translate}} </strong>
-                                            <span> : 250 {{'SAR' | translate}} </span>
-                                        </li>
-                                        <li>
-                                            <strong> {{'No of meals' | translate}} </strong>
-                                            <span> : 2 </span>
-                                        </li>
-                                        <li>
-                                            <strong> {{'Order status' | translate}} </strong>
-                                            <span> : {{'Preparing' | translate}} </span>
-                                        </li>
-                                        <li> <strong> {{'Order date' | translate}} </strong> <span> : 12/3/2021 </span>
-                                        </li>
-                                    </ul>
-
-                                    <div class="form-group text-center">
-                                        <i class="flaticon-star-1"></i>
-                                        <i class="flaticon-star-1"></i>
-                                        <i class="flaticon-star-1"></i>
-                                        <i class="flaticon-star-1"></i>
-                                        <i class="flaticon-star-1"></i>
-                                    </div>
-
-                                    <a class="order_details" href="#"> <span> <i class="flaticon-left-arrow"></i>
-                                        </span>
-                                        {{'Order details' | translate}} </a>
+                                <div class="text-center mt-4">
+                                    <pagination-controls *ngIf="pCounter > 10" id="second"
+                                        (pageChange)="loadMore($event, '')" previousLabel="" nextLabel="">
+                                    </pagination-controls>
                                 </div>
                             </div>
                         </tab>
