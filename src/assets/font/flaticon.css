@@ -1,11 +1,11 @@
 @font-face {
   font-family: "flaticon";
-  src: url("./flaticon.ttf?277781b10c9c241be08096b2f9110f04") format("truetype"),
-    url("./flaticon.woff?277781b10c9c241be08096b2f9110f04") format("woff"),
-    url("./flaticon.woff2?277781b10c9c241be08096b2f9110f04") format("woff2"),
-    url("./flaticon.eot?277781b10c9c241be08096b2f9110f04#iefix")
+  src: url("./flaticon.ttf?7e6f1cd55988dd90b7559e32a459a55b") format("truetype"),
+    url("./flaticon.woff?7e6f1cd55988dd90b7559e32a459a55b") format("woff"),
+    url("./flaticon.woff2?7e6f1cd55988dd90b7559e32a459a55b") format("woff2"),
+    url("./flaticon.eot?7e6f1cd55988dd90b7559e32a459a55b#iefix")
       format("embedded-opentype"),
-    url("./flaticon.svg?277781b10c9c241be08096b2f9110f04#flaticon")
+    url("./flaticon.svg?7e6f1cd55988dd90b7559e32a459a55b#flaticon")
       format("svg");
 }
 
@@ -13,7 +13,7 @@ i[class^="flaticon-"]:before,
 i[class*=" flaticon-"]:before {
   font-family: flaticon !important;
   font-style: normal;
-  font-weight: normal;
+  font-weight: normal !important;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
@@ -22,189 +22,201 @@ i[class*=" flaticon-"]:before {
   font-size: 24px;
 }
 
-.flaticon-add-user:before {
+.flaticon-bag:before {
   content: "\f101";
 }
-.flaticon-add:before {
+.flaticon-heart:before {
   content: "\f102";
 }
-.flaticon-atm:before {
+.flaticon-heart-1:before {
   content: "\f103";
 }
-.flaticon-bag:before {
+.flaticon-user:before {
   content: "\f104";
 }
-.flaticon-cancel:before {
+.flaticon-add-user:before {
   content: "\f105";
 }
-.flaticon-check-mark:before {
+.flaticon-customer:before {
   content: "\f106";
 }
-.flaticon-checked-1:before {
+.flaticon-shopping-cart:before {
   content: "\f107";
 }
-.flaticon-checked:before {
+.flaticon-remove:before {
   content: "\f108";
 }
-.flaticon-choices:before {
+.flaticon-rubbish-bin:before {
   content: "\f109";
 }
-.flaticon-credit-card:before {
+.flaticon-minus:before {
   content: "\f10a";
 }
-.flaticon-credit-cards-payment:before {
+.flaticon-user-1:before {
   content: "\f10b";
 }
-.flaticon-customer:before {
+.flaticon-user-2:before {
   content: "\f10c";
 }
-.flaticon-delivery:before {
+.flaticon-search:before {
   content: "\f10d";
 }
-.flaticon-edit:before {
+.flaticon-loupe:before {
   content: "\f10e";
 }
-.flaticon-email:before {
+.flaticon-menu:before {
   content: "\f10f";
 }
-.flaticon-ewe:before {
+.flaticon-cancel:before {
   content: "\f110";
 }
-.flaticon-exit:before {
+.flaticon-facebook:before {
   content: "\f111";
 }
-.flaticon-facebook:before {
+.flaticon-messenger:before {
   content: "\f112";
 }
-.flaticon-fast:before {
+.flaticon-instagram:before {
   content: "\f113";
 }
-.flaticon-finance:before {
+.flaticon-snapchat:before {
   content: "\f114";
 }
-.flaticon-four-squares-button-of-view-options:before {
+.flaticon-youtube:before {
   content: "\f115";
 }
-.flaticon-heart-1:before {
+.flaticon-whatsapp:before {
   content: "\f116";
 }
-.flaticon-heart:before {
+.flaticon-phone-call:before {
   content: "\f117";
 }
-.flaticon-instagram:before {
+.flaticon-phone:before {
   content: "\f118";
 }
-.flaticon-knife:before {
+.flaticon-email:before {
   content: "\f119";
 }
-.flaticon-left-arrow:before {
+.flaticon-messenger-1:before {
   content: "\f11a";
 }
-.flaticon-like:before {
+.flaticon-fast:before {
   content: "\f11b";
 }
-.flaticon-logout:before {
+.flaticon-delivery:before {
   content: "\f11c";
 }
-.flaticon-loupe:before {
+.flaticon-right-arrow:before {
   content: "\f11d";
 }
-.flaticon-menu:before {
+.flaticon-left-arrow:before {
   content: "\f11e";
 }
-.flaticon-messenger-1:before {
+.flaticon-star:before {
   content: "\f11f";
 }
-.flaticon-messenger:before {
+.flaticon-star-1:before {
   content: "\f120";
 }
-.flaticon-minus:before {
+.flaticon-choices:before {
   content: "\f121";
 }
-.flaticon-open-box:before {
+.flaticon-exit:before {
   content: "\f122";
 }
-.flaticon-padlock:before {
+.flaticon-logout:before {
   content: "\f123";
 }
-.flaticon-phone-call:before {
+.flaticon-credit-cards-payment:before {
   content: "\f124";
 }
-.flaticon-phone:before {
+.flaticon-sad:before {
   content: "\f125";
 }
 .flaticon-plus:before {
   content: "\f126";
 }
-.flaticon-qr-code-scan:before {
+.flaticon-open-box:before {
   content: "\f127";
 }
-.flaticon-rectangles-couple:before {
+.flaticon-upload:before {
   content: "\f128";
 }
-.flaticon-refresh:before {
+.flaticon-view:before {
   content: "\f129";
 }
-.flaticon-remove:before {
+.flaticon-visibility:before {
   content: "\f12a";
 }
-.flaticon-right-arrow:before {
+.flaticon-qr-code-scan:before {
   content: "\f12b";
 }
-.flaticon-right:before {
+.flaticon-shopping-cart-1:before {
   content: "\f12c";
 }
-.flaticon-rubbish-bin:before {
+.flaticon-add:before {
   content: "\f12d";
 }
-.flaticon-sad:before {
+.flaticon-right:before {
   content: "\f12e";
 }
-.flaticon-search:before {
+.flaticon-twitter:before {
   content: "\f12f";
 }
-.flaticon-shopping-cart-1:before {
+.flaticon-padlock:before {
   content: "\f130";
 }
-.flaticon-shopping-cart:before {
+.flaticon-edit:before {
   content: "\f131";
 }
-.flaticon-snapchat:before {
+.flaticon-knife:before {
   content: "\f132";
 }
-.flaticon-star-1:before {
+.flaticon-ewe:before {
   content: "\f133";
 }
-.flaticon-star:before {
+.flaticon-finance:before {
   content: "\f134";
 }
 .flaticon-symbols:before {
   content: "\f135";
 }
-.flaticon-twitter:before {
+.flaticon-atm:before {
   content: "\f136";
 }
-.flaticon-upload:before {
+.flaticon-credit-card:before {
   content: "\f137";
 }
-.flaticon-user-1:before {
+.flaticon-checked:before {
   content: "\f138";
 }
-.flaticon-user-2:before {
+.flaticon-check-mark:before {
   content: "\f139";
 }
-.flaticon-user:before {
+.flaticon-refresh:before {
   content: "\f13a";
 }
-.flaticon-view:before {
+.flaticon-checked-1:before {
   content: "\f13b";
 }
-.flaticon-visibility:before {
+.flaticon-like:before {
   content: "\f13c";
 }
-.flaticon-whatsapp:before {
+.flaticon-four-squares-button-of-view-options:before {
   content: "\f13d";
 }
-.flaticon-youtube:before {
+.flaticon-rectangles-couple:before {
   content: "\f13e";
+}
+.flaticon-tiktok:before {
+  content: "\f13f";
+}
+.flaticon-snapchat-1:before {
+  content: "\f140";
+}
+.flaticon-clipboard:before {
+  content: "\f141";
+}
+.flaticon-invoice:before {
+  content: "\f142";
 }
