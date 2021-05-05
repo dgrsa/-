@@ -13,19 +13,23 @@
                     <ul class="order_info">
                         <li>
                             <strong> {{'Order number' | translate}} </strong>
-                            <span> : 16464648 </span>
+                            <span> : {{orderData.id}} </span>
                         </li>
                         <li>
                             <strong> {{'Order price' | translate}} </strong>
-                            <span> : 250 {{'SAR' | translate}} </span>
+                            <span> : {{orderData.total_price}} {{'SAR' | translate}} </span>
                         </li>
                         <li>
                             <strong> {{'No of meals' | translate}} </strong>
-                            <span> : 2 </span>
+                            <span> : {{orderData.total_items}} </span>
                         </li>
                         <li>
                             <strong> {{'Order status' | translate}} </strong>
-                            <span> : {{'Preparing' | translate}} </span>
+                            <span> : {{ orderData.status | translate}} </span>
+                        </li>
+                        <li>
+                            <strong> {{'Payment method' | translate}} </strong>
+                            <span> : {{ orderData.payment?.name | translate}} </span>
                         </li>
                     </ul>
                     <div class="table_no">
@@ -33,7 +37,7 @@
                             <img src="./assets/imgs/table.svg">
                         </div>
                         <span class="dark_color d-block"> {{'Table number' | translate}} </span>
-                        <strong class="d-block"> 15 </strong>
+                        <strong class="d-block"> {{orderData.tableNumber}} </strong>
                     </div>
                     <div class="row btn_group">
                         <div class="col-sm-6">
@@ -47,7 +51,7 @@
                     </div>
 
                     <ul class="order_status ptb-20">
-                        <li class="active">
+                        <li [ngClass]="{'active': orderData.status == 'pending' || orderData.status == 'in_kitchen'}">
                             <span> <i class="flaticon-check-mark"></i> </span>
                             <div>
                                 <strong class="d-block"> {{'Order has been sent' | translate}} </strong>
@@ -55,7 +59,7 @@
                             </div>
                         </li>
 
-                        <li>
+                        <li [ngClass]="{'active': orderData.status == 'preparing'}">
                             <span> <i class="flaticon-refresh"></i> </span>
                             <div>
                                 <strong class="d-block"> {{'Preparing your order' | translate}} </strong>
@@ -63,7 +67,7 @@
                             </div>
                         </li>
 
-                        <li>
+                        <li [ngClass]="{'active': orderData.status == 'prepared'}">
                             <span> <i class="flaticon-checked-1"></i> </span>
                             <div>
                                 <strong class="d-block"> {{'Order has been prepared' | translate}} </strong>
@@ -72,7 +76,7 @@
                             </div>
                         </li>
 
-                        <li>
+                        <li [ngClass]="{'active': orderData.status == 'on_table'}">
                             <span> <i class="flaticon-like"></i> </span>
                             <div>
                                 <strong class="d-block"> {{'Deliverd order' | translate}} </strong>
@@ -80,6 +84,20 @@
                             </div>
                             <a href="javascript: void(0)" (click)="openModal(template)" title="Rate order"> <i
                                     class="flaticon-star-1"></i> </a>
+                        </li>
+                        <li [ngClass]="{'active': orderData.status == 'finished'}">
+                            <span> <i class="flaticon-clipboard"></i> </span>
+                            <div>
+                                <strong class="d-block"> {{'Finished order' | translate}} </strong>
+                                <em class="d-block dark_color"> {{'The order has been finished' | translate}} </em>
+                            </div>
+                        </li>
+                        <li [ngClass]="{'active': orderData.status == 'paid'}">
+                            <span> <i class="flaticon-invoice"></i> </span>
+                            <div>
+                                <strong class="d-block"> {{'Paid order' | translate}} </strong>
+                                <em class="d-block dark_color"> {{'The order has been paid' | translate}} </em>
+                            </div>
                         </li>
                     </ul>
 
@@ -131,28 +149,17 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6" *ngFor="let item of items; let i = index">
                 <div class="cart_item">
                     <div class="image">
-                        <span> 2x </span>
-                        <img src="./assets/imgs/products/meat.svg">
+                        <span> {{item.OrderItem?.quantity}}x </span>
+                        <img *ngIf="!item.image" src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
+                        <img *ngIf="item.image" [src]="ImageBaseUrl + '/' + item.image?.for + '/' + item.image?.name">
                     </div>
                     <div class="cart_info">
-                        <span class="d-block"> باجيت الحلوم والمشروم </span>
-                        <strong class="d-block dark_color"> 80 ر.س </strong>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6">
-                <div class="cart_item">
-                    <div class="image">
-                        <span> 2x </span>
-                        <img src="./assets/imgs/products/meat.svg">
-                    </div>
-                    <div class="cart_info">
-                        <span class="d-block"> باجيت الحلوم والمشروم </span>
-                        <strong class="d-block dark_color"> 80 ر.س </strong>
+                        <span class="d-block" *ngIf="translate.currentLang == 'ar'"> {{item.name}} </span>
+                        <span class="d-block" *ngIf="translate.currentLang == 'en'"> {{item.nameEn}} </span>
+                        <strong class="d-block dark_color"> {{item.price}} {{'SAR' | translate}} </strong>
                     </div>
                 </div>
             </div>

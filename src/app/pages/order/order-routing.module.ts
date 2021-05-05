@@ -5,7 +5,7 @@ import { OrderTrackingComponent } from './order-tracking/order-tracking.componen
 import { OrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [
-  { path: 'tracking', component: OrderTrackingComponent },
+  { path: 'tracking/:id', component: OrderTrackingComponent },
   { path: 'history', component: OrdersComponent },
   { path: 'checkout', component: CheckoutComponent },
 ];

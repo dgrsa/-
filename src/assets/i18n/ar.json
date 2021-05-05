@@ -140,5 +140,15 @@
     "Enter the same password": "أدخل نفس كلمة المرور",
     "The phone number has been confirmed": "تم تأكيد رقم الهاتف",
     "Select payment method": "اختر وسيلة الدفع",
-    "Please login to be able to complete the order": "من فضلك سجل دخول لتتمكن من استكمال الطلب"
+    "Please login to be able to complete the order": "من فضلك سجل دخول لتتمكن من استكمال الطلب",
+    "pending": "معلق",
+    "in_kitchen": "في المطبخ",
+    "on_table": "علي الترابيزة",
+    "paid": "مدفوع",
+    "finished": "منتهي",
+    "Payment method": "طريقة الدفع",
+    "The order has been finished": "تم الإنتهاء من الطلب",
+    "The order has been paid": "تم دفع الطلب",
+    "Finished order": "طلب منتهي",
+    "Paid order": "طلب مدفوع"
 }
