@@ -8,9 +8,13 @@ import { environment } from 'src/environments/environment';
 export class ResturantService {
   constructor(private http: HttpClient) {}
 
-  getResturant(skip) {
+  getResturant(skip, special) {
+    const params = { skip: skip } as any;
+    if (special != undefined) {
+      params['special'] = special;
+    }
     const URL = `${environment.BASE_URL}/resturant`;
-    return this.http.get(URL, { params: { skip: skip } });
+    return this.http.get(URL, { params: params });
   }
 
   getResturantById(id) {

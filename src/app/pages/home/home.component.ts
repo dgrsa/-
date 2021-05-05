@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   editedBanner: string[] = [];
   offset = 1;
   resturants = [];
+  Specialresturants = [];
   constructor(
     private spinner: NgxSpinnerService,
     private generalService: GeneralService,
@@ -24,7 +25,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBanners();
-    this.getResturant();
+    this.getSpecialResturant();
+    this.getResturants();
   }
 
   config: SwiperConfigInterface = {
@@ -66,9 +68,25 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  getResturant(): void {
+  getSpecialResturant(): void {
     this.spinner.show();
-    this.resturantService.getResturant(this.offset - 1).subscribe(
+    this.resturantService.getResturant(this.offset - 1, true).subscribe(
+      (data) => {
+        if (data['success']) {
+          this.spinner.hide();
+          this.Specialresturants = data['data']['rows'];
+        }
+      },
+      (err) => {
+        this.spinner.hide();
+        console.error(err);
+      }
+    );
+  }
+
+  getResturants(): void {
+    this.spinner.show();
+    this.resturantService.getResturant(this.offset - 1, false).subscribe(
       (data) => {
         if (data['success']) {
           this.spinner.hide();
