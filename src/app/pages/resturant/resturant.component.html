@@ -1,1 +1,70 @@
-<p>resturant works!</p>
+<section class="featured_resturant ptb-40">
+    <div class="container">
+        <div *ngIf="Specialresturants.length > 0">
+            <div class="row">
+                <div class="col-12 scan_join text-center">
+                    <h5 class="mt-2"> {{'Featured resturants' | translate}} </h5>
+                    <p class="dark_color">
+                        {{'Browse the featured and varied restaurants around you' | translate}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-6"
+                    *ngFor="let resturant of Specialresturants | paginate: { itemsPerPage: 10, currentPage: page, id: 'first' }">
+                    <div class="featured_item">
+                        <a [routerLink]="['/resturant/details/' + resturant.id]">
+                            <img *ngIf="resturant.image"
+                                [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name "
+                                [alt]="resturant.image?.alt" [title]="resturant.image?.description">
+                            <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
+                        </a>
+                        <h5 class="mt-2"> {{resturant.name}} </h5>
+                        <p> {{ resturant.subtitle }} </p>
+                        <span> <img src="./assets/imgs/products/Location.svg">
+                            {{ resturant.Governorate?.name }}, {{ resturant.city?.name }} </span>
+                    </div>
+                </div>
+                <div class="text-center col-12">
+                    <pagination-controls *ngIf="counter > 10" id="first" (pageChange)="loadMore($event, 'special')"
+                        previousLabel="" nextLabel="">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="resturants.length > 0">
+            <div class="row">
+                <div class="col-12 scan_join text-center">
+                    <h5 class="mt-2"> {{'All resturants' | translate}} </h5>
+                    <p class="dark_color">
+                        {{'Browse the varied restaurants around you' | translate}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-6"
+                    *ngFor="let resturant of resturants | paginate: { itemsPerPage: 10, currentPage: page, id: 'first' }">
+                    <div class="featured_item">
+                        <a [routerLink]="['/resturant/details/' + resturant.id]">
+                            <img *ngIf="resturant.image"
+                                [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name "
+                                [alt]="resturant.image?.alt" [title]="resturant.image?.description">
+                            <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
+                        </a>
+                        <h5 class="mt-2"> {{resturant.name}} </h5>
+                        <p> {{ resturant.subtitle }} </p>
+                        <span> <img src="./assets/imgs/products/Location.svg">
+                            {{ resturant.Governorate?.name }}, {{ resturant.city?.name }} </span>
+                    </div>
+                </div>
+                <pagination-controls *ngIf="counter > 10" id="first" (pageChange)="loadMore($event, 'special')"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
+            </div>
+        </div>
+
+    </div>
+</section>
