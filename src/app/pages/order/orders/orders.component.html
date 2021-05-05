@@ -45,7 +45,8 @@
                                         </li>
                                     </ul>
 
-                                    <a class="order_details" href="#"> <span> <i class="flaticon-left-arrow"></i>
+                                    <a class="order_details" [routerLink]="['/order/tracking/' + order.id]"> <span> <i
+                                                class="flaticon-left-arrow"></i>
                                         </span>
                                         {{'Order details' | translate | translate}} </a>
                                 </div>

@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
 
   getResturants(): void {
     this.spinner.show();
-    this.resturantService.getResturant(this.offset - 1, false).subscribe(
+    this.resturantService.getResturant(this.offset - 1, undefined).subscribe(
       (data) => {
         if (data['success']) {
           this.spinner.hide();
