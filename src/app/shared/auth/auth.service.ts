@@ -79,4 +79,22 @@ export class AuthService {
     const URL = `${environment.BASE_URL}/client/${userId}/order`;
     return this.http.post(URL, sentData, this.httpOptions);
   }
+
+  getOrders(skip, status, id, userId) {
+    const params = {} as any;
+    if (skip != undefined) {
+      params['skip'] = skip;
+    }
+    if (status != undefined) {
+      params['status'] = status;
+    }
+    if (id != undefined) {
+      params['id'] = id;
+    }
+    const URL = `${environment.BASE_URL}/client/${userId}/order`;
+    return this.http.get(URL, {
+      params: params,
+      headers: this.httpOptions.headers,
+    });
+  }
 }
