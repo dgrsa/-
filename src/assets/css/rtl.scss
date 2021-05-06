@@ -220,4 +220,18 @@
   .one_item .quantity form em:first-child {
     border-radius: 30px 0 0 0;
   }
+
+  .options label div {
+    padding-left: 0;
+    padding-right: 60px;
+  }
+
+  .options img {
+    right: 0;
+    left: auto;
+  }
+
+  .text-left {
+    text-align: right !important;
+  }
 }

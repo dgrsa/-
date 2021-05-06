@@ -515,7 +515,7 @@ footer ul li:hover a {
 
 .featured_item p {
   color: #c4c4c4;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .featured_item span {
@@ -764,6 +764,32 @@ footer ul li:hover a {
 
 .flaticon-rectangles-couple:before {
   font-weight: bold !important;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.options label div {
+  position: relative;
+  padding-left: 60px;
+}
+
+.options img {
+  width: 50px;
+  position: absolute;
+  left: 0;
+}
+
+.options .custom-control-label::before,
+.options .custom-control-label::after {
+  top: 1rem;
+}
+
+.options .custom-checkbox .custom-control-label::before {
+  border-radius: 0.25rem;
 }
 
 /* End resturant details component */

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -15,6 +16,9 @@ import { environment } from 'src/environments/environment';
 export class MealDetailsComponent implements OnInit {
   imageBaseUrl = environment.imageBaseUrl;
   meal = {} as any;
+  public optionForm = new FormGroup({
+    options: new FormArray([]),
+  });
   constructor(
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
@@ -65,7 +69,7 @@ export class MealDetailsComponent implements OnInit {
   }
 
   addToCart(meal) {
-    this.cartService.addToCart(meal);
+    this.cartService.addToCart(meal, this.optionForm.value.options);
   }
 
   changeQuantity(event): void {
@@ -77,6 +81,29 @@ export class MealDetailsComponent implements OnInit {
         this.meal['selectedQuantity'] == 1
           ? 1
           : parseInt(this.meal['selectedQuantity']) - 1;
+    }
+  }
+
+  onCheckChange(event, option) {
+    const formArray: FormArray = this.optionForm.get('options') as FormArray;
+
+    /* Selected */
+    if (event.target.checked) {
+      // Add a new control in the arrayForm
+      formArray.push(new FormControl(option));
+    } else {
+      /* unselected */
+      // find the unselected element
+      let i: number = 0;
+
+      formArray.controls.forEach((ctrl: FormControl) => {
+        if (ctrl.value.id == option.id) {
+          // Remove the unselected element from the arrayForm
+          formArray.removeAt(i);
+          return;
+        }
+        i++;
+      });
     }
   }
 }

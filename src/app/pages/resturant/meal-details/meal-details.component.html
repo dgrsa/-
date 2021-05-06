@@ -9,6 +9,10 @@
                                 <img [src]="imageBaseUrl + '/' + image.for + '/' + image.name"
                                     [alt]="'Meal image' | translate">
                             </div>
+                            <div class="swiper-slide">
+                                <img *ngIf="meal['images']?.length == 0"
+                                    src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
+                            </div>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -32,6 +36,33 @@
                             <a *ngIf="translate.currentLang == 'en'"
                                 [routerLink]="['/resturant/meal-details/'+ meal.id]">
                                 {{ meal.nameEn }} </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="options">
+                            <h5 class="mb-3 text-left"> {{ 'Another additions' | translate }} </h5>
+                            <form>
+                                <div class="custom-control custom-checkbox mb-3" *ngFor="let option of meal['options']">
+                                    <input type="checkbox" class="custom-control-input" [id]="option.nameEn + option.id"
+                                        [value]="option" (change)="onCheckChange($event,option)">
+                                    <label class="custom-control-label" [for]="option.nameEn + option.id">
+                                        <div>
+                                            <img
+                                                [src]="imageBaseUrl + '/' + option.image?.for + '/' + option.image?.name ">
+                                            <span *ngIf="translate.currentLang == 'ar'" class="d-inline-block"> {{
+                                                option.name }} </span>
+                                            <span *ngIf="translate.currentLang == 'en'" class="d-inline-block"> {{
+                                                option.nameEn }} </span>
+                                            <em *ngIf="translate.currentLang == 'ar'" class="dark_color d-block"> {{
+                                                option.description }} </em>
+                                            <em *ngIf="translate.currentLang == 'en'" class="dark_color d-block"> {{
+                                                option.descriptionEn }} </em>
+                                        </div>
+                                        <strong class="main_color"> {{option.price}} {{'SAR' | translate}} </strong>
+                                    </label>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
