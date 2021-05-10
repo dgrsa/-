@@ -69,7 +69,16 @@ export class MealDetailsComponent implements OnInit {
   }
 
   addToCart(meal) {
-    this.cartService.addToCart(meal, this.optionForm.value.options);
+    const optionPrices = this.optionForm.value.options.map((option) => {
+      if (option.price) {
+        return option.price;
+      }
+    });
+    var sum = optionPrices.reduce(function (a, b) {
+      return a + b;
+    }, 0);
+    meal['newPrice'] = meal.price + sum;
+    this.cartService.checkResturant(meal, this.optionForm.value.options);
   }
 
   changeQuantity(event): void {

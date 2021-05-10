@@ -16,13 +16,19 @@
             <div class="cart_info">
                 <span *ngIf="translate.currentLang == 'ar'" class="d-block"> {{meal.name}} </span>
                 <span *ngIf="translate.currentLang == 'en'" class="d-block"> {{meal.nameEn}} </span>
+
+                <span class="dark_color" *ngFor="let option of cart_data['meals'][i]['options']">
+                    <em *ngIf="translate.currentLang == 'ar'"> {{ option.name }} </em>
+                    <em *ngIf="translate.currentLang == 'en'"> {{ option.nameEn }} </em>,
+                </span>
+
                 <strong class="d-block dark_color"> {{ cart_data['meals'][i].price }} {{ 'SAR' | translate }} </strong>
 
                 <div class="quantity mt-3">
                     <form>
                         <em (click)="onChangeQuantity(cart_data['meals'][i] , 1 , i)"> + </em>
-                        <input type="text" class="form-control" placeholder="2"
-                            [value]="cart_data['meals'][i].quantity">
+                        <input type="text" class="form-control" placeholder="2" [value]="cart_data['meals'][i].quantity"
+                            minlength="1">
                         <em (click)="onChangeQuantity(cart_data['meals'][i] , -1 , i)"> - </em>
                     </form>
                 </div>

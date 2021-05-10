@@ -216,7 +216,7 @@ export class DetailsComponent implements OnInit {
   }
 
   addToCart(meal) {
-    this.cartService.addToCart(meal, []);
+    this.cartService.checkResturant(meal, []);
   }
 
   getBanners(id) {
