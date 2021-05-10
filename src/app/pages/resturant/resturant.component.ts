@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { GeneralService } from 'src/app/shared/services/general.service';
 import { ResturantService } from 'src/app/shared/services/resturant.service';
@@ -20,7 +21,8 @@ export class ResturantComponent implements OnInit {
   constructor(
     private spinner: NgxSpinnerService,
     private resturantService: ResturantService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public translate: TranslateService
   ) {
     route.queryParams.subscribe((params) => {
       if (params['special']) {

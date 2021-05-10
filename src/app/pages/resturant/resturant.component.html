@@ -20,8 +20,10 @@
                                 [alt]="resturant.image?.alt" [title]="resturant.image?.description">
                             <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
                         </a>
-                        <h5 class="mt-2"> {{resturant.name}} </h5>
-                        <p> {{ resturant.subtitle }} </p>
+                        <h5 class="mt-2" *ngIf="translate.currentLang == 'ar'"> {{resturant.name}} </h5>
+                        <h5 class="mt-2" *ngIf="translate.currentLang == 'en'"> {{resturant.nameEn}} </h5>
+                        <p *ngIf="translate.currentLang == 'ar'"> {{ resturant.subtitle }} </p>
+                        <p *ngIf="translate.currentLang == 'en'"> {{ resturant.subtitleEn }} </p>
                         <span> <img src="./assets/imgs/products/Location.svg">
                             {{ resturant.Governorate?.name }}, {{ resturant.city?.name }} </span>
                     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { GeneralService } from 'src/app/shared/services/general.service';
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private spinner: NgxSpinnerService,
     private generalService: GeneralService,
-    private resturantService: ResturantService
+    private resturantService: ResturantService,
+    public translate: TranslateService
   ) {}
 
   ngOnInit(): void {
