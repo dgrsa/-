@@ -33,7 +33,11 @@ export class CartService {
           JSON.stringify(element.options) === JSON.stringify(options)
         ) {
           element.quantity = element.quantity + meal['selectedQuantity'];
-          element.price = element.quantity * meal.newPrice;
+          if (options.length > 0) {
+            element.price = element.quantity * meal.newPrice;
+          } else {
+            element.price = element.quantity * meal.price;
+          }
           environment.userCart.meals.map((meal) => {
             totalPrice = totalPrice + meal.price;
             totalQuantity = totalQuantity + meal.quantity;
@@ -58,7 +62,11 @@ export class CartService {
         } else {
           final.id = meal.id;
           final.quantity = meal['selectedQuantity'];
-          final.price = meal['selectedQuantity'] * meal.newPrice;
+          if (options.length > 0) {
+            final.price = meal['selectedQuantity'] * meal.newPrice;
+          } else {
+            final.price = meal['selectedQuantity'] * meal.price;
+          }
           final.options = options;
           environment.userCart.meals.push(final);
           environment.userCart.mealsData.push(meal);
@@ -86,7 +94,11 @@ export class CartService {
     } else if (environment.userCart.meals.length == 0) {
       final.id = meal.id;
       final.quantity = meal['selectedQuantity'];
-      final.price = meal['selectedQuantity'] * meal.newPrice;
+      if (options.length > 0) {
+        final.price = meal['selectedQuantity'] * meal.newPrice;
+      } else {
+        final.price = meal['selectedQuantity'] * meal.price;
+      }
       final.options = options;
       environment.userCart.meals.push(final);
       environment.userCart.mealsData.push(meal);

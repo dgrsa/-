@@ -37,11 +37,19 @@ export class CartComponent implements OnInit {
   onChangeQuantity(Data, value, i) {
     if (value == -1) {
       Data.quantity = Data.quantity == 1 ? 1 : Data.quantity + value;
-      Data.price = Data.quantity * this.meal_data[i].newPrice;
+      if (Data['options'].length > 0) {
+        Data.price = Data.quantity * this.meal_data[i].newPrice;
+      } else {
+        Data.price = Data.quantity * this.meal_data[i].price;
+      }
       this.cartService.UpdateCart();
     } else if (value == 1) {
       Data.quantity += value;
-      Data.price = Data.quantity * this.meal_data[i].newPrice;
+      if (Data['options'].length > 0) {
+        Data.price = Data.quantity * this.meal_data[i].newPrice;
+      } else {
+        Data.price = Data.quantity * this.meal_data[i].price;
+      }
       this.cartService.UpdateCart();
     }
   }
