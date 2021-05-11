@@ -67,6 +67,9 @@ export class CheckoutComponent implements OnInit {
   createOrder(): void {
     this.spinner.show();
     const meals = this.cartData.meals.map((product) => ({
+      options: product.options.map((option) => {
+        return option.id;
+      }),
       productId: product.id,
       quantity: product.quantity,
     }));
@@ -96,7 +99,7 @@ export class CheckoutComponent implements OnInit {
               'BrodoneCart',
               JSON.stringify(environment.userCart)
             );
-            this.router.navigate(['/order/tracking']);
+            this.router.navigate(['/order/history']);
           } else {
             this.helperTool.showAlertWithTranslation(
               '',
