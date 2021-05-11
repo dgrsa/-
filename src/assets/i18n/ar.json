@@ -45,7 +45,7 @@
     "Choose the required meals, each according to his department": "اختر الوجبات المطلوبة كل على حسب قسمه",
     "Food menu": "قائمة الطعام",
     "Add to cart": "أضف للسلة",
-    "Call garcoon": "أطلب الجرسون",
+    "Call waiter": "أطلب النادل",
     "SAR": "ر.س",
     "Calories": "سعرات حراية",
     "Order history": "سجل الطلبات",
@@ -153,5 +153,6 @@
     "Paid order": "طلب مدفوع",
     "Browse the varied restaurants around you": "تصفح المطاعم المتنوعة من حولك",
     "All resturants": "كل المطاعم",
-    "Another additions": "إضافات أخري"
+    "Another additions": "إضافات أخري",
+    "A notification has been sent to a waiter": "تم إرسال إشعار إلي النادل"
 }
