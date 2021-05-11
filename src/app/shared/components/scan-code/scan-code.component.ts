@@ -6,6 +6,7 @@ import {
   RoutesRecognized,
 } from '@angular/router';
 import { QrScannerComponent } from 'angular2-qrscanner';
+import { CookieService } from 'ngx-cookie-service';
 import { filter, pairwise } from 'rxjs/operators';
 import { CartService } from '../../services/cart.service';
 
@@ -21,7 +22,8 @@ export class ScanCodeComponent implements OnInit {
   constructor(
     private router: Router,
     private cartService: CartService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cookieService: CookieService
   ) {
     route.queryParams.subscribe((params) => {
       if (params['checkout']) {
@@ -59,6 +61,8 @@ export class ScanCodeComponent implements OnInit {
     });
 
     this.qrScannerComponent.capturedQr.subscribe((result) => {
+      const splitingArr = result.split('tableId=');
+      this.cookieService.set('tableId', splitingArr[1]);
       if (this.previousUrl) {
         this.cartService.tableNumber = result.split('?table=', 2);
         this.cartService.tableNumber = this.cartService.tableNumber[1].slice(
