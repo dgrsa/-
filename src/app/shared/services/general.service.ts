@@ -25,4 +25,10 @@ export class GeneralService {
     const URL = `${environment.BASE_URL}/payment`;
     return this.http.get(URL, { params: params });
   }
+
+  callWaiter(resturantId, tableId) {
+    const sentData = { reason: 'check' } as any;
+    const URL = `${environment.BASE_URL}/resturant/${resturantId}/table/${tableId}/call`;
+    return this.http.post(URL, sentData);
+  }
 }
