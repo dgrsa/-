@@ -30,9 +30,11 @@
         </div>
 
         <div class="d-flex justify-content-between text-center mt-3 w-100">
-            <a href="javascript:void(0)" (click)="callWaiter()" class="myBtn secondry"> {{'Call waiter' | translate}}
+            <a href="javascript:void(0)" (click)="callWaiter('call')" class="myBtn secondry">
+                {{'Call waiter' | translate}}
             </a>
-            <a href="#" class="myBtn primary"> {{'Order now' | translate}} </a>
+            <a href="javascript:void(0)" (click)="bsModalRef.hide()" class="myBtn primary"> {{'Order now' | translate}}
+            </a>
         </div>
     </div>
 </section>

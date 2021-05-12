@@ -281,4 +281,39 @@ export class DetailsComponent implements OnInit {
       this.isRectangles = true;
     }
   }
+
+  callWaiter(): void {
+    if (this.coockieService.get('tableId')) {
+      this.spinner.show();
+      this.generalService
+        .callWaiter(
+          { reason: 'call' },
+          this.resturant_id,
+          this.coockieService.get('tableId')
+        )
+        .subscribe(
+          (data) => {
+            this.spinner.hide();
+            if (data['success']) {
+              console.log(data);
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'A notification has been sent to a waiter',
+                'info'
+              );
+            }
+          },
+          (err) => {
+            this.spinner.hide();
+            console.error(err);
+          }
+        );
+    } else {
+      this.helperTool.showAlertWithTranslation(
+        '',
+        'Please, Scan code first',
+        'warning'
+      );
+    }
+  }
 }

@@ -24,10 +24,10 @@ export class TableModalComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  callWaiter(): void {
+  callWaiter(reason): void {
     this.spinner.show();
     this.generalService
-      .callWaiter(this.table.resturant_id, this.table.id)
+      .callWaiter({ reason: reason }, this.table.resturant_id, this.table.id)
       .subscribe(
         (data) => {
           this.spinner.hide();

@@ -65,10 +65,11 @@ export class OrderTrackingComponent implements OnInit {
       );
   }
 
-  callWaiter(): void {
+  callWaiter(reason): void {
     this.spinner.show();
     this.generalService
       .callWaiter(
+        { reason: reason },
         this.orderData.resturant_id,
         this.cookieService.get('tableId')
       )

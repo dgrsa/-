@@ -8,11 +8,13 @@
                     [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name "
                     [alt]="resturant.image?.alt" [title]="resturant.image?.description">
                 <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
-                <h5> {{resturant.name}} </h5>
-                <p> {{resturant.subtitle}} </p>
-                <!-- <a href="javascript:void(0)" (click)="callWaiter()" class="myBtn dark">
-                    <img src="./assets/imgs/chef.svg"> {{ 'Call garcoon' | translate }}
-                </a> -->
+                <h5 *ngIf="translate.currentLang == 'ar'"> {{resturant.name}} </h5>
+                <h5 *ngIf="translate.currentLang == 'en'"> {{resturant.nameEn}} </h5>
+                <p *ngIf="translate.currentLang == 'ar'"> {{ resturant.subtitle }} </p>
+                <p *ngIf="translate.currentLang == 'en'"> {{ resturant.subtitleEn }} </p>
+                <a href="javascript:void(0)" (click)="callWaiter()" class="myBtn dark">
+                    <img src="./assets/imgs/chef.svg"> {{ 'Call waiter' | translate }}
+                </a>
             </div>
         </fieldset>
     </div>

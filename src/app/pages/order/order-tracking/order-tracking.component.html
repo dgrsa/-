@@ -41,11 +41,12 @@
                     </div>
                     <div class="row btn_group">
                         <div class="col-sm-6">
-                            <a href="#" class="myBtn primary"> <i class="flaticon-finance"></i>
+                            <a href="javascript:void(0)" (click)="callWaiter('check')" class="myBtn primary"> <i
+                                    class="flaticon-finance"></i>
                                 {{'Checkout' | translate}} </a>
                         </div>
                         <div class="col-sm-6">
-                            <a href="javascript:void(0)" (click)="callWaiter()" class="myBtn secondry"> <img
+                            <a href="javascript:void(0)" (click)="callWaiter('call')" class="myBtn secondry"> <img
                                     src="./assets/imgs/chef.svg">
                                 {{'Call waiter' | translate}} </a>
                         </div>
