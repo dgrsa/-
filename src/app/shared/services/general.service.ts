@@ -26,8 +26,7 @@ export class GeneralService {
     return this.http.get(URL, { params: params });
   }
 
-  callWaiter(resturantId, tableId) {
-    const sentData = { reason: 'check' } as any;
+  callWaiter(sentData, resturantId, tableId) {
     const URL = `${environment.BASE_URL}/resturant/${resturantId}/table/${tableId}/call`;
     return this.http.post(URL, sentData);
   }
