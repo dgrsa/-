@@ -63,36 +63,31 @@ export class CreatePasswordComponent implements OnInit {
           }
         },
         (err) => {
-          console.log(err);
+          console.error(err);
           this.spinner.hide();
           for (let i = 0; i < err['error']['errors'].length; i++) {
             const element = err['error']['errors'][i];
-            if (element['message'] == 'mobilePhone is already existed') {
+            if (element['message'] == 'response.conflict.phone') {
               this.helperTool.showAlertWithTranslation(
                 '',
                 'This mpbile phone is already exists',
                 'error'
               );
-            } else if (element['message'] == 'email is already existed') {
-              this.helperTool.showAlertWithTranslation(
-                '',
-                'Email is already existed',
-                'error'
-              );
-            } else {
+            } 
+            // else if (element['message'] == 'email is already existed') {
+            //   this.helperTool.showAlertWithTranslation(
+            //     '',
+            //     'Email is already existed',
+            //     'error'
+            //   );
+            // } 
+            else {
               this.helperTool.showAlertWithTranslation(
                 '',
                 'Something wrong happend',
                 'error'
               );
             }
-          }
-          if (err['errors'][0]['message'] == '"email" must be a valid email') {
-            this.helperTool.showAlertWithTranslation(
-              '',
-              'Email must be a valid email',
-              'error'
-            );
           }
         }
       );
