@@ -25,10 +25,10 @@ export class ResturantComponent implements OnInit {
     public translate: TranslateService
   ) {
     route.queryParams.subscribe((params) => {
-      if (params['special']) {
+      if (params['special'] == 'true') {
         this.getSpecialResturant();
       } else {
-        this.getResturants;
+        this.getResturants();
       }
     });
   }

@@ -11,6 +11,7 @@ import {
   NavigationStart,
 } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { MessagingService } from '../services/messaging.service';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +23,8 @@ export class RemeberUserService implements CanActivate {
   token;
   constructor(
     private authService: AuthService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private messagingService: MessagingService
   ) {
     this.userId = this.cookieService.get('BuserId');
     this.authService.tokenChangeEmitted$.subscribe((token) => {
@@ -45,6 +47,12 @@ export class RemeberUserService implements CanActivate {
                 name: 'user_login',
                 user_data: data['data'],
               });
+              this.messagingService.getPermission(
+                this.cookieService.get('BuserId'),
+                this.token
+              );
+              this.messagingService.receiveMessage();
+              this.message = this.messagingService.currentMessage;
               resolve(true);
             } else {
               resolve(true);

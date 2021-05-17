@@ -7,6 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { HelperToolsService } from 'src/app/shared/services/helper-tools.service';
+import { MessagingService } from 'src/app/shared/services/messaging.service';
 import { ValidateFormService } from 'src/app/shared/services/validate-form.service';
 import { environment } from 'src/environments/environment';
 declare var require: any;
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
   });
   expiredIn: Date;
   fromLogin: boolean = false;
+  message;
   constructor(
     private modalService: BsModalService,
     public translate: TranslateService,
@@ -38,7 +40,8 @@ export class LoginComponent implements OnInit {
     private helperTool: HelperToolsService,
     private router: Router,
     private validForm: ValidateFormService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private messagingService: MessagingService
   ) {
     this.route.queryParams.subscribe((params) => {
       if (params['cartlogin']) {
@@ -64,6 +67,12 @@ export class LoginComponent implements OnInit {
         this.authService.loginUser(sentDat).subscribe(
           (data) => {
             if (data['success']) {
+              this.messagingService.getPermission(
+                data['data']['user']['id'],
+                data['data']['token']['accessToken']
+              );
+              this.messagingService.receiveMessage();
+              this.message = this.messagingService.currentMessage;
               this.expiredIn = new Date(
                 +data['data']['token']['expiresIn'] * 1000
               );
