@@ -2,11 +2,11 @@ $flaticon-font: "flaticon";
 
 @font-face {
     font-family: $flaticon-font;
-    src: url("./flaticon.ttf?7e6f1cd55988dd90b7559e32a459a55b") format("truetype"),
-url("./flaticon.woff?7e6f1cd55988dd90b7559e32a459a55b") format("woff"),
-url("./flaticon.woff2?7e6f1cd55988dd90b7559e32a459a55b") format("woff2"),
-url("./flaticon.eot?7e6f1cd55988dd90b7559e32a459a55b#iefix") format("embedded-opentype"),
-url("./flaticon.svg?7e6f1cd55988dd90b7559e32a459a55b#flaticon") format("svg");
+    src: url("./flaticon.ttf?88c4529be5c12da098fae81806f37cc6") format("truetype"),
+url("./flaticon.woff?88c4529be5c12da098fae81806f37cc6") format("woff"),
+url("./flaticon.woff2?88c4529be5c12da098fae81806f37cc6") format("woff2"),
+url("./flaticon.eot?88c4529be5c12da098fae81806f37cc6#iefix") format("embedded-opentype"),
+url("./flaticon.svg?88c4529be5c12da098fae81806f37cc6#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -75,18 +75,18 @@ $flaticon-map: (
     "finance": "\f134",
     "symbols": "\f135",
     "atm": "\f136",
-    "credit-card": "\f137",
-    "checked": "\f138",
-    "check-mark": "\f139",
-    "refresh": "\f13a",
-    "checked-1": "\f13b",
-    "like": "\f13c",
-    "four-squares-button-of-view-options": "\f13d",
-    "rectangles-couple": "\f13e",
-    "tiktok": "\f13f",
-    "snapchat-1": "\f140",
-    "clipboard": "\f141",
-    "invoice": "\f142",
+    "checked": "\f137",
+    "check-mark": "\f138",
+    "refresh": "\f139",
+    "checked-1": "\f13a",
+    "like": "\f13b",
+    "four-squares-button-of-view-options": "\f13c",
+    "rectangles-couple": "\f13d",
+    "tiktok": "\f13e",
+    "snapchat-1": "\f13f",
+    "clipboard": "\f140",
+    "invoice": "\f141",
+    "bell": "\f142",
 );
 
 .flaticon-bag:before {
@@ -251,9 +251,6 @@ $flaticon-map: (
 .flaticon-atm:before {
     content: map-get($flaticon-map, "atm");
 }
-.flaticon-credit-card:before {
-    content: map-get($flaticon-map, "credit-card");
-}
 .flaticon-checked:before {
     content: map-get($flaticon-map, "checked");
 }
@@ -286,4 +283,7 @@ $flaticon-map: (
 }
 .flaticon-invoice:before {
     content: map-get($flaticon-map, "invoice");
+}
+.flaticon-bell:before {
+    content: map-get($flaticon-map, "bell");
 }
