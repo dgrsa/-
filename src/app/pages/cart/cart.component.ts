@@ -59,11 +59,11 @@ export class CartComponent implements OnInit {
       this.router.navigate(['/order/checkout']);
     } else {
       this.router.navigate(['/login'], { queryParams: { cartlogin: '1' } });
-      this.helperTool.showAlertWithTranslation(
-        '',
-        'Please login to be able to complete the order',
-        'error'
-      );
+      // this.helperTool.showAlertWithTranslation(
+      //   '',
+      //   'Please login to be able to complete the order',
+      //   'error'
+      // );
     }
   }
 }
