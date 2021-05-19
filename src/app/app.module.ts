@@ -28,6 +28,7 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 import { NgQrScannerModule } from 'angular2-qrscanner';
 import { ScanCodeComponent } from './shared/components/scan-code/scan-code.component';
 import { PrivacyComponent } from './shared/components/privacy/privacy.component';
+import { TermsConditionsComponent } from './shared/components/terms-conditions/terms-conditions.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -49,6 +50,7 @@ export function createTranslateLoader(http: HttpClient) {
     NotFoundComponent,
     ScanCodeComponent,
     PrivacyComponent,
+    TermsConditionsComponent,
   ],
   entryComponents: [CartComponent, TableModalComponent],
   imports: [

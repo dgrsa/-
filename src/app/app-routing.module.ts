@@ -6,6 +6,7 @@ import { RemeberUserService } from './shared/auth/remeber-user.service';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { PrivacyComponent } from './shared/components/privacy/privacy.component';
 import { ScanCodeComponent } from './shared/components/scan-code/scan-code.component';
+import { TermsConditionsComponent } from './shared/components/terms-conditions/terms-conditions.component';
 
 const routes: Routes = [
   {
@@ -84,6 +85,7 @@ const routes: Routes = [
       },
       { path: 'scan-code', component: ScanCodeComponent },
       { path: 'privacy-policy', component: PrivacyComponent },
+      { path: 'terms-conditions', component: TermsConditionsComponent },
       { path: 'not-found', component: NotFoundComponent },
       { path: '**', redirectTo: '/not-found' },
     ],
