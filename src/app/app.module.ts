@@ -27,6 +27,7 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { NgQrScannerModule } from 'angular2-qrscanner';
 import { ScanCodeComponent } from './shared/components/scan-code/scan-code.component';
+import { PrivacyComponent } from './shared/components/privacy/privacy.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -47,6 +48,7 @@ export function createTranslateLoader(http: HttpClient) {
     TableModalComponent,
     NotFoundComponent,
     ScanCodeComponent,
+    PrivacyComponent,
   ],
   entryComponents: [CartComponent, TableModalComponent],
   imports: [

@@ -4,6 +4,7 @@ import { AuthGuard } from './shared/auth/auth.guard';
 import { isLoggedIn } from './shared/auth/isLoggedIn.service';
 import { RemeberUserService } from './shared/auth/remeber-user.service';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { PrivacyComponent } from './shared/components/privacy/privacy.component';
 import { ScanCodeComponent } from './shared/components/scan-code/scan-code.component';
 
 const routes: Routes = [
@@ -82,6 +83,7 @@ const routes: Routes = [
           import('./pages/cart/cart.module').then((mod) => mod.CartModule),
       },
       { path: 'scan-code', component: ScanCodeComponent },
+      { path: 'privacy-policy', component: PrivacyComponent },
       { path: 'not-found', component: NotFoundComponent },
       { path: '**', redirectTo: '/not-found' },
     ],
