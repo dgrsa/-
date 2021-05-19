@@ -1286,4 +1286,14 @@ footer ul li:hover a {
   color: $second_color;
 }
 
+.notification p {
+  margin-bottom: 0;
+}
+.notification em {
+  font-size: 12px;
+  direction: ltr;
+  color: #777777;
+  display: block;
+}
+
 /* End notifications component */

@@ -5,39 +5,13 @@
         </div>
 
         <div class="row">
-            <div class="col-12">
+            <div class="col-12" *ngFor="let notification of notifications">
                 <div class="notification text-left">
-                    <strong> Title </strong>
-                    <p> Notification body </p>
+                    <strong> {{notification.title}} </strong>
+                    <p> {{ notification.body }} </p>
                     <i class="flaticon-bell"></i>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="notification text-left">
-                    <strong> Title </strong>
-                    <p> Notification body </p>
-                    <i class="flaticon-bell"></i>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="notification text-left">
-                    <strong> Title </strong>
-                    <p> Notification body </p>
-                    <i class="flaticon-bell"></i>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="notification text-left">
-                    <strong> Title </strong>
-                    <p> Notification body </p>
-                    <i class="flaticon-bell"></i>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="notification text-left">
-                    <strong> Title </strong>
-                    <p> Notification body </p>
-                    <i class="flaticon-bell"></i>
+                    <em>
+                        {{ notification.createdAt | amTimeAgo }} </em>
                 </div>
             </div>
         </div>
