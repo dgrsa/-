@@ -1,4 +1,6 @@
-<div class="notifications">
+<div class="notifications" infinite-scroll [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollUpDistance]="scrollUpDistance" [infiniteScrollThrottle]="throttle" [scrollWindow]="false"
+    (scrolled)="onScroll()">
     <div class="container">
         <div class="text-left ptb-15">
             <h3> {{'Notifications' | translate}} </h3>

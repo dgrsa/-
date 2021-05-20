@@ -98,8 +98,8 @@ export class AuthService {
     });
   }
 
-  getNotifications(skip, limit, userId) {
-    const params = { skip, limit } as any;
+  getNotifications(skip, userId) {
+    const params = { skip } as any;
     let URL = `${environment.BASE_URL}/client/${userId}/notification`;
     return this.http.get(URL, {
       params: params,
