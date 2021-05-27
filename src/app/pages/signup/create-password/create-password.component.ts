@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { HelperToolsService } from 'src/app/shared/services/helper-tools.service';
+import { LanguageEmitterService } from 'src/app/shared/services/language-emmiter.service';
 import { MessagingService } from 'src/app/shared/services/messaging.service';
 import { ValidateFormService } from 'src/app/shared/services/validate-form.service';
 import { WindowService } from 'src/app/shared/services/window.service';
@@ -35,6 +36,7 @@ export class CreatePasswordComponent implements OnInit {
   });
   message;
   expiredIn: Date;
+  previousUrl;
   constructor(
     private helperTool: HelperToolsService,
     private validateService: ValidateFormService,
@@ -42,8 +44,10 @@ export class CreatePasswordComponent implements OnInit {
     public authService: AuthService,
     private router: Router,
     private cookieService: CookieService,
-    private messagingService: MessagingService
+    private messagingService: MessagingService,
+    private changeLang: LanguageEmitterService
   ) {
+    this.previousUrl = changeLang.previousUrl;
     this.registerForm.patchValue({
       phone: this.authService.mobilePhone,
     });
@@ -92,7 +96,11 @@ export class CreatePasswordComponent implements OnInit {
               data['data']['id'],
               this.expiredIn
             );
-            this.router.navigate(['/']);
+            if (this.previousUrl) {
+              this.router.navigate([this.previousUrl]);
+            } else {
+              this.router.navigate(['/']);
+            }
             this.spinner.hide();
           }
         },

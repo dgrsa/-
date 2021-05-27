@@ -1,12 +1,18 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RoutesRecognized,
+} from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { HelperToolsService } from 'src/app/shared/services/helper-tools.service';
+import { LanguageEmitterService } from 'src/app/shared/services/language-emmiter.service';
 import { MessagingService } from 'src/app/shared/services/messaging.service';
 import { ValidateFormService } from 'src/app/shared/services/validate-form.service';
 import { environment } from 'src/environments/environment';
@@ -31,6 +37,7 @@ export class LoginComponent implements OnInit {
   expiredIn: Date;
   fromLogin: boolean = false;
   message;
+  previousUrl: string;
   constructor(
     private modalService: BsModalService,
     public translate: TranslateService,
@@ -41,13 +48,10 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private validForm: ValidateFormService,
     private route: ActivatedRoute,
-    private messagingService: MessagingService
+    private messagingService: MessagingService,
+    private changeLang: LanguageEmitterService
   ) {
-    this.route.queryParams.subscribe((params) => {
-      if (params['cartlogin']) {
-        this.fromLogin = true;
-      }
-    });
+    this.previousUrl = changeLang.previousUrl;
   }
 
   openModal(template: TemplateRef<any>) {
@@ -94,8 +98,8 @@ export class LoginComponent implements OnInit {
                 data['data']['user']['id'],
                 this.expiredIn
               );
-              if (this.fromLogin) {
-                this.router.navigate(['/cart']);
+              if (this.previousUrl) {
+                this.router.navigate([this.previousUrl]);
               } else {
                 this.router.navigate(['/']);
               }
