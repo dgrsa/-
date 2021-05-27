@@ -4,6 +4,8 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { firebaseConfig } from './fireConfig';
 import { LanguageEmitterService } from './shared/services/language-emmiter.service';
 import * as firebase from 'firebase';
+import { Router, RoutesRecognized } from '@angular/router';
+import { filter, pairwise } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +16,21 @@ export class AppComponent {
   title = 'prodone';
   options = { direction: 'ltr' };
   deviceInfo;
+  previousUrl;
   constructor(
     private translate: TranslateService,
     private changeLang: LanguageEmitterService,
-    public deviceService: DeviceDetectorService
+    public deviceService: DeviceDetectorService,
+    private router: Router
   ) {
+    this.router.events
+      .pipe(
+        filter((evt: any) => evt instanceof RoutesRecognized),
+        pairwise()
+      )
+      .subscribe((events: RoutesRecognized[]) => {
+        this.changeLang.previousUrl = events[0].urlAfterRedirects;
+      });
     firebase.initializeApp(firebaseConfig);
     if (this.deviceService.isDesktop()) {
       window.location.href = 'http://brodone.net';

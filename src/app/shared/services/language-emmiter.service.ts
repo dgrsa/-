@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class LanguageEmitterService {
+  previousUrl;
   private emitChangeSource = new Subject<any>();
   changeEmitted$ = this.emitChangeSource.asObservable();
   constructor() {}
