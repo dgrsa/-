@@ -79,14 +79,18 @@
         </div>
         <div class="widget-language mb-4">
             <ul>
+                <li *ngIf="userData" routerLinkActive="active"> <a (click)="toggleNav('close')"
+                        [routerLink]="['/profile']">
+                        {{'Profile' | translate}} </a> </li>
+                <li *ngIf="!userData" routerLinkActive="active"> <a (click)="toggleNav('close')"
+                        [routerLink]="['/profile']">
+                        {{'login' | translate}} </a> </li>
                 <li> <a [routerLink]="['/']" (click)="toggleNav('close')"> {{'Home' | translate}} </a> </li>
-                <!-- <li routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/profile']">
-                        {{'Profile' | translate}} </a> </li> -->
                 <!-- <li routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/order/history']">
                         {{'Order history' | translate}} </a> </li>
                 <li routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/order/tracking']">
                         {{'Order tracking' | translate}} </a> </li> -->
-                <li routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/contact-us']">
+                <li> <a (click)="toggleNav('close')" href="https://brodone.net" target="_blank">
                         {{'Join with us' | translate}} </a> </li>
                 <li routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/privacy-policy']">
                         {{'Privacy policy' | translate}} </a>
