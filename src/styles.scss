@@ -351,6 +351,10 @@ footer {
   padding-bottom: 70px;
 }
 
+footer ul li {
+  margin-bottom: 5px;
+}
+
 footer ul li:hover a {
   background: $main_color;
   border-color: $main_color;

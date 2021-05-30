@@ -6,33 +6,49 @@
                     <img src="./assets/imgs/logo.png" alt="Brodone image">
                 </div>
                 <div class="about_us mt-3">
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s
-                    </p>
+                    <p *ngIf="transalte.currentLang == 'ar'" [innerHtml]="settings.about?.slice(0,200)"></p>
+                    <p *ngIf="transalte.currentLang == 'en'" [innerHtml]="settings.aboutEn?.slice(0,200)"></p>
                 </div>
                 <div class="social_links">
                     <ul>
-                        <li>
-                            <a href="#" target="_blank">
+                        <li *ngIf="settings.facebook">
+                            <a [href]="settings.facebook" target="_blank">
                                 <i class="flaticon-facebook"></i>
                             </a>
                         </li>
 
-                        <li>
-                            <a href="#" target="_blank">
+                        <li *ngIf="settings.messenger">
+                            <a [href]="settings.messenger" target="_blank">
+                                <i class="flaticon-messenger"></i>
+                            </a>
+                        </li>
+
+                        <li *ngIf="settings.whatsApp">
+                            <a [href]="settings.whatsApp" target="_blank">
+                                <i class="flaticon-whatsapp"></i>
+                            </a>
+                        </li>
+
+                        <li *ngIf="settings.twitter">
+                            <a [href]="settings.twitter" target="_blank">
                                 <i class="flaticon-twitter"></i>
                             </a>
                         </li>
 
-                        <li>
-                            <a href="#" target="_blank">
+                        <li *ngIf="settings.instagram">
+                            <a [href]="settings.instagram" target="_blank">
                                 <i class="flaticon-instagram"></i>
                             </a>
                         </li>
 
-                        <li>
-                            <a href="#" target="_blank">
+                        <li *ngIf="settings.snapchat">
+                            <a [href]="settings.snapchat" target="_blank">
+                                <i class="flaticon-snapchat-1"></i>
+                            </a>
+                        </li>
+
+                        <li *ngIf="settings.youtube">
+                            <a [href]="settings.youtube" target="_blank">
                                 <i class="flaticon-youtube"></i>
                             </a>
                         </li>
