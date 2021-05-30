@@ -83,6 +83,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/cart/cart.module').then((mod) => mod.CartModule),
       },
+      {
+        path: 'payment',
+        loadChildren: () =>
+          import('./pages/order-redirection/order-redirection.module').then(
+            (mod) => mod.OrderRedirectionModule
+          ),
+      },
       { path: 'scan-code', component: ScanCodeComponent },
       { path: 'privacy-policy', component: PrivacyComponent },
       { path: 'terms-conditions', component: TermsConditionsComponent },
