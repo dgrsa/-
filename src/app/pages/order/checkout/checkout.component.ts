@@ -26,6 +26,9 @@ export class CheckoutComponent implements OnInit {
   imageBaseUrl = environment.imageBaseUrl;
   cartData = {} as any;
   mealsData = [];
+  tableNumber;
+  tableId;
+  resturantId;
   constructor(
     private spinner: NgxSpinnerService,
     private resturantService: ResturantService,
@@ -36,9 +39,14 @@ export class CheckoutComponent implements OnInit {
     private cartService: CartService,
     private router: Router
   ) {
+    this.tableId =
+      this.cartService.tableId || this.coockieService.get('tableId');
+    this.tableNumber =
+      this.cartService.tableNumber || this.coockieService.get('tableNumber');
+    this.resturantId =
+      this.cartService.resturantId || this.coockieService.get('resturantId');
     this.mealsData = this.cartService.CartData['mealsData'];
     this.cartData = this.cartService.CartData;
-    this.orderData.tableNumber = parseInt(cartService.tableNumber);
     this.orderForm.patchValue(cartService.orderData);
   }
 
@@ -121,11 +129,18 @@ export class CheckoutComponent implements OnInit {
 
   validateOrderForm(): void {
     if (this.orderForm.valid) {
-      if (this.orderData.tableNumber) {
+      if (
+        this.tableNumber &&
+        this.mealsData[0].resturant_id == this.coockieService.get('resturantId')
+      ) {
+        this.orderData.tableNumber = parseInt(this.tableNumber);
         this.createOrder();
       } else {
         this.helperTool
-          .showConfirmAlert('', 'Pleas, Scan QR code first')
+          .showConfirmAlert(
+            '',
+            'You are ordering from one restaurant and this table belongs to another restaurant, or you have not chosen the table yet. Please delete the correct code'
+          )
           .then((__) => {
             this.router.navigate(['/scan-code'], {
               queryParams: { checkout: 1 },

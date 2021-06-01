@@ -157,5 +157,6 @@
     "A notification has been sent to a waiter": "تم إرسال إشعار إلي النادل",
     "Please, Scan code first": "من فضلك امسح الكود أولاً",
     "Notifications": "الإشعارات",
-    "Privacy & policy": "سياسة الخصوصية"
+    "Privacy & policy": "سياسة الخصوصية",
+    "You are ordering from one restaurant and this table belongs to another restaurant, or you have not chosen the table yet. Please delete the correct code": "أنت تطلب من مطعم وهذه الطاولة تابعة لمطعم أخر أو أنك لم تختر الطاولة بعد. من فضلك امسح الكود الصحيح"
 }
