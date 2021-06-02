@@ -106,4 +106,9 @@ export class AuthService {
       headers: this.httpOptions.headers,
     });
   }
+
+  payOnline(clientId, orderId) {
+    const URL = `${environment.BASE_URL}/client/${clientId}/order/${orderId}/checkout`;
+    return this.http.post(URL, {}, this.httpOptions);
+  }
 }
