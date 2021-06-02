@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/auth/auth.service';
@@ -37,7 +38,8 @@ export class CheckoutComponent implements OnInit {
     private authService: AuthService,
     private helperTool: HelperToolsService,
     private cartService: CartService,
-    private router: Router
+    private router: Router,
+    public translate: TranslateService
   ) {
     this.tableId =
       this.cartService.tableId || this.coockieService.get('tableId');
@@ -83,7 +85,8 @@ export class CheckoutComponent implements OnInit {
     }));
     this.orderData['products'] = meals;
     this.orderData['payment_id'] = this.orderForm.value.payment_id;
-    this.orderData['resturant_id'] = this.mealsData[0].resturant_id;
+    // this.orderData['resturant_id'] = this.mealsData[0].resturant_id;
+    this.orderData['resturant_id'] = 3;
     this.authService
       .createOrder(this.orderData, this.coockieService.get('BuserId'))
       .subscribe(
@@ -107,7 +110,14 @@ export class CheckoutComponent implements OnInit {
               'BrodoneCart',
               JSON.stringify(environment.userCart)
             );
-            this.router.navigate(['/order/history']);
+            this.helperTool
+              .showConfirmAlert('Order completed', 'Do you want to pay now?')
+              .then((__) => {
+                this.payOnline(data['data']['id']);
+              })
+              .catch((err) => {
+                this.router.navigate(['/order/history']);
+              });
           } else {
             this.helperTool.showAlertWithTranslation(
               '',
@@ -127,13 +137,31 @@ export class CheckoutComponent implements OnInit {
       );
   }
 
+  payOnline(orderId): void {
+    this.authService
+      .payOnline(this.coockieService.get('BuserId'), orderId)
+      .subscribe(
+        (data) => {
+          if (data['success']) {
+            const paymentUrl = data['data']['paymentURL'];
+            window.location.href = `${paymentUrl}`;
+          }
+        },
+        (err) => {
+          console.error(err);
+        }
+      );
+  }
+
   validateOrderForm(): void {
     if (this.orderForm.valid) {
       if (
-        this.tableNumber &&
-        this.mealsData[0].resturant_id == this.coockieService.get('resturantId')
+        // this.tableNumber &&
+        // this.mealsData[0].resturant_id == this.coockieService.get('resturantId')
+        true
       ) {
-        this.orderData.tableNumber = parseInt(this.tableNumber);
+        // this.orderData.tableNumber = parseInt(this.tableNumber);
+        this.orderData.tableNumber = 15;
         this.createOrder();
       } else {
         this.helperTool

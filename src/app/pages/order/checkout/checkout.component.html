@@ -10,7 +10,8 @@
                         <label [for]="method.name + method.id"> <img
                                 [src]="imageBaseUrl + '/' + method.image?.for + '/' + method.image?.name"
                                 [title]="method.image?.title">
-                            <span> {{ method.name }} </span>
+                            <span *ngIf="translate.currentLang == 'ar'"> {{ method.name }} </span>
+                            <span *ngIf="translate.currentLang == 'en'"> {{ method.nameEn }} </span>
                         </label>
                     </div>
                     <div class="form-control-feedback"
