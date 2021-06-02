@@ -13,6 +13,10 @@
                         <tab [heading]="'Current orders' | translate" id="tab1">
                             <div class="order_item d-flex mt-4"
                                 *ngFor="let order of currentOrders | paginate: { itemsPerPage: 10, currentPage: page, id: 'first' }">
+                                <a href="javascript:void(0)" (click)="payOnline(order.id)"
+                                    *ngIf="order.status != 'paid'" class="pay-order" [title]="'Pay now' | translate"> <i
+                                        class="flaticon-finance"></i>
+                                </a>
                                 <div class=" image">
                                     <img *ngIf="!order.resturant?.image"
                                         src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">

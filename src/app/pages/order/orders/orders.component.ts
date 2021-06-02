@@ -31,7 +31,8 @@ export class OrdersComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private spinner: NgxSpinnerService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private coockieService: CookieService
   ) {}
 
   ngOnInit(): void {
@@ -97,5 +98,21 @@ export class OrdersComponent implements OnInit {
       this.pPage = event;
       this.getOrders();
     }
+  }
+
+  payOnline(orderId): void {
+    this.authService
+      .payOnline(this.coockieService.get('BuserId'), orderId)
+      .subscribe(
+        (data) => {
+          if (data['success']) {
+            const paymentUrl = data['data']['paymentURL'];
+            window.location.href = `${paymentUrl}`;
+          }
+        },
+        (err) => {
+          console.error(err);
+        }
+      );
   }
 }

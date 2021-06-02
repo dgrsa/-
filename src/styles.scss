@@ -1181,6 +1181,19 @@ footer ul li:hover a {
 .order_item {
   border-bottom: 1px solid #c4c4c4;
   padding-bottom: 10px;
+  position: relative;
+}
+
+.order_item .pay-order {
+  position: absolute;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fedc01;
+  border-radius: 50%;
 }
 
 .order_item .image {
