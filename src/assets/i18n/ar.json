@@ -160,5 +160,9 @@
     "Privacy & policy": "سياسة الخصوصية",
     "You are ordering from one restaurant and this table belongs to another restaurant, or you have not chosen the table yet. Please delete the correct code": "أنت تطلب من مطعم وهذه الطاولة تابعة لمطعم أخر أو أنك لم تختر الطاولة بعد. من فضلك امسح الكود الصحيح",
     "Order completed": "اكتمل الطلب",
-    "Do you want to pay now?": "هل تريد الدفع الأن؟"
+    "Do you want to pay now?": "هل تريد الدفع الأن؟",
+    "Payment completed successfully": "تمت عملية الدفع بنجاح",
+    "Payment has been canceled": "تم إلغاء عملية الدفع",
+    "Status order is pending": "حالة الطلب معلق",
+    "You will be redirected within:": "سيتم إعادة توجبهك خلال :"
 }

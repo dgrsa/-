@@ -1314,3 +1314,27 @@ footer ul li:hover a {
 }
 
 /* End notifications component */
+
+/* Start redirection component */
+
+.redirection {
+  background: #f1f1f1;
+}
+
+.redirection i::before {
+  font-size: 100px;
+}
+
+.redirection p {
+  font-size: 20px;
+}
+
+.redirection .paid i::before {
+  color: #11b34c;
+}
+
+.redirection .cancel i::before {
+  color: #e8393b;
+}
+
+/* End redirection component */

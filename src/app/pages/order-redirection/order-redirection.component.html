@@ -1,1 +1,25 @@
-<p>order-redirection works!</p>
+<section class="redirection ptb-40">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-6 col-12">
+                <div *ngIf="status == 'pending'" class="pending text-center">
+                    <i class="flaticon-clipboard"></i>
+                    <p> {{'Status order is pending' | translate}} </p>
+                </div>
+
+                <div *ngIf="status == 'paid'" class="paid text-center">
+                    <i class="flaticon-check-mark"></i>
+                    <p> {{'Payment completed successfully' | translate}} </p>
+                </div>
+
+                <div *ngIf="status == 'canceled'" class="cancel text-center">
+                    <i class="flaticon-remove"></i>
+                    <p> {{'Payment has been canceled' | translate}} </p>
+                </div>
+                <div *ngIf="status" class="text-center">
+                    <span> {{'You will be redirected within:' | translate}} {{ count }} </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
