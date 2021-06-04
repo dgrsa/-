@@ -85,8 +85,7 @@ export class CheckoutComponent implements OnInit {
     }));
     this.orderData['products'] = meals;
     this.orderData['payment_id'] = this.orderForm.value.payment_id;
-    // this.orderData['resturant_id'] = this.mealsData[0].resturant_id;
-    this.orderData['resturant_id'] = 3;
+    this.orderData['resturant_id'] = this.mealsData[0].resturant_id;
     this.authService
       .createOrder(this.orderData, this.coockieService.get('BuserId'))
       .subscribe(
@@ -110,14 +109,15 @@ export class CheckoutComponent implements OnInit {
               'BrodoneCart',
               JSON.stringify(environment.userCart)
             );
-            this.helperTool
-              .showConfirmAlert('Order completed', 'Do you want to pay now?')
-              .then((__) => {
-                this.payOnline(data['data']['id']);
-              })
-              .catch((err) => {
-                this.router.navigate(['/order/history']);
-              });
+            this.payOnline(data['data']['id']);
+            // this.helperTool
+            //   .showConfirmAlert('Order completed', 'Do you want to pay now?')
+            //   .then((__) => {
+            //     this.payOnline(data['data']['id']);
+            //   })
+            //   .catch((err) => {
+            //     this.router.navigate(['/order/history']);
+            //   });
           } else {
             this.helperTool.showAlertWithTranslation(
               '',
@@ -148,6 +148,11 @@ export class CheckoutComponent implements OnInit {
           }
         },
         (err) => {
+          this.helperTool.showAlertWithTranslation(
+            '',
+            'Somthing wrong happend',
+            'error'
+          );
           console.error(err);
         }
       );
@@ -156,12 +161,10 @@ export class CheckoutComponent implements OnInit {
   validateOrderForm(): void {
     if (this.orderForm.valid) {
       if (
-        // this.tableNumber &&
-        // this.mealsData[0].resturant_id == this.coockieService.get('resturantId')
-        true
+        this.tableNumber &&
+        this.mealsData[0].resturant_id == this.coockieService.get('resturantId')
       ) {
-        // this.orderData.tableNumber = parseInt(this.tableNumber);
-        this.orderData.tableNumber = 15;
+        this.orderData.tableNumber = parseInt(this.tableNumber);
         this.createOrder();
       } else {
         this.helperTool
