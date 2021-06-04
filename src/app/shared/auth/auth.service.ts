@@ -111,4 +111,13 @@ export class AuthService {
     const URL = `${environment.BASE_URL}/client/${clientId}/order/${orderId}/checkout`;
     return this.http.post(URL, {}, this.httpOptions);
   }
+
+  chackPaymentStatus(clientId, paymentId, paymentGateway) {
+    const params = { paymentId, paymentGateway } as any;
+    const URL = `${environment.BASE_URL}/client/${clientId}/order/payment-status`;
+    return this.http.get(URL, {
+      params: params,
+      headers: this.httpOptions.headers,
+    });
+  }
 }
