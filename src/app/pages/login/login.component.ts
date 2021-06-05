@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     rememberMe: new FormControl(''),
   });
   public passwordForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    mobilePhone: new FormControl('', [Validators.required]),
   });
   expiredIn: Date;
   fromLogin: boolean = false;
@@ -143,43 +143,54 @@ export class LoginComponent implements OnInit {
 
   onEmailSubmit() {
     if (this.passwordForm.valid) {
-      this.spinner.show();
-      this.authService.sendCode(this.passwordForm.value).subscribe(
-        (data) => {
-          if (data['success']) {
+      var pn = new PhoneNumber(this.passwordForm.value.mobilePhone, 'EG');
+      if (pn.isMobile() && pn.isValid()) {
+        this.spinner.show();
+        const sentData = {};
+        sentData['mobilePhone'] = pn.getNumber('e164');
+        this.authService.sendCode(sentData).subscribe(
+          (data) => {
+            if (data['success']) {
+              this.spinner.hide();
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'A message was sent to your email',
+                'success'
+              );
+              this.modalRef.hide();
+              this.router.navigate(['/password/reset']);
+              this.cookieService.set('mobilePhone', pn.getNumber('e164'));
+            }
+          },
+          (err) => {
             this.spinner.hide();
-            this.helperTool.showAlertWithTranslation(
-              '',
-              'A message was sent to your email',
-              'success'
-            );
-            this.modalRef.hide();
-            this.router.navigate(['/password/reset']);
-            this.cookieService.set('userEmail', this.passwordForm.value.email);
+            if (err['error']['message'] == 'controller.emailNotFound') {
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'This email was not found',
+                'error'
+              );
+            }
+            if (
+              err['error']['errors']['length'] &&
+              err['error']['errors'][0]['message'] ==
+                `"email" must be a valid email`
+            ) {
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'Email must be a valid email',
+                'error'
+              );
+            }
           }
-        },
-        (err) => {
-          this.spinner.hide();
-          if (err['error']['message'] == 'controller.emailNotFound') {
-            this.helperTool.showAlertWithTranslation(
-              '',
-              'This email was not found',
-              'error'
-            );
-          }
-          if (
-            err['error']['errors']['length'] &&
-            err['error']['errors'][0]['message'] ==
-              `"email" must be a valid email`
-          ) {
-            this.helperTool.showAlertWithTranslation(
-              '',
-              'Email must be a valid email',
-              'error'
-            );
-          }
-        }
-      );
+        );
+      } else {
+        this.helperTool.showAlertWithTranslation(
+          '',
+          'Invalid phone number',
+          'error'
+        );
+      }
     } else {
       this.validForm.validateAllFormFields(this.passwordForm);
     }

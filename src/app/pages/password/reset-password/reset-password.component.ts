@@ -32,7 +32,7 @@ export class ResetPasswordComponent implements OnInit {
     if (this.passwordForm.valid) {
       this.spinner.show();
       const sentData = this.passwordForm.value;
-      sentData['email'] = this.cookieService.get('userEmail');
+      sentData['mobilePhone'] = this.cookieService.get('mobilePhone');
       this.authService.resetPassword(sentData).subscribe(
         (data) => {
           if (data['success']) {
@@ -43,7 +43,7 @@ export class ResetPasswordComponent implements OnInit {
               'success'
             );
             this.spinner.hide();
-            this.cookieService.delete('userEmail');
+            this.cookieService.delete('mobilePhone');
             this.router.navigate(['/']);
           }
         },

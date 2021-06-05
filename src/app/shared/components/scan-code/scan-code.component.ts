@@ -65,9 +65,9 @@ export class ScanCodeComponent implements OnInit {
       this.cartService.tableNumber = result.split('?table=')[1].split('&')[0];
       this.cartService.tableId = splitingArr[1];
       this.cartService.resturantId = result.split('details/')[1].split('?')[0];
-      this.cookieService.set('tableId', this.cartService.tableId);
-      this.cookieService.set('tableNumber', this.cartService.tableNumber);
-      this.cookieService.set('resturantId', this.cartService.resturantId);
+      this.cookieService.set('tableId', this.cartService.tableId, 1);
+      this.cookieService.set('tableNumber', this.cartService.tableNumber, 1);
+      this.cookieService.set('resturantId', this.cartService.resturantId, 1);
       if (this.previousUrl) {
         this.router.navigate([this.previousUrl]);
       } else {
