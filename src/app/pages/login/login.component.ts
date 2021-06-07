@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
 
   loginUser(): void {
     if (this.loginFrom.valid) {
-      var pn = new PhoneNumber(this.loginFrom.value.phone, 'EG');
+      var pn = new PhoneNumber(this.loginFrom.value.phone, 'SA');
       if (pn.isMobile() && pn.isValid()) {
         this.spinner.show();
         const sentDat = {};
@@ -143,7 +143,7 @@ export class LoginComponent implements OnInit {
 
   onEmailSubmit() {
     if (this.passwordForm.valid) {
-      var pn = new PhoneNumber(this.passwordForm.value.mobilePhone, 'EG');
+      var pn = new PhoneNumber(this.passwordForm.value.mobilePhone, 'SA');
       if (pn.isMobile() && pn.isValid()) {
         this.spinner.show();
         const sentData = {};

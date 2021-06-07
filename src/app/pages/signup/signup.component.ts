@@ -57,7 +57,7 @@ export class SignupComponent implements OnInit {
 
   sendCode() {
     if (this.phoneFrom.valid) {
-      var pn = new PhoneNumber(this.phoneFrom.value.phoneNumber, 'EG');
+      var pn = new PhoneNumber(this.phoneFrom.value.phoneNumber, 'SA');
       if (pn.isMobile() && pn.isValid()) {
         const appVerifier = this.windowRef.recaptchaVerifier;
         firebase
