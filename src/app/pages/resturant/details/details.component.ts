@@ -59,8 +59,9 @@ export class DetailsComponent implements OnInit {
 
     this.route.queryParams.subscribe((params) => {
       if (params['tableId']) {
-        this.coockieService.set('table', params['table'], 1);
-        // this.coockieService.set('resturant_id', this.resturant_id);
+        this.coockieService.set('tableId', params.tableId, 1);
+        this.coockieService.set('tableNumber', params.table, 1);
+        this.coockieService.set('resturantId', this.resturant_id, 1);
         this.getTableById(this.resturant_id, params['tableId']);
       }
     });
