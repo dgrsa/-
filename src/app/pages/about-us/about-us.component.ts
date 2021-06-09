@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { GeneralService } from 'src/app/shared/services/general.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-about-us',
@@ -16,6 +17,7 @@ export class AboutUsComponent implements OnInit {
     this.generalService.changeEmitted$.subscribe((data) => {
       this.settings = data;
     });
+    this.settings = environment.settings;
   }
 
   ngOnInit(): void {}

@@ -25,6 +25,7 @@ export class FooterComponent implements OnInit {
         if (data['success']) {
           this.settings = data['data'];
           this.generalService.emitChange(data['data']);
+          environment.settings = data['data'];
         }
       },
       (err) => {
