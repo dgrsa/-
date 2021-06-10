@@ -29,6 +29,7 @@ import { NgQrScannerModule } from 'angular2-qrscanner';
 import { ScanCodeComponent } from './shared/components/scan-code/scan-code.component';
 import { PrivacyComponent } from './shared/components/privacy/privacy.component';
 import { TermsConditionsComponent } from './shared/components/terms-conditions/terms-conditions.component';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -73,6 +74,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    ZXingScannerModule,
   ],
   providers: [
     CookieService,
