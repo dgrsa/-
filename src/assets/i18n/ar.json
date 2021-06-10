@@ -164,5 +164,11 @@
     "Payment completed successfully": "تمت عملية الدفع بنجاح",
     "Payment has been canceled": "تم إلغاء عملية الدفع",
     "Status order is pending": "حالة الطلب معلق",
-    "You will be redirected within:": "سيتم إعادة توجبهك خلال :"
+    "You will be redirected within:": "سيتم إعادة توجبهك خلال :",
+    "Waiting for permissions.": "في انتظار الإذن",
+    "No devices were found.": "لم يتم العثور علي أجهزة",
+    "I believe your device has no media devices attached to.": "أعتقد أن جهازك ليس به أجهزة وسائط متصلة به.",
+    "This may be caused by some security error.": "قد يكون هذا بسبب بعض الأخطاء الأمنية.",
+    "Couldn't check for devices.": "تعذر التحقق من وجود أجهزة.",
+    "You denied the camera permission, we can't scan anything without it.": "لقد رفضت إذن الكاميرا ، لا يمكننا مسح أي شيء بدونها."
 }
