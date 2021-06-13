@@ -83,7 +83,7 @@
                         [routerLink]="['/profile']">
                         {{'Profile' | translate}} </a> </li>
                 <li *ngIf="!userData" routerLinkActive="active"> <a (click)="toggleNav('close')"
-                        [routerLink]="['/profile']">
+                        [routerLink]="['/login']">
                         {{'Login' | translate}} </a> </li>
                 <li> <a [routerLink]="['/']" (click)="toggleNav('close')"> {{'Home' | translate}} </a> </li>
                 <!-- <li routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/order/history']">
