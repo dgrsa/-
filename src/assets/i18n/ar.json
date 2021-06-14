@@ -171,5 +171,6 @@
     "This may be caused by some security error.": "قد يكون هذا بسبب بعض الأخطاء الأمنية.",
     "Couldn't check for devices.": "تعذر التحقق من وجود أجهزة.",
     "You denied the camera permission, we can't scan anything without it.": "لقد رفضت إذن الكاميرا ، لا يمكننا مسح أي شيء بدونها.",
-    "minute": "دقيقة"
+    "minute": "دقيقة",
+    "Payment will be made through the restaurant": "سيتم إتمام عملية الدفع من خلال المطعم"
 }

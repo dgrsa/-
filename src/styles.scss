@@ -1258,7 +1258,7 @@ footer ul li:hover a {
 
 .checkout_item input[type="radio"] {
   position: absolute;
-  opacity: 0;
+  opacity: 1;
 }
 
 .checkout_item label {
@@ -1266,6 +1266,9 @@ footer ul li:hover a {
   align-items: center;
   justify-content: center;
   flex-flow: column;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 5px;
 }
 .checkout_item input[type="radio"]:checked ~ label {
   background: #fedc01;
