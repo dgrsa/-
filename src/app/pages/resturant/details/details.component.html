@@ -3,6 +3,63 @@
 <div class="form_container res_info">
     <div class="container">
         <fieldset>
+            <div class="social_links">
+                <ul>
+                    <li *ngIf="resturant.contacts?.facebook">
+                        <a [href]="resturant.contacts?.facebook" target="_blank">
+                            <i class="flaticon-facebook"></i>
+                        </a>
+                    </li>
+
+                    <li *ngIf="resturant.contacts?.messenger">
+                        <a [href]="resturant.contacts?.messenger" target="_blank">
+                            <i class="flaticon-messenger"></i>
+                        </a>
+                    </li>
+
+                    <li *ngIf="resturant.contacts?.whatsApp">
+                        <a [href]="resturant.contacts?.whatsApp" target="_blank">
+                            <i class="flaticon-whatsapp"></i>
+                        </a>
+                    </li>
+
+                    <li *ngIf="resturant.contacts?.twitter">
+                        <a [href]="resturant.contacts?.twitter" target="_blank">
+                            <i class="flaticon-twitter"></i>
+                        </a>
+                    </li>
+
+                    <li *ngIf="resturant.contacts?.instagram">
+                        <a [href]="resturant.contacts?.instagram" target="_blank">
+                            <i class="flaticon-instagram"></i>
+                        </a>
+                    </li>
+
+                    <li *ngIf="resturant.contacts?.pinterest">
+                        <a [href]="resturant.contacts?.pinterest" target="_blank">
+                            <i class="flaticon-pinterest-social-logo"></i>
+                        </a>
+                    </li>
+
+                    <li *ngIf="resturant.contacts?.snapchat">
+                        <a [href]="resturant.contacts?.snapchat" target="_blank">
+                            <i class="flaticon-snapchat-1"></i>
+                        </a>
+                    </li>
+
+                    <li *ngIf="resturant.contacts?.linkedIn">
+                        <a [href]="resturant.contacts?.linkedIn" target="_blank">
+                            <i class="flaticon-linkedin"></i>
+                        </a>
+                    </li>
+
+                    <li *ngIf="resturant.contacts?.youtube">
+                        <a [href]="resturant.contacts?.youtube" target="_blank">
+                            <i class="flaticon-youtube"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div class="featured_item">
                 <img *ngIf="resturant.image"
                     [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name "

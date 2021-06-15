@@ -563,6 +563,23 @@ footer ul li:hover a {
 
 /* Start resturant details component */
 
+.form_container .social_links {
+  position: absolute;
+  right: 0;
+}
+
+.form_container .social_links i::before {
+  font-size: 19px;
+}
+
+.form_container .social_links a {
+  width: 35px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .resturant {
   margin-top: 20px;
 }

@@ -41,12 +41,23 @@
                             </a>
                         </li>
 
+                        <li *ngIf="settings.pinterest">
+                            <a [href]="settings.pinterest" target="_blank">
+                                <i class="flaticon-pinterest-social-logo"></i>
+                            </a>
+                        </li>
+
                         <li *ngIf="settings.snapchat">
                             <a [href]="settings.snapchat" target="_blank">
                                 <i class="flaticon-snapchat-1"></i>
                             </a>
                         </li>
 
+                        <li *ngIf="settings.linkedIn">
+                            <a [href]="settings.linkedIn" target="_blank">
+                                <i class="flaticon-linkedin"></i>
+                            </a>
+                        </li>
                         <li *ngIf="settings.youtube">
                             <a [href]="settings.youtube" target="_blank">
                                 <i class="flaticon-youtube"></i>
