@@ -1,11 +1,11 @@
 @font-face {
   font-family: "flaticon";
-  src: url("./flaticon.ttf?88c4529be5c12da098fae81806f37cc6") format("truetype"),
-    url("./flaticon.woff?88c4529be5c12da098fae81806f37cc6") format("woff"),
-    url("./flaticon.woff2?88c4529be5c12da098fae81806f37cc6") format("woff2"),
-    url("./flaticon.eot?88c4529be5c12da098fae81806f37cc6#iefix")
+  src: url("./flaticon.ttf?f98c12ea9fdccef7754c6d4658e86f86") format("truetype"),
+    url("./flaticon.woff?f98c12ea9fdccef7754c6d4658e86f86") format("woff"),
+    url("./flaticon.woff2?f98c12ea9fdccef7754c6d4658e86f86") format("woff2"),
+    url("./flaticon.eot?f98c12ea9fdccef7754c6d4658e86f86#iefix")
       format("embedded-opentype"),
-    url("./flaticon.svg?88c4529be5c12da098fae81806f37cc6#flaticon")
+    url("./flaticon.svg?f98c12ea9fdccef7754c6d4658e86f86#flaticon")
       format("svg");
 }
 
@@ -219,4 +219,19 @@ i[class*=" flaticon-"]:before {
 }
 .flaticon-bell:before {
   content: "\f142";
+}
+.flaticon-fork:before {
+  content: "\f143";
+}
+.flaticon-remove-1:before {
+  content: "\f144";
+}
+.flaticon-clock:before {
+  content: "\f145";
+}
+.flaticon-pinterest-social-logo:before {
+  content: "\f146";
+}
+.flaticon-linkedin:before {
+  content: "\f147";
 }

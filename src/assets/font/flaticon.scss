@@ -2,11 +2,11 @@ $flaticon-font: "flaticon";
 
 @font-face {
     font-family: $flaticon-font;
-    src: url("./flaticon.ttf?88c4529be5c12da098fae81806f37cc6") format("truetype"),
-url("./flaticon.woff?88c4529be5c12da098fae81806f37cc6") format("woff"),
-url("./flaticon.woff2?88c4529be5c12da098fae81806f37cc6") format("woff2"),
-url("./flaticon.eot?88c4529be5c12da098fae81806f37cc6#iefix") format("embedded-opentype"),
-url("./flaticon.svg?88c4529be5c12da098fae81806f37cc6#flaticon") format("svg");
+    src: url("./flaticon.ttf?f98c12ea9fdccef7754c6d4658e86f86") format("truetype"),
+url("./flaticon.woff?f98c12ea9fdccef7754c6d4658e86f86") format("woff"),
+url("./flaticon.woff2?f98c12ea9fdccef7754c6d4658e86f86") format("woff2"),
+url("./flaticon.eot?f98c12ea9fdccef7754c6d4658e86f86#iefix") format("embedded-opentype"),
+url("./flaticon.svg?f98c12ea9fdccef7754c6d4658e86f86#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -87,6 +87,11 @@ $flaticon-map: (
     "clipboard": "\f140",
     "invoice": "\f141",
     "bell": "\f142",
+    "fork": "\f143",
+    "remove-1": "\f144",
+    "clock": "\f145",
+    "pinterest-social-logo": "\f146",
+    "linkedin": "\f147",
 );
 
 .flaticon-bag:before {
@@ -286,4 +291,19 @@ $flaticon-map: (
 }
 .flaticon-bell:before {
     content: map-get($flaticon-map, "bell");
+}
+.flaticon-fork:before {
+    content: map-get($flaticon-map, "fork");
+}
+.flaticon-remove-1:before {
+    content: map-get($flaticon-map, "remove-1");
+}
+.flaticon-clock:before {
+    content: map-get($flaticon-map, "clock");
+}
+.flaticon-pinterest-social-logo:before {
+    content: map-get($flaticon-map, "pinterest-social-logo");
+}
+.flaticon-linkedin:before {
+    content: map-get($flaticon-map, "linkedin");
 }
