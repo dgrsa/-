@@ -109,7 +109,11 @@ export class CheckoutComponent implements OnInit {
               'BrodoneCart',
               JSON.stringify(environment.userCart)
             );
-            this.payOnline(data['data']['id']);
+            if (this.orderForm.value.payment_id == 3) {
+              this.payOnline(data['data']['id']);
+            } else {
+              this.router.navigate(['/order/history']);
+            }
             // this.helperTool
             //   .showConfirmAlert('Order completed', 'Do you want to pay now?')
             //   .then((__) => {
