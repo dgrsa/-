@@ -103,7 +103,7 @@ export class DetailsComponent implements OnInit {
     observeParents: true,
     observeSlideChildren: true,
     freeMode: true,
-    spaceBetween: 20,
+    spaceBetween: 10,
     breakpoints: {
       768: {
         slidesPerView: 4,
