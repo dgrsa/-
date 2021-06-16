@@ -7,11 +7,13 @@
                     <div class="checkout_item" *ngFor="let method of methods">
                         <input type="radio" name="payment_id" formControlName="payment_id" [value]="method.id"
                             [id]="method.name + method.id">
-                        <label [for]="method.name + method.id"> <img
+                        <label [for]="method.name + method.id">
+                            <img *ngIf="method.image"
                                 [src]="imageBaseUrl + '/' + method.image?.for + '/' + method.image?.name"
                                 [title]="method.image?.title">
-                            <span *ngIf="translate.currentLang == 'ar'"> {{ method.name }} </span>
-                            <span *ngIf="translate.currentLang == 'en'"> {{ method.nameEn }} </span>
+                            <img *ngIf="!method.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
+                            <span *ngIf="translate.currentLang == 'ar'"> {{ method.viewName }} </span>
+                            <span *ngIf="translate.currentLang == 'en'"> {{ method.viewNameEn }} </span>
                         </label>
                     </div>
                     <div class="form-control-feedback"
@@ -22,7 +24,7 @@
                     </div>
 
                     <div class="info text-left text-warning"
-                        *ngIf="orderForm.value.payment_id != 2 && orderForm.value.payment_id != ''">
+                        *ngIf="orderForm.value.payment_id != 3 && orderForm.value.payment_id != ''">
                         <label> {{ 'Payment will be made through the restaurant' | translate }} </label>
                     </div>
 
