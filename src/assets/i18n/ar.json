@@ -172,5 +172,7 @@
     "Couldn't check for devices.": "تعذر التحقق من وجود أجهزة.",
     "You denied the camera permission, we can't scan anything without it.": "لقد رفضت إذن الكاميرا ، لا يمكننا مسح أي شيء بدونها.",
     "minute": "دقيقة",
-    "Payment will be made through the restaurant": "سيتم إتمام عملية الدفع من خلال المطعم"
+    "Payment will be made through the restaurant": "سيتم إتمام عملية الدفع من خلال المطعم",
+    "Go to orders": "إذهب إلي طلباتي",
+    "Payment status": "حالة الدفع"
 }

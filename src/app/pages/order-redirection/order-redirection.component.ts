@@ -45,11 +45,11 @@ export class OrderRedirectionComponent implements OnInit {
         (data) => {
           if (data['success']) {
             this.status = data['data']['status'];
-            {
-              setInterval(() => {
-                this.addCounterDown();
-              }, 1000);
-            }
+            // {
+            //   setInterval(() => {
+            //     this.addCounterDown();
+            //   }, 1000);
+            // }
           }
         },
         (err) => {
@@ -62,11 +62,11 @@ export class OrderRedirectionComponent implements OnInit {
       );
   }
 
-  addCounterDown() {
-    if (this.count != 0) {
-      this.count--;
-    } else if (this.count == 0) {
-      this.router.navigate(['/order/history']);
-    }
-  }
+  // addCounterDown() {
+  //   if (this.count != 0) {
+  //     this.count--;
+  //   } else if (this.count == 0) {
+  //     this.router.navigate(['/order/history']);
+  //   }
+  // }
 }

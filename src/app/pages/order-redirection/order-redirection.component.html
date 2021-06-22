@@ -17,7 +17,7 @@
                     <p> {{'Payment has been canceled' | translate}} </p>
                 </div>
                 <div *ngIf="status" class="text-center">
-                    <span> {{'You will be redirected within:' | translate}} {{ count }} </span>
+                    <a class="myBtn" [routerLink]="['/order/history']"> {{'Go to orders' | translate}} </a>
                 </div>
             </div>
         </div>
