@@ -28,6 +28,10 @@
                             <span> : {{ orderData.status | translate}} </span>
                         </li>
                         <li>
+                            <strong> {{'Payment status' | translate}} </strong>
+                            <span> : {{ orderData.paymentStatus | translate}} </span>
+                        </li>
+                        <li>
                             <strong> {{'Payment method' | translate}} </strong>
                             <span> : {{ orderData.payment?.name | translate}} </span>
                         </li>
@@ -40,7 +44,7 @@
                         <strong class="d-block"> {{orderData.tableNumber}} </strong>
                     </div>
                     <div class="row btn_group">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" *ngIf="orderData.payment_id != 3 && orderData.status !='paid'">
                             <a href="javascript:void(0)" (click)="callWaiter('check')" class="myBtn primary"> <i
                                     class="flaticon-finance"></i>
                                 {{'Checkout' | translate}} </a>
@@ -84,8 +88,8 @@
                                 <strong class="d-block"> {{'Deliverd order' | translate}} </strong>
                                 <em class="d-block dark_color"> {{'You can rate your order now' | translate}} </em>
                             </div>
-                            <a href="javascript: void(0)" (click)="openModal(template)" title="Rate order"> <i
-                                    class="flaticon-star-1"></i> </a>
+                            <!-- <a href="javascript: void(0)" (click)="openModal(template)" title="Rate order"> <i
+                                    class="flaticon-star-1"></i> </a> -->
                         </li>
                         <li [ngClass]="{'active': orderData.status == 'finished'}">
                             <span> <i class="flaticon-clipboard"></i> </span>
