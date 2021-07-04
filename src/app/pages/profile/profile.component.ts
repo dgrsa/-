@@ -16,8 +16,8 @@ import { environment } from 'src/environments/environment';
 export class ProfileComponent implements OnInit {
   public mainInfoForm = new FormGroup({
     phone: new FormControl({ value: '', disabled: true }),
-    name: new FormControl(),
-    email: new FormControl([Validators.email]),
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
   public passwordForm = new FormGroup({
     oldPassword: new FormControl('', Validators.required),

@@ -175,5 +175,7 @@
     "Payment will be made through the restaurant": "سيتم إتمام عملية الدفع من خلال المطعم",
     "Go to orders": "إذهب إلي طلباتي",
     "Payment status": "حالة الدفع",
-    "prepared": "تم التجهيز"
+    "prepared": "تم التجهيز",
+    "Old password": "كلمة المرور القديمة",
+    "New password": "كلمة المرور الجديدة"
 }

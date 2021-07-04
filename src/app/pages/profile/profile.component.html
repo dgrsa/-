@@ -18,12 +18,26 @@
                             <input type="text" class="form-control" [placeholder]="'Username' | translate"
                                 formControlName="name">
                             <i class="flaticon-user-1"></i>
+                            <div class="form-control-feedback"
+                                *ngIf="((mainInfoForm.get('name').touched) && (mainInfoForm.get('name').invalid))">
+                                <span class="d-block" *ngIf="mainInfoForm.get('name').errors.required"
+                                    class="text-danger">
+                                    {{ 'This field is requird' | translate }}
+                                </span>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <input type="text" class="form-control" [placeholder]="'Email' | translate"
                                 formControlName="email">
                             <i class="flaticon-email"></i>
+                            <div class="form-control-feedback"
+                                *ngIf="((mainInfoForm.get('email').touched) && (mainInfoForm.get('email').invalid))">
+                                <span class="d-block" *ngIf="mainInfoForm.get('email').errors.required"
+                                    class="text-danger">
+                                    {{ 'This field is requird' | translate }}
+                                </span>
+                            </div>
                         </div>
 
                         <div class="text-center">
@@ -34,7 +48,7 @@
                     </form>
                     <form [formGroup]="passwordForm" novalidate (submit)="changePassword()">
                         <div class="form-group">
-                            <input type="password" class="form-control" [placeholder]="'Password' | translate"
+                            <input type="password" class="form-control" [placeholder]="'Old password' | translate"
                                 formControlName="oldPassword">
                             <i class="flaticon-padlock"></i>
                             <div class="form-control-feedback"
@@ -47,7 +61,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="password" class="form-control" [placeholder]="'Confirm password' | translate"
+                            <input type="password" class="form-control" [placeholder]="'New password' | translate"
                                 formControlName="newPassword">
                             <i class="flaticon-padlock"></i>
                             <div class="form-control-feedback"
