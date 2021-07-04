@@ -14,7 +14,6 @@ import { environment } from 'src/environments/environment';
 export class HomeComponent implements OnInit {
   allBanners = [];
   imageBaseURL = environment.imageBaseUrl;
-  editedBanner: string[] = [];
   offset = 1;
   resturants = [];
   Specialresturants = [];
@@ -57,10 +56,6 @@ export class HomeComponent implements OnInit {
         if (data['success']) {
           this.spinner.hide();
           this.allBanners = data['data']['rows'];
-          const arr: string[] = this.allBanners.map((banner) => {
-            return `${this.imageBaseURL}/${banner['image']['for']}/${banner['image']['name']}`;
-          });
-          this.editedBanner = arr;
         }
       },
       (err) => {
