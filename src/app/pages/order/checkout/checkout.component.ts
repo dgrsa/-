@@ -174,7 +174,7 @@ export class CheckoutComponent implements OnInit {
         this.helperTool
           .showConfirmAlert(
             '',
-            'You are ordering from one restaurant and this table belongs to another restaurant, or you have not chosen the table yet. Please delete the correct code'
+            'You are ordering from one restaurant and this table belongs to another restaurant, or you have not chosen the table yet. Please scan the correct code'
           )
           .then((__) => {
             this.router.navigate(['/scan-code'], {

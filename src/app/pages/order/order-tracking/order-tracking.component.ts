@@ -66,29 +66,37 @@ export class OrderTrackingComponent implements OnInit {
   }
 
   callWaiter(reason): void {
-    this.spinner.show();
-    this.generalService
-      .callWaiter(
-        { reason: reason },
-        this.orderData.resturant_id,
-        this.cookieService.get('tableId')
-      )
-      .subscribe(
-        (data) => {
-          this.spinner.hide();
-          if (data['success']) {
-            console.log(data);
-            this.helperTool.showAlertWithTranslation(
-              '',
-              'A notification has been sent to a waiter',
-              'info'
-            );
+    if (this.cookieService.get('tableId')) {
+      this.spinner.show();
+      this.generalService
+        .callWaiter(
+          { reason: reason },
+          this.orderData.resturant_id,
+          this.cookieService.get('tableId')
+        )
+        .subscribe(
+          (data) => {
+            this.spinner.hide();
+            if (data['success']) {
+              console.log(data);
+              this.helperTool.showAlertWithTranslation(
+                '',
+                'A notification has been sent to a waiter',
+                'info'
+              );
+            }
+          },
+          (err) => {
+            this.spinner.hide();
+            console.error(err);
           }
-        },
-        (err) => {
-          this.spinner.hide();
-          console.error(err);
-        }
+        );
+    } else {
+      this.helperTool.showAlertWithTranslation(
+        '',
+        'Please, scan QR code first',
+        'info'
       );
+    }
   }
 }
