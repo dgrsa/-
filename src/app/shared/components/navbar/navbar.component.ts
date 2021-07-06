@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
@@ -23,13 +25,17 @@ export class NavbarComponent implements OnInit {
   userData: any;
   authsub: Subscription;
   cartCount = 0;
+  public searchForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+  });
   constructor(
     public translate: TranslateService,
     private changeLanguage: LanguageEmitterService,
     private modalService: BsModalService,
     private authService: AuthService,
     private cookieService: CookieService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) {
     this.cartCount = environment.userCart['meals'].length;
     this.authsub = this.authService.changeEmitted$.subscribe((value) => {
@@ -84,5 +90,12 @@ export class NavbarComponent implements OnInit {
     this.cookieService.delete('Btoken', '/');
     this.cookieService.delete('BuserId', '/');
     window.location.href = '/';
+  }
+
+  search(): void {
+    this.toggleNav('close');
+    this.router.navigate(['/resturant'], {
+      queryParams: { special: false, name: this.searchForm.value.name },
+    });
   }
 }

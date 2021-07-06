@@ -33,6 +33,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { MessagingService } from './shared/services/messaging.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -72,6 +73,7 @@ export function createTranslateLoader(http: HttpClient) {
     ModalModule.forRoot(),
     NgxSpinnerModule,
     NgQrScannerModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

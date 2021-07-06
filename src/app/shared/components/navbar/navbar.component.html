@@ -70,9 +70,10 @@
     </div>
     <div class="pr-3 pt-3 pl-3 pb-3">
         <div class="form-container">
-            <form>
+            <form [formGroup]="searchForm" novalidate (submit)="search()">
                 <div class="form-group">
-                    <input type="text" class="form-control" [placeholder]="'Search in resturant...' | translate">
+                    <input type="text" class="form-control" [placeholder]="'Search in resturant...' | translate"
+                        formControlName="name">
                     <button type="submit"> <i class="flaticon-search"></i> </button>
                 </div>
             </form>
