@@ -8,10 +8,13 @@ import { environment } from 'src/environments/environment';
 export class ResturantService {
   constructor(private http: HttpClient) {}
 
-  getResturant(skip, special) {
+  getResturant(skip, special, name = undefined) {
     const params = { skip: skip } as any;
     if (special != undefined) {
       params['special'] = special;
+    }
+    if (name != undefined) {
+      params['name'] = name;
     }
     const URL = `${environment.BASE_URL}/resturant`;
     return this.http.get(URL, { params: params });

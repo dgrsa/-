@@ -18,6 +18,7 @@ export class ResturantComponent implements OnInit {
   counter;
   page;
   imageBaseURL = environment.imageBaseUrl;
+  name;
   constructor(
     private spinner: NgxSpinnerService,
     private resturantService: ResturantService,
@@ -28,7 +29,12 @@ export class ResturantComponent implements OnInit {
       if (params['special'] == 'true') {
         this.getSpecialResturant();
       } else {
-        this.getResturants();
+        if (params['name']) {
+          this.name = params['name'];
+          this.getResturants();
+        } else {
+          this.getResturants();
+        }
       }
     });
   }
@@ -53,20 +59,23 @@ export class ResturantComponent implements OnInit {
   }
 
   getResturants(): void {
+    console.log(this.name);
     this.spinner.show();
-    this.resturantService.getResturant(this.offset - 1, undefined).subscribe(
-      (data) => {
-        if (data['success']) {
+    this.resturantService
+      .getResturant(this.offset - 1, undefined, this.name)
+      .subscribe(
+        (data) => {
+          if (data['success']) {
+            this.spinner.hide();
+            this.counter = data['data']['count'];
+            this.resturants = data['data']['rows'];
+          }
+        },
+        (err) => {
           this.spinner.hide();
-          this.counter = data['data']['count'];
-          this.resturants = data['data']['rows'];
+          console.error(err);
         }
-      },
-      (err) => {
-        this.spinner.hide();
-        console.error(err);
-      }
-    );
+      );
   }
 
   loadMore(event, type): void {
