@@ -30,6 +30,9 @@ import { ScanCodeComponent } from './shared/components/scan-code/scan-code.compo
 import { PrivacyComponent } from './shared/components/privacy/privacy.component';
 import { TermsConditionsComponent } from './shared/components/terms-conditions/terms-conditions.component';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { MessagingService } from './shared/services/messaging.service';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -61,6 +64,8 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     ClickOutsideModule,
     HttpClientModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AngularFireMessagingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     SwiperModule,
@@ -79,6 +84,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     CookieService,
     AuthGuard,
+    MessagingService,
     {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG,

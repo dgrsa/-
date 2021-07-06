@@ -1,7 +1,5 @@
-importScripts("https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js");
-importScripts(
-  "https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js"
-);
+importScripts("https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js");
+importScripts("https://www.gstatic.com/firebasejs/7.6.0/firebase-messaging.js");
 
 firebase.initializeApp({
   apiKey: "AIzaSyCtnfnYSxLHQPZb8SYVfq4723FbA5acnQ0",
@@ -14,7 +12,3 @@ firebase.initializeApp({
 });
 
 const messaging = firebase.messaging();
-// messaging.onMessage((payload) => {
-//   console.log('Message received. ', payload);
-//   // ...
-// });
