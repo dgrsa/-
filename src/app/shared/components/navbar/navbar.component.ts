@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from '../../auth/auth.service';
 import { CartService } from '../../services/cart.service';
 import { LanguageEmitterService } from '../../services/language-emmiter.service';
+import { MessagingService } from '../../services/messaging.service';
 import { CartComponent } from '../cart/cart.component';
 import { TableModalComponent } from '../table-modal/table-modal.component';
 
@@ -28,6 +29,7 @@ export class NavbarComponent implements OnInit {
   public searchForm = new FormGroup({
     name: new FormControl('', Validators.required),
   });
+  myCounter = 0;
   constructor(
     public translate: TranslateService,
     private changeLanguage: LanguageEmitterService,
@@ -35,7 +37,8 @@ export class NavbarComponent implements OnInit {
     private authService: AuthService,
     private cookieService: CookieService,
     private cartService: CartService,
-    private router: Router
+    private router: Router,
+    private messagingService: MessagingService
   ) {
     this.cartCount = environment.userCart['meals'].length;
     this.authsub = this.authService.changeEmitted$.subscribe((value) => {
@@ -47,7 +50,11 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.messagingService.changeEmitted$.subscribe((counter) => {
+      this.myCounter += counter;
+    });
+  }
 
   toggleNav(e: any) {
     if (e == 'open') {
