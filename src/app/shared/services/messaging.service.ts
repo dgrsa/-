@@ -1,9 +1,10 @@
 import { CookieService } from 'ngx-cookie-service';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
-import { BehaviorSubject, from } from 'rxjs';
+import { BehaviorSubject, from, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { AngularFireMessaging } from '@angular/fire/messaging';
 // import { AuthService } from "./auth.service";
 
 @Injectable({
@@ -14,10 +15,17 @@ export class MessagingService {
   currentMessage = new BehaviorSubject(null);
   token;
   httpOptions;
+  private emitChangeSource = new Subject<any>();
+  changeEmitted$ = this.emitChangeSource.asObservable();
   constructor(
     private http: HttpClient,
-    private cookieService: CookieService // private authService: AuthService
+    private cookieService: CookieService,
+    private angularFireMessaging: AngularFireMessaging // private authService: AuthService
   ) {
+    this.angularFireMessaging.messaging.subscribe((_messaging) => {
+      _messaging.onMessage = _messaging.onMessage.bind(_messaging);
+      _messaging.onTokenRefresh = _messaging.onTokenRefresh.bind(_messaging);
+    });
     // this.authService.tokenChangeEmitted$.subscribe((token) => {
     //   this.token = token;
     //   this.httpOptions = {
@@ -42,22 +50,47 @@ export class MessagingService {
     );
   }
 
+  // getPermission(userId, token) {
+  //   if (firebase.messaging.isSupported()) {
+  //     this.httpOptions = {
+  //       headers: new HttpHeaders({
+  //         Authorization: 'bearer ' + token,
+  //       }),
+  //     };
+  //     firebase
+  //       .messaging()
+  //       .requestPermission()
+  //       .then(() => {
+  //         // console.log('Notification permission garented');
+  //         return firebase.messaging().getToken();
+  //       })
+  //       .then((token) => {
+  //         this.updateToken(userId, token);
+  //         this.updateToken(userId, token).subscribe(
+  //           (data) => {
+  //             // console.log(data);
+  //           },
+  //           (err) => {
+  //             console.log(err);
+  //           }
+  //         );
+  //       })
+  //       .catch((err) => {
+  //         console.log('Unable to get permission to notify.', err);
+  //       });
+  //   }
+  // }
+
   getPermission(userId, token) {
     this.httpOptions = {
       headers: new HttpHeaders({
         Authorization: 'bearer ' + token,
       }),
     };
-    firebase
-      .messaging()
-      .requestPermission()
-      .then(() => {
-        // console.log('Notification permission garented');
-        return firebase.messaging().getToken();
-      })
-      .then((token) => {
-        this.updateToken(userId, token);
-        this.updateToken(userId, token).subscribe(
+    this.angularFireMessaging.requestToken.subscribe(
+      (deviceId) => {
+        this.updateToken(userId, deviceId);
+        this.updateToken(userId, deviceId).subscribe(
           (data) => {
             // console.log(data);
           },
@@ -65,16 +98,22 @@ export class MessagingService {
             console.log(err);
           }
         );
-      })
-      .catch((err) => {
-        console.log('Unable to get permission to notify.', err);
-      });
+      },
+      (err) => {
+        console.error('Unable to get permission to notify.', err);
+      }
+    );
   }
 
   receiveMessage() {
     firebase.messaging().onMessage((payload) => {
-      console.log('new message received.', payload);
+      // console.log('new message received.', payload);
+      this.emitChange(1);
       this.currentMessage.next(payload);
     });
+  }
+
+  emitChange(change: any) {
+    this.emitChangeSource.next(change);
   }
 }
