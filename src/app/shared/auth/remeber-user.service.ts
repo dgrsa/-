@@ -47,12 +47,12 @@ export class RemeberUserService implements CanActivate {
                 name: 'user_login',
                 user_data: data['data'],
               });
-              this.messagingService.getPermission(
-                this.cookieService.get('BuserId'),
-                this.token
-              );
-              this.messagingService.receiveMessage();
-              this.message = this.messagingService.currentMessage;
+              // this.messagingService.getPermission(
+              //   this.cookieService.get('BuserId'),
+              //   this.token
+              // );
+              // this.messagingService.receiveMessage();
+              // this.message = this.messagingService.currentMessage;
               resolve(true);
             } else {
               resolve(true);

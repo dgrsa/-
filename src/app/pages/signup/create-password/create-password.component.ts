@@ -69,12 +69,12 @@ export class CreatePasswordComponent implements OnInit {
               'Account has been created',
               'success'
             );
-            this.messagingService.getPermission(
-              data['data']['id'],
-              data['data']['token']['accessToken']
-            );
-            this.messagingService.receiveMessage();
-            this.message = this.messagingService.currentMessage;
+            // this.messagingService.getPermission(
+            //   data['data']['id'],
+            //   data['data']['token']['accessToken']
+            // );
+            // this.messagingService.receiveMessage();
+            // this.message = this.messagingService.currentMessage;
             this.expiredIn = new Date(
               +data['data']['token']['expiresIn'] * 1000
             );
@@ -97,9 +97,11 @@ export class CreatePasswordComponent implements OnInit {
               this.expiredIn
             );
             if (this.previousUrl) {
-              this.router.navigate([this.previousUrl]);
+              // this.router.navigate([this.previousUrl]);
+              window.location.href = this.previousUrl;
             } else {
-              this.router.navigate(['/']);
+              // this.router.navigate(['/']);
+              window.location.href = '/';
             }
             this.spinner.hide();
           }

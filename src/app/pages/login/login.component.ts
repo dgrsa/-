@@ -71,12 +71,12 @@ export class LoginComponent implements OnInit {
         this.authService.loginUser(sentDat).subscribe(
           (data) => {
             if (data['success']) {
-              this.messagingService.getPermission(
-                data['data']['user']['id'],
-                data['data']['token']['accessToken']
-              );
-              this.messagingService.receiveMessage();
-              this.message = this.messagingService.currentMessage;
+              // this.messagingService.getPermission(
+              //   data['data']['user']['id'],
+              //   data['data']['token']['accessToken']
+              // );
+              // this.messagingService.receiveMessage();
+              // this.message = this.messagingService.currentMessage;
               this.expiredIn = new Date(
                 +data['data']['token']['expiresIn'] * 1000
               );
@@ -99,9 +99,11 @@ export class LoginComponent implements OnInit {
                 this.expiredIn
               );
               if (this.previousUrl) {
-                this.router.navigate([this.previousUrl]);
+                // this.router.navigate([this.previousUrl]);
+                window.location.href = this.previousUrl;
               } else {
-                this.router.navigate(['/']);
+                // this.router.navigate(['/']);
+                window.location.href = '/';
               }
               this.spinner.hide();
             }
