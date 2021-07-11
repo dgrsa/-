@@ -6,6 +6,8 @@ import { LanguageEmitterService } from './shared/services/language-emmiter.servi
 import * as firebase from 'firebase';
 import { Router, RoutesRecognized } from '@angular/router';
 import { filter, pairwise } from 'rxjs/operators';
+import { MessagingService } from './shared/services/messaging.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,9 @@ export class AppComponent {
     private translate: TranslateService,
     private changeLang: LanguageEmitterService,
     public deviceService: DeviceDetectorService,
-    private router: Router
+    public messagingService: MessagingService,
+    private router: Router,
+    private cookieService: CookieService
   ) {
     this.router.events
       .pipe(
@@ -60,6 +64,16 @@ export class AppComponent {
       }
     } else {
       localStorage.setItem('language', 'en');
+    }
+  }
+
+  ngOnInit(): void {
+    if (this.cookieService.get('Btoken')) {
+      this.messagingService.getPermission(
+        this.cookieService.get('BuserId'),
+        this.cookieService.get('Btoken')
+      );
+      this.messagingService.receiveMessage();
     }
   }
 }

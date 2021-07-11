@@ -34,6 +34,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { MessagingService } from './shared/services/messaging.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AsyncPipe } from '@angular/common';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -87,6 +88,7 @@ export function createTranslateLoader(http: HttpClient) {
     CookieService,
     AuthGuard,
     MessagingService,
+    AsyncPipe,
     {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG,
