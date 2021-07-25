@@ -178,5 +178,7 @@
     "prepared": "تم التجهيز",
     "Old password": "كلمة المرور القديمة",
     "New password": "كلمة المرور الجديدة",
-    "Please, scan QR code first": "من فضلك إمسح الكود أولا"
+    "Please, scan QR code first": "من فضلك إمسح الكود أولا",
+    "Subtotal": "المجموع الفرعي",
+    "VAT": "الضريبة"
 }

@@ -41,12 +41,20 @@
             <table class="table w-100">
                 <tbody>
                     <tr>
-                        <th> {{'Total order' | translate}} </th>
+                        <th> {{'No of meals' | translate}} </th>
+                        <td> {{ cart_data['totalItems'] }} </td>
+                    </tr>
+                    <tr>
+                        <th> {{'Subtotal' | translate}} </th>
                         <td> {{cart_data['totalPrice']}} {{ "SAR" | translate }} </td>
                     </tr>
                     <tr>
-                        <th> {{'No of meals' | translate}} </th>
-                        <td> {{ cart_data['totalItems'] }} </td>
+                        <th> {{'VAT' | translate}} </th>
+                        <td> {{cart_data['totalPrice'] * .15}} {{ "SAR" | translate }} </td>
+                    </tr>
+                    <tr>
+                        <th> {{'Total order' | translate}} </th>
+                        <td> {{cart_data['totalPrice'] + cart_data['totalPrice'] * .15}} </td>
                     </tr>
                 </tbody>
             </table>
