@@ -41,7 +41,7 @@
                             <i class="flaticon-shopping-cart-1"></i>
                         </a>
                     </li>
-                    <li>
+                    <li *ngIf="userData">
                         <a [routerLink]="['/notifications']" (click)="myCounter = 0">
                             <span> {{myCounter}} </span>
                             <i class="flaticon-bell"></i>
