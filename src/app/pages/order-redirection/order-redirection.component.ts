@@ -22,8 +22,8 @@ export class OrderRedirectionComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    route.queryParams.subscribe((params) => {
-      this.checkPaymentStatus(params['paymentId']);
+    route.params.subscribe((params) => {
+      this.checkPaymentStatus(parseInt(params['orderId']));
     });
 
     // this.counter$ = timer(0, 1000).pipe(
@@ -34,13 +34,9 @@ export class OrderRedirectionComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  checkPaymentStatus(paymentId): void {
+  checkPaymentStatus(orderId): void {
     this.authService
-      .chackPaymentStatus(
-        this.cookieService.get('BuserId'),
-        paymentId,
-        'myfatoorah'
-      )
+      .chackPaymentStatus(this.cookieService.get('BuserId'), orderId)
       .subscribe(
         (data) => {
           if (data['success']) {
