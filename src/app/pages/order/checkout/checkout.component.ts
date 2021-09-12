@@ -109,7 +109,7 @@ export class CheckoutComponent implements OnInit {
               'BrodoneCart',
               JSON.stringify(environment.userCart)
             );
-            if (this.orderForm.value.payment_id == 3) {
+            if (this.orderForm.value.payment_id == 4) {
               this.payOnline(data['data']['id']);
             } else {
               this.router.navigate(['/order/history']);
@@ -147,7 +147,7 @@ export class CheckoutComponent implements OnInit {
       .subscribe(
         (data) => {
           if (data['success']) {
-            const paymentUrl = data['data']['paymentURL'];
+            const paymentUrl = data['data']['paymentURL']['postUrl'];
             window.location.href = `${paymentUrl}`;
           }
         },
