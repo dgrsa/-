@@ -173,8 +173,11 @@
                             {{ meal.nameEn }} </a>
                     </h5>
                     <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
-                    <p *ngIf="translate.currentLang == 'ar'" [innerHTML]="meal.ingrediants?.slice(0,199)"></p>
-                    <p *ngIf="translate.currentLang == 'en'" [innerHTML]="meal.ingrediantsEn?.slice(0,199)"></p>
+                    <div class="desc">
+                        <p *ngIf="translate.currentLang == 'ar'" [innerHTML]="meal.ingrediants?.slice(0,199)"></p>
+                        <p *ngIf="translate.currentLang == 'en'" [innerHTML]="meal.ingrediantsEn?.slice(0,199)"></p>
+                    </div>
+
                     <div class="scan_join">
                         <a class="bg_main_color" href="javascript:void(0)" (click)="addToCart(meal)"><em><i
                                     class="flaticon-shopping-cart-1"></i></em>
@@ -203,7 +206,7 @@
                             [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name "
                             [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
                     </div>
-                    <div>
+                    <div class="desc">
                         <h5 class="mt-2">
                             <a *ngIf="translate.currentLang == 'ar'"
                                 [routerLink]="['/resturant/meal-details/'+ meal.id]">
