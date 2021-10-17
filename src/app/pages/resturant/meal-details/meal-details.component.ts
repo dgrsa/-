@@ -31,7 +31,7 @@ export class MealDetailsComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   config: SwiperConfigInterface = {
     direction: 'horizontal',
     slidesPerView: 1,
@@ -72,6 +72,8 @@ export class MealDetailsComponent implements OnInit {
     const optionPrices = this.optionForm.value.options.map((option) => {
       if (option.price) {
         return option.price;
+      } else {
+        return 0;
       }
     });
     var sum = optionPrices.reduce(function (a, b) {
