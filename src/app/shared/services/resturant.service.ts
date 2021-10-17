@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ResturantService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getResturant(skip, special, name = undefined) {
     const params = { skip: skip } as any;
@@ -40,13 +40,16 @@ export class ResturantService {
     return this.http.get(URL, { params: { parent_id: id } });
   }
 
-  getResturantItems(resturant_id = undefined, subcategory_id = undefined) {
+  getResturantItems(resturant_id = undefined, subcategory_id = undefined, offset = undefined) {
     const params = {} as any;
     if (subcategory_id != undefined && subcategory_id != '') {
       params['subcategory_id'] = subcategory_id;
     }
     if (resturant_id != undefined && resturant_id != '') {
       params['resturant_id'] = resturant_id;
+    }
+    if (offset != undefined && offset != '') {
+      params['skip'] = offset;
     }
     const URL = `${environment.BASE_URL}/item`;
     return this.http.get(URL, {
