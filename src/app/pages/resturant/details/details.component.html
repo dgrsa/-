@@ -61,9 +61,7 @@
                 </ul>
             </div>
             <div class="featured_item">
-                <img *ngIf="resturant.image"
-                    [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name "
-                    [alt]="resturant.image?.alt" [title]="resturant.image?.description">
+                <img *ngIf="resturant.image" [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name " [alt]="resturant.image?.alt" [title]="resturant.image?.description">
                 <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
                 <h5 *ngIf="translate.currentLang == 'ar'"> {{resturant.name}} </h5>
                 <h5 *ngIf="translate.currentLang == 'en'"> {{resturant.nameEn}} </h5>
@@ -90,8 +88,7 @@
                                     <h5 class="mt-2" class="main_color"> {{ allBanners[i].title }} </h5>
                                     <p> {{ allBanners[i].description }} </p>
                                 </div>
-                                <img *ngIf="!banner" src="https://dummyimage.com/420x200/8a8a8a/8a8a8a"
-                                    alt="Banner image">
+                                <img *ngIf="!banner" src="https://dummyimage.com/420x200/8a8a8a/8a8a8a" alt="Banner image">
                                 <img *ngIf="banner" [src]="banner" alt="Banner image">
                             </div>
                         </div>
@@ -125,11 +122,10 @@
                             </div>
 
                             <div class="swiper-slide" *ngFor="let cat of categories">
-                                <input type="radio" name="filter" [id]="cat.nameEn + cat.id" [value]="cat.id"
-                                    (change)="onCatChanges($event)">
-                                <label *ngIf="translate.currentLang == 'ar'" [for]="cat.name + cat.id"> {{cat.name}}
+                                <input type="radio" name="filter" [id]="cat.id" [value]="cat.id" (change)="onCatChanges($event)">
+                                <label *ngIf="translate.currentLang == 'ar'" [for]="cat.id"> {{cat.name}}
                                 </label>
-                                <label *ngIf="translate.currentLang == 'en'" [for]="cat.nameEn + cat.id"> {{cat.nameEn}}
+                                <label *ngIf="translate.currentLang == 'en'" [for]="cat.id"> {{cat.nameEn}}
                                 </label>
                             </div>
                         </div>
@@ -142,12 +138,11 @@
                     <div class="swiper-container" [swiper]="filterConfig">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" *ngFor="let subcat of subCats">
-                                <input type="radio" name="filter" [id]="subcat.name + subcat.id" [value]="subcat.id"
-                                    (change)="onSubCatChanges($event)">
-                                <label *ngIf="translate.currentLang == 'ar'" [for]="subcat.name + subcat.id">
+                                <input type="radio" name="filter" [id]="subcat.id" [value]="subcat.id" (change)="onSubCatChanges($event)">
+                                <label *ngIf="translate.currentLang == 'ar'" [for]="subcat.id">
                                     {{subcat.name}}
                                 </label>
-                                <label *ngIf="translate.currentLang == 'en'" [for]="subcat.nameEn + subcat.id">
+                                <label *ngIf="translate.currentLang == 'en'" [for]="subcat.id">
                                     {{subcat.nameEn}}
                                 </label>
                             </div>
@@ -157,14 +152,12 @@
             </div>
         </div>
         <div class="row meals mt-3" *ngIf="isSquares">
-            <div class="col-6" *ngFor="let meal of meals; let i = index">
+            <div class="col-6" *ngFor="let meal of meals  | paginate: { itemsPerPage: 10,totalItems: counter,currentPage: page, id: 'first' }; let i = index">
                 <div class="featured_item">
                     <div class="image">
                         <a href="#"> <i class="flaticon-heart"></i> </a>
                         <img *ngIf="!meal.images[0]" src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
-                        <img *ngIf="meal.images[0]"
-                            [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name "
-                            [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
+                        <img *ngIf="meal.images[0]" [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name " [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
                     </div>
                     <h5 class="mt-2">
                         <a *ngIf="translate.currentLang == 'ar'" [routerLink]="['/resturant/meal-details/'+ meal.id]">
@@ -187,8 +180,7 @@
                     <div class="quantity">
                         <form>
                             <em (click)="changeQuantity('+', i)"> + </em>
-                            <input class="form-control" placeholder="1" [id]="'quantity' + meal.id"
-                                [value]="meal.selectedQuantity" disabled>
+                            <input class="form-control" placeholder="1" [id]="'quantity' + meal.id" [value]="meal.selectedQuantity" disabled>
                             <em (click)="changeQuantity('-', i)"> - </em>
                         </form>
                     </div>
@@ -197,22 +189,18 @@
         </div>
 
         <div class="row meals mt-3" *ngIf="isRectangles">
-            <div class="col-12" *ngFor="let meal of meals; let i = index">
+            <div class="col-12" *ngFor="let meal of meals  | paginate: { itemsPerPage: 10,totalItems: counter,currentPage: page, id: 'first' }; let i = index">
                 <div class="one_item d-flex">
                     <div class="image">
                         <a href="#"> <i class="flaticon-heart"></i> </a>
                         <img *ngIf="!meal.images[0]" src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
-                        <img *ngIf="meal.images[0]"
-                            [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name "
-                            [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
+                        <img *ngIf="meal.images[0]" [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name " [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
                     </div>
                     <div class="desc">
                         <h5 class="mt-2">
-                            <a *ngIf="translate.currentLang == 'ar'"
-                                [routerLink]="['/resturant/meal-details/'+ meal.id]">
+                            <a *ngIf="translate.currentLang == 'ar'" [routerLink]="['/resturant/meal-details/'+ meal.id]">
                                 {{ meal.name }} </a>
-                            <a *ngIf="translate.currentLang == 'en'"
-                                [routerLink]="['/resturant/meal-details/'+ meal.id]">
+                            <a *ngIf="translate.currentLang == 'en'" [routerLink]="['/resturant/meal-details/'+ meal.id]">
                                 {{ meal.nameEn }} </a>
                         </h5>
                         <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
@@ -228,12 +216,18 @@
                     <div class="quantity">
                         <form>
                             <em (click)="changeQuantity('+', i)"> + </em>
-                            <input class="form-control" placeholder="1" [id]="'quantity' + meal.id"
-                                [value]="meal.selectedQuantity" disabled>
+                            <input class="form-control" placeholder="1" [id]="'quantity' + meal.id" [value]="meal.selectedQuantity" disabled>
                             <em (click)="changeQuantity('-', i)"> - </em>
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mt-2 text-center">
+                <pagination-controls *ngIf="counter > 10" id="first" (pageChange)="loadMore($event)" previousLabel="" nextLabel="">
+                </pagination-controls>
             </div>
         </div>
     </div>

@@ -33,6 +33,9 @@ export class DetailsComponent implements OnInit {
   totalPrice;
   isSquares = true;
   isRectangles = false;
+  counter: number;
+  page;
+  offset = 1
   constructor(
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
@@ -186,12 +189,13 @@ export class DetailsComponent implements OnInit {
   getItems(): void {
     this.spinner.show();
     this.resturantService
-      .getResturantItems(this.resturant_id, this.subCatId)
+      .getResturantItems(this.resturant_id, this.subCatId, this.offset - 1)
       .subscribe(
         (data) => {
           if (data['success']) {
             this.spinner.hide();
             this.meals = data['data']['rows'];
+            this.counter = data['data']['count']
             this.meals.map((meal) => {
               meal['selectedQuantity'] = 1;
             });
@@ -316,5 +320,11 @@ export class DetailsComponent implements OnInit {
         'warning'
       );
     }
+  }
+
+  loadMore(event): void {
+    this.page = event;
+    this.offset = event;
+    this.getItems();
   }
 }
