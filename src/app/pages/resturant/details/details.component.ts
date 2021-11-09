@@ -62,10 +62,16 @@ export class DetailsComponent implements OnInit {
 
     this.route.queryParams.subscribe((params) => {
       if (params['tableId']) {
+        if (
+          !this.coockieService.get('tableId') ||
+          this.coockieService.get('tableId') != params['tableId']
+        ) {
+          this.getTableById(this.resturant_id, params['tableId']);
+        }
         this.coockieService.set('tableId', params.tableId, 1);
         this.coockieService.set('tableNumber', params.table, 1);
         this.coockieService.set('resturantId', this.resturant_id, 1);
-        this.getTableById(this.resturant_id, params['tableId']);
+        this.resturantService.emitChange(this.resturant_id);
       }
     });
   }
@@ -254,8 +260,8 @@ export class DetailsComponent implements OnInit {
       (data) => {
         if (data['success']) {
           this.tableData = data['data'];
-          this.openTableModal();
           this.spinner.hide();
+          this.openTableModal();
         }
       },
       (err) => {

@@ -672,16 +672,21 @@ footer ul li:hover a {
     // bottom: 8%;
 }
 
-.resturant .featured_item .image,
-.one_item .image {
+.resturant .featured_item .image {
     position: relative;
     width: 150px;
     height: 150px;
 }
 
-.resturant .featured_item .image,
-.resturant .featured_item .image img,
+.one_item .image,
 .one_item .image img {
+    min-width: 100px;
+    height: 100px;
+    border-radius: 450%;
+}
+
+.resturant .featured_item .image,
+.resturant .featured_item .image img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
@@ -705,6 +710,11 @@ footer ul li:hover a {
 .one_item .image a {
     width: 40px;
     height: 40px;
+}
+
+.resturant .featured_item .image a {
+    right: -10px;
+    top: -13px;
 }
 
 .resturant .featured_item h5 {
