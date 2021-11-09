@@ -27,7 +27,7 @@
     "Don’t have an account?": "لا تمتلك حساب؟",
     "Create account": "إنشاء حساب",
     "Reset password": "استرجاع كلمة المرور",
-    "Enter your phone to send the password recovery link": "ادخل رقم الهاتف لارسال رابط استرجاع كلمة المرور الخاص بك",
+    "Enter your phone to send the password recovery link": " ادخل رقم الجوال لإرسال رمز التفعيل",
     "Email": "البريدالإلكتروني",
     "Confirm password": "تأكيد كلمة المرور",
     "Phone": "رقم الجوال",
@@ -61,8 +61,8 @@
     "Order date": "تاريخ الطلب",
     "Order tracking": "تتبع الطلب",
     "Be up-to-date on your order": "كن علي آخر مستجدات طلبك",
-    "Table number": "رقم المنضدة",
-    "Checkout": "اطلب الحساب",
+    "Table number": "رقم الطاولة",
+    "Checkout": "اطلب الحين",
     "Order has been sent": "تم ارسال الطلب",
     "Order has been sent to resturant": "تم ارسال الطلب الى المطعم بنجاح",
     "Preparing your order": "جاري تجهيز الطلب",
@@ -89,7 +89,7 @@
     "Orders": "سجل الطلبات",
     "Logout": "تسجيل الخروج",
     "This session has been expired. Please, Login again": "انتهت هذه الجلسة. من فضل سجل الدخول مرة أخري",
-    "A message was sent to your email": "تم إرسال رسالة إلي بريدك الإلكتروني",
+    "A message was sent to your phone": "تم إرسال رمز التفعيل إلي الجوال",
     "Enter a valid email": "أدخل بريد إلكتروني صحيح",
     "This email was not found": "لم يتم العثور علي هذاالبريد الإلكتروني",
     "Email must be a valid email": "يجب أن يكون البريد الإلكتروني صحيح",
@@ -180,5 +180,6 @@
     "New password": "كلمة المرور الجديدة",
     "Please, scan QR code first": "من فضلك إمسح الكود أولا",
     "Subtotal": "المجموع الفرعي",
-    "VAT": "الضريبة"
+    "VAT": "الضريبة",
+    "Load more": "رؤية المزيد"
 }

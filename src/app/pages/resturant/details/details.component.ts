@@ -35,7 +35,7 @@ export class DetailsComponent implements OnInit {
   isRectangles = false;
   counter: number;
   page;
-  offset = 1
+  offset = 1;
   constructor(
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
@@ -194,8 +194,12 @@ export class DetailsComponent implements OnInit {
         (data) => {
           if (data['success']) {
             this.spinner.hide();
-            this.meals = data['data']['rows'];
-            this.counter = data['data']['count']
+            if (this.offset == 1) {
+              this.meals = data['data']['rows'];
+            } else {
+              this.meals = this.meals.concat(data['data']['rows']);
+            }
+            this.counter = data['data']['count'];
             this.meals.map((meal) => {
               meal['selectedQuantity'] = 1;
             });
@@ -300,7 +304,6 @@ export class DetailsComponent implements OnInit {
           (data) => {
             this.spinner.hide();
             if (data['success']) {
-              console.log(data);
               this.helperTool.showAlertWithTranslation(
                 '',
                 'A notification has been sent to a waiter',
@@ -323,8 +326,9 @@ export class DetailsComponent implements OnInit {
   }
 
   loadMore(event): void {
-    this.page = event;
-    this.offset = event;
+    // this.page = event;
+    // this.offset = event;
+    this.offset++;
     this.getItems();
   }
 }

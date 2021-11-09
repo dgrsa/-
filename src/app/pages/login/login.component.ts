@@ -156,7 +156,7 @@ export class LoginComponent implements OnInit {
               this.spinner.hide();
               this.helperTool.showAlertWithTranslation(
                 '',
-                'A message was sent to your email',
+                'A message was sent to your phone',
                 'success'
               );
               this.modalRef.hide();

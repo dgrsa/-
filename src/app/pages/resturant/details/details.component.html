@@ -167,8 +167,8 @@
                     </h5>
                     <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
                     <div class="desc">
-                        <p *ngIf="translate.currentLang == 'ar'" [innerHTML]="meal.ingrediants?.slice(0,199)"></p>
-                        <p *ngIf="translate.currentLang == 'en'" [innerHTML]="meal.ingrediantsEn?.slice(0,199)"></p>
+                        <p *ngIf="translate.currentLang == 'ar'" [innerHTML]="meal.ingrediants?.slice(0,100)"></p>
+                        <p *ngIf="translate.currentLang == 'en'" [innerHTML]="meal.ingrediantsEn?.slice(0,100)"></p>
                     </div>
 
                     <div class="scan_join">
@@ -189,7 +189,8 @@
         </div>
 
         <div class="row meals mt-3" *ngIf="isRectangles">
-            <div class="col-12" *ngFor="let meal of meals  | paginate: { itemsPerPage: 10,totalItems: counter,currentPage: page, id: 'first' }; let i = index">
+            <!-- | paginate: { itemsPerPage: 10,totalItems: counter,currentPage: page, id: 'first' } -->
+            <div class="col-12" *ngFor="let meal of meals; let i = index">
                 <div class="one_item d-flex">
                     <div class="image">
                         <a href="#"> <i class="flaticon-heart"></i> </a>
@@ -204,8 +205,8 @@
                                 {{ meal.nameEn }} </a>
                         </h5>
                         <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
-                        <p *ngIf="translate.currentLang == 'ar'" [innerHTML]="meal.ingrediants?.slice(0,199)"></p>
-                        <p *ngIf="translate.currentLang == 'en'" [innerHTML]="meal.ingrediantsEn?.slice(0,199)"></p>
+                        <p *ngIf="translate.currentLang == 'ar'" [innerHTML]="meal.ingrediants?.slice(0,100)"></p>
+                        <p *ngIf="translate.currentLang == 'en'" [innerHTML]="meal.ingrediantsEn?.slice(0,100)"></p>
                         <div class="scan_join">
                             <a class="bg_main_color" href="javascript:void(0)" (click)="addToCart(meal)"><em><i
                                         class="flaticon-shopping-cart-1"></i></em>
@@ -225,9 +226,10 @@
         </div>
 
         <div class="row">
-            <div class="col-12 mt-2 text-center">
-                <pagination-controls *ngIf="counter > 10" id="first" (pageChange)="loadMore($event)" previousLabel="" nextLabel="">
-                </pagination-controls>
+            <div class="col-12 mt-3 text-center">
+                <!-- <pagination-controls *ngIf="counter > 10" id="first" (pageChange)="loadMore($event)" previousLabel="" nextLabel="">
+                </pagination-controls> -->
+                <button type="button" class="btn myBtn" (click)="loadMore('')" *ngIf="counter != meals.length"> {{ 'Load more' | translate }} </button>
             </div>
         </div>
     </div>

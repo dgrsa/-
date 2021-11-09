@@ -9,9 +9,7 @@
             <div class="image">
                 <span> {{cart_data['meals'][i].quantity}} </span>
                 <img *ngIf="!meal.images[0]" src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
-                <img *ngIf="meal.images[0]"
-                    [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name "
-                    [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
+                <img *ngIf="meal.images[0]" [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name " [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
             </div>
             <div class="cart_info">
                 <span *ngIf="translate.currentLang == 'ar'" class="d-block"> {{meal.name}} </span>
@@ -27,13 +25,11 @@
                 <div class="quantity mt-3">
                     <form>
                         <em (click)="onChangeQuantity(cart_data['meals'][i] , 1 , i)"> + </em>
-                        <input type="text" class="form-control" placeholder="2" [value]="cart_data['meals'][i].quantity"
-                            minlength="1">
+                        <input type="text" class="form-control" placeholder="2" [value]="cart_data['meals'][i].quantity" minlength="1">
                         <em (click)="onChangeQuantity(cart_data['meals'][i] , -1 , i)"> - </em>
                     </form>
                 </div>
-                <a class="cart_remove" href="javascript:void(0)" (click)="deleteCatrItem(i)"> <i
-                        class="flaticon-rubbish-bin"></i> </a>
+                <a class="cart_remove" href="javascript:void(0)" (click)="deleteCatrItem(i)"> <i class="flaticon-rubbish-bin"></i> </a>
             </div>
         </div>
 
@@ -50,7 +46,7 @@
                     </tr>
                     <tr>
                         <th> {{'VAT' | translate}} </th>
-                        <td> {{cart_data['totalPrice'] * .15}} {{ "SAR" | translate }} </td>
+                        <td> {{(cart_data['totalPrice'] * .15).toFixed(2)}} {{ "SAR" | translate }} </td>
                     </tr>
                     <tr>
                         <th> {{'Total order' | translate}} </th>
