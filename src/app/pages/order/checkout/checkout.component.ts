@@ -109,6 +109,8 @@ export class CheckoutComponent implements OnInit {
               'BrodoneCart',
               JSON.stringify(environment.userCart)
             );
+            this.cartService.getCartItems();
+            this.cartService.UpdateCart();
             if (this.orderForm.value.payment_id == 4) {
               this.payOnline(data['data']['id']);
             } else {
