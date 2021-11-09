@@ -127,11 +127,28 @@ export class CartService {
       if (environment.userCart.mealsData[0].resturant_id == meal.resturant_id) {
         this.addToCart(meal, options);
       } else {
-        this.helperTools.showAlertWithTranslation(
-          '',
-          'You are not allowed to add a product from this restaurant',
-          'error'
-        );
+        this.helperTools
+          .showConfirmAlert(
+            '',
+            'When you start a new order your cart will be removed'
+          )
+          .then((__) => {
+            environment.userCart = {
+              totalPrice: 0,
+              totalQuantity: 0,
+              totalItems: 0,
+              meals: [],
+              mealsData: [],
+            };
+            this.CartData = {} as any;
+            this.addToCart(meal, options);
+            this.emitChange(1);
+            this.getCartItems();
+            this.UpdateCart();
+          })
+          .catch((err) => {
+            // UserCanceld
+          });
       }
     } else {
       this.addToCart(meal, options);
@@ -150,7 +167,6 @@ export class CartService {
     if (environment.userCart['totalItems'] == 0) {
       this.emitChange(0);
     }
-    // console.log(this.CartData);
   }
 
   UpdateCart() {
