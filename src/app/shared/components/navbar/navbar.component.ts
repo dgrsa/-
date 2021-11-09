@@ -10,6 +10,7 @@ import { AuthService } from '../../auth/auth.service';
 import { CartService } from '../../services/cart.service';
 import { LanguageEmitterService } from '../../services/language-emmiter.service';
 import { MessagingService } from '../../services/messaging.service';
+import { ResturantService } from '../../services/resturant.service';
 import { CartComponent } from '../cart/cart.component';
 import { TableModalComponent } from '../table-modal/table-modal.component';
 
@@ -30,6 +31,7 @@ export class NavbarComponent implements OnInit {
     name: new FormControl('', Validators.required),
   });
   myCounter = 0;
+  resturantId;
   constructor(
     public translate: TranslateService,
     private changeLanguage: LanguageEmitterService,
@@ -38,8 +40,13 @@ export class NavbarComponent implements OnInit {
     private cookieService: CookieService,
     private cartService: CartService,
     private router: Router,
-    private messagingService: MessagingService
+    private messagingService: MessagingService,
+    private resturantService: ResturantService
   ) {
+    this.resturantService.changeEmitted$.subscribe((value) => {
+      this.resturantId = value;
+    });
+    this.resturantId = cookieService.get('resturantId');
     this.cartCount = environment.userCart['meals'].length;
     this.authsub = this.authService.changeEmitted$.subscribe((value) => {
       this.userData = value;

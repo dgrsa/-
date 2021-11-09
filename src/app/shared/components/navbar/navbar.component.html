@@ -16,21 +16,18 @@
                             <a id="button-animated" dropdownToggle ria-controls="dropdown-animated">
                                 <i class="flaticon-user-1"></i>
                             </a>
-                            <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu"
-                                aria-labelledby="button-animated">
+                            <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-animated">
                                 <li role="menuitem">
                                     <a class="dropdown-item" [routerLink]="['/profile']">
-                                        <i class="flaticon-user"></i>
-                                        {{'My account' | translate}}</a>
+                                        <i class="flaticon-user"></i> {{'My account' | translate}}</a>
                                 </li>
-                                <li role="menuitem"><a class="dropdown-item" [routerLink]="['/order/history']">
-                                        <i class="flaticon-choices"></i>
-                                        {{'Orders' | translate}}</a>
+                                <li role="menuitem">
+                                    <a class="dropdown-item" [routerLink]="['/order/history']">
+                                        <i class="flaticon-choices"></i> {{'Orders' | translate}}</a>
                                 </li>
-                                <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)"
-                                        (click)="logout()">
-                                        <i class="flaticon-logout"></i>
-                                        {{ 'Logout' | translate }} </a>
+                                <li role="menuitem">
+                                    <a class="dropdown-item" href="javascript:void(0)" (click)="logout()">
+                                        <i class="flaticon-logout"></i> {{ 'Logout' | translate }} </a>
                                 </li>
                             </ul>
                         </div>
@@ -73,24 +70,21 @@
         <div class="form-container">
             <form [formGroup]="searchForm" novalidate (submit)="search()">
                 <div class="form-group">
-                    <input type="text" class="form-control" [placeholder]="'Search in resturant...' | translate"
-                        formControlName="name">
+                    <input type="text" class="form-control" [placeholder]="'Search in resturant...' | translate" formControlName="name">
                     <button type="submit"> <i class="flaticon-search"></i> </button>
                 </div>
             </form>
         </div>
         <div class="widget-language mb-4">
             <ul>
-                <li *ngIf="userData" routerLinkActive="active"> <a (click)="toggleNav('close')"
-                        [routerLink]="['/profile']">
+                <li *ngIf="userData" routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/profile']">
                         {{'Profile' | translate}} </a> </li>
-                <li *ngIf="!userData" routerLinkActive="active"> <a (click)="toggleNav('close')"
-                        [routerLink]="['/login']">
+                <li *ngIf="!userData" routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/login']">
                         {{'Login' | translate}} </a> </li>
                 <li> <a [routerLink]="['/']" (click)="toggleNav('close')"> {{'Home' | translate}} </a> </li>
-                <!-- <li routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/order/history']">
-                        {{'Order history' | translate}} </a> </li>
-                <li routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/order/tracking']">
+                <li *ngIf="resturantId" routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/resturant/details/' + resturantId]">
+                        {{'Current restaurant' | translate}} </a> </li>
+                <!--<li routerLinkActive="active"> <a (click)="toggleNav('close')" [routerLink]="['/order/tracking']">
                         {{'Order tracking' | translate}} </a> </li> -->
                 <li> <a (click)="toggleNav('close')" href="https://brodone.net" target="_blank">
                         {{'Join with us' | translate}} </a> </li>
@@ -108,12 +102,10 @@
 
         <div class="language">
             <ul>
-                <li [ngClass]="translate.currentLang == 'en' ? 'active' : ' '"> <a href="javascript:void(0)"
-                        (click)="changeLang('en')">
+                <li [ngClass]="translate.currentLang == 'en' ? 'active' : ' '"> <a href="javascript:void(0)" (click)="changeLang('en')">
                         {{'English' | translate}}</a>
                 </li>
-                <li [ngClass]="translate.currentLang == 'ar' ? 'active' : ' '"><a href="javascript:void(0)"
-                        (click)="changeLang('ar')">
+                <li [ngClass]="translate.currentLang == 'ar' ? 'active' : ' '"><a href="javascript:void(0)" (click)="changeLang('ar')">
                         {{'Arabic' | translate}}
                     </a></li>
             </ul>
