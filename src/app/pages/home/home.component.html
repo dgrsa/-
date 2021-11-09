@@ -3,14 +3,15 @@
         <div class="swiper-container" [swiper]="config">
             <div class="swiper-wrapper" *ngIf="translate.currentLang == 'ar'">
                 <div class="swiper-slide" *ngFor="let banner of allBanners; let i = index">
-                    <div class="overlay"></div>
-                    <div class="caption">
-                        <h5 class="mt-2" class="main_color"> {{ banner.title }} </h5>
-                        <p> {{ banner.description }} </p>
-                    </div>
-                    <img *ngIf="!banner.image" src="https://dummyimage.com/420x200/8a8a8a/8a8a8a" alt="Banner image">
-                    <img *ngIf="banner.image" [src]="imageBaseURL + '/' + banner.image?.for + '/' + banner.image?.name"
-                        alt="Banner image">
+                    <a [href]="banner.link" target="_blank">
+                        <div class="overlay"></div>
+                        <div class="caption">
+                            <h5 class="mt-2" class="main_color"> {{ banner.title }} </h5>
+                            <p> {{ banner.description }} </p>
+                        </div>
+                        <img *ngIf="!banner.image" src="https://dummyimage.com/420x200/8a8a8a/8a8a8a" alt="Banner image">
+                        <img *ngIf="banner.image" [src]="imageBaseURL + '/' + banner.image?.for + '/' + banner.image?.name" alt="Banner image">
+                    </a>
                 </div>
             </div>
             <div class="swiper-wrapper" *ngIf="translate.currentLang == 'en'">
@@ -21,9 +22,7 @@
                         <p> {{ banner.descriptionEn }} </p>
                     </div>
                     <img *ngIf="!banner.imageEn" src="https://dummyimage.com/420x200/8a8a8a/8a8a8a" alt="Banner image">
-                    <img *ngIf="banner.imageEn"
-                        [src]="imageBaseURL + '/' + banner.imageEn?.for + '/' + banner.imageEn?.name"
-                        alt="Banner image">
+                    <img *ngIf="banner.imageEn" [src]="imageBaseURL + '/' + banner.imageEn?.for + '/' + banner.imageEn?.name" alt="Banner image">
                 </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -50,17 +49,16 @@
             <div class="col-sm-6" *ngFor="let resturant of Specialresturants.slice(0,9)">
                 <div class="featured_item">
                     <a [routerLink]="['/resturant/details/' + resturant.id]">
-                        <img *ngIf="resturant.image"
-                            [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name "
-                            [alt]="resturant.image?.alt" [title]="resturant.image?.description">
+                        <img *ngIf="resturant.image" [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name " [alt]="resturant.image?.alt" [title]="resturant.image?.description">
                         <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
+
+                        <h5 class="mt-2" *ngIf="translate.currentLang == 'ar'"> {{resturant.name}} </h5>
+                        <h5 class="mt-2" *ngIf="translate.currentLang == 'en'"> {{resturant.nameEn}} </h5>
+                        <p *ngIf="translate.currentLang == 'ar'"> {{ resturant.subtitle }} </p>
+                        <p *ngIf="translate.currentLang == 'en'"> {{ resturant.subtitleEn }} </p>
+                        <span> <img src="./assets/imgs/products/Location.svg">
+                            {{ resturant.Governorate?.name }}, {{ resturant.city?.name }} </span>
                     </a>
-                    <h5 class="mt-2" *ngIf="translate.currentLang == 'ar'"> {{resturant.name}} </h5>
-                    <h5 class="mt-2" *ngIf="translate.currentLang == 'en'"> {{resturant.nameEn}} </h5>
-                    <p *ngIf="translate.currentLang == 'ar'"> {{ resturant.subtitle }} </p>
-                    <p *ngIf="translate.currentLang == 'en'"> {{ resturant.subtitleEn }} </p>
-                    <span> <img src="./assets/imgs/products/Location.svg">
-                        {{ resturant.Governorate?.name }}, {{ resturant.city?.name }} </span>
                 </div>
             </div>
         </div>
@@ -81,17 +79,15 @@
             <div class="col-sm-6" *ngFor="let resturant of resturants.slice(0,9)">
                 <div class="featured_item">
                     <a [routerLink]="['/resturant/details/' + resturant.id]">
-                        <img *ngIf="resturant.image"
-                            [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name "
-                            [alt]="resturant.image?.alt" [title]="resturant.image?.description">
+                        <img *ngIf="resturant.image" [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name " [alt]="resturant.image?.alt" [title]="resturant.image?.description">
                         <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
+                        <h5 class="mt-2" *ngIf="translate.currentLang == 'ar'"> {{resturant.name}} </h5>
+                        <h5 class="mt-2" *ngIf="translate.currentLang == 'en'"> {{resturant.nameEn}} </h5>
+                        <p *ngIf="translate.currentLang == 'ar'"> {{ resturant.subtitle }} </p>
+                        <p *ngIf="translate.currentLang == 'en'"> {{ resturant.subtitleEn }} </p>
+                        <span> <img src="./assets/imgs/products/Location.svg">
+                            {{ resturant.Governorate?.name }}, {{ resturant.city?.name }} </span>
                     </a>
-                    <h5 class="mt-2" *ngIf="translate.currentLang == 'ar'"> {{resturant.name}} </h5>
-                    <h5 class="mt-2" *ngIf="translate.currentLang == 'en'"> {{resturant.nameEn}} </h5>
-                    <p *ngIf="translate.currentLang == 'ar'"> {{ resturant.subtitle }} </p>
-                    <p *ngIf="translate.currentLang == 'en'"> {{ resturant.subtitleEn }} </p>
-                    <span> <img src="./assets/imgs/products/Location.svg">
-                        {{ resturant.Governorate?.name }}, {{ resturant.city?.name }} </span>
                 </div>
             </div>
         </div>
@@ -112,9 +108,7 @@
                         <h5> {{'Do you have a resturant or a caffe?' | translate}} </h5>
                     </div>
                     <p class="ptb-15">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book.
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </p>
                 </div>
 
