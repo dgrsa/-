@@ -37,7 +37,7 @@
             <table class="table w-100">
                 <tbody>
                     <tr>
-                        <th> {{'No of meals' | translate}} </th>
+                        <th> {{'No of products' | translate}} </th>
                         <td> {{ cart_data['totalItems'] }} </td>
                     </tr>
                     <tr>
@@ -57,7 +57,7 @@
 
             <div class="d-flex justify-content-between text-center">
                 <a [routerLink]="['/resturant/details/' + meal_data[0].resturant_id]" class="myBtn secondry">
-                    {{'Add meals' | translate}} </a>
+                    {{'Add products' | translate}} </a>
                 <a (click)="goToCheckout()" class="myBtn primary"> {{'Checkout' | translate}}
                 </a>
             </div>

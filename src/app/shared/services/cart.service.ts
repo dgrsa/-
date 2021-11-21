@@ -54,7 +54,7 @@ export class CartService {
           this.emitChange(this.CartData['totalItems']);
           this.helperTools.showAlertWithTranslation(
             '',
-            'This meal has been updated',
+            'This product has been updated',
             'success'
           );
           meal['selectedQuantity'] = 1;
