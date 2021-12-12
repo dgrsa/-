@@ -77,10 +77,10 @@ export class LoginComponent implements OnInit {
               // );
               // this.messagingService.receiveMessage();
               // this.message = this.messagingService.currentMessage;
+              environment.userInfo = data['data']['user'];
               this.expiredIn = new Date(
                 +data['data']['token']['expiresIn'] * 1000
               );
-              environment.userInfo = data['data']['user'];
               this.authService.emitChange({
                 name: 'user_login',
                 user_data: data['data']['user'],
@@ -99,11 +99,11 @@ export class LoginComponent implements OnInit {
                 this.expiredIn
               );
               if (this.previousUrl) {
-                // this.router.navigate([this.previousUrl]);
-                window.location.href = this.previousUrl;
+                this.router.navigate([this.previousUrl]);
+                // window.location.href = this.previousUrl;
               } else {
-                // this.router.navigate(['/']);
-                window.location.href = '/';
+                this.router.navigate(['/']);
+                // window.location.href = '/';
               }
               this.spinner.hide();
             }
