@@ -23,8 +23,10 @@ export class ResturantGuard {
       if (this.cookieService.get('tableNumber')) {
         if (
           state.url.includes('/resturant/details') &&
-          state.url.split('details/')[1] ==
-            this.cookieService.get('resturantId')
+          (state.url.split('details/')[1] ==
+            this.cookieService.get('resturantId') ||
+            state.url.split('details/')[1].split('?')[0] ==
+              this.cookieService.get('resturantId'))
         ) {
           resolve(true);
         } else {
