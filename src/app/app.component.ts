@@ -8,6 +8,8 @@ import { Router, RoutesRecognized } from '@angular/router';
 import { filter, pairwise } from 'rxjs/operators';
 import { MessagingService } from './shared/services/messaging.service';
 import { CookieService } from 'ngx-cookie-service';
+import * as io from 'socket.io-client';
+import sailsIo from 'sails.io.js';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +21,7 @@ export class AppComponent {
   options = { direction: 'ltr' };
   deviceInfo;
   previousUrl;
+  sio = sailsIo(io);
   constructor(
     private translate: TranslateService,
     private changeLang: LanguageEmitterService,
@@ -27,6 +30,13 @@ export class AppComponent {
     private router: Router,
     private cookieService: CookieService
   ) {
+    if (this.cookieService.get('BuserId')) {
+      this.sio.sails.query = `id=${this.cookieService.get('BuserId')}`;
+      this.sio.sails.url = 'http://api.test.brodone.net:13381';
+      this.sio.socket.get(`/socket/joinUser`, async (data) => {
+        console.log(data);
+      });
+    }
     this.router.events
       .pipe(
         filter((evt: any) => evt instanceof RoutesRecognized),
