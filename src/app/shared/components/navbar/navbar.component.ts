@@ -59,7 +59,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.messagingService.changeEmitted$.subscribe((counter) => {
-      this.myCounter += counter;
+      if (counter > 0) {
+        this.myCounter += counter;
+      } else {
+        this.myCounter = 0;
+      }
     });
   }
 
