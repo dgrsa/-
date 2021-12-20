@@ -11,17 +11,14 @@
                 <div class="col-12">
                     <tabset>
                         <tab [heading]="'Current orders' | translate" id="tab1">
-                            <div class="order_item d-flex mt-4"
-                                *ngFor="let order of currentOrders | paginate: { itemsPerPage: 10, currentPage: page, id: 'first' }">
+                            <div class="order_item d-flex mt-4" *ngFor="let order of currentOrders | paginate: { itemsPerPage: 10, currentPage: page, id: 'first' }">
                                 <!-- <a href="javascript:void(0)" (click)="payOnline(order.id)"
                                     *ngIf="order.status != 'paid'" class="pay-order" [title]="'Pay now' | translate"> <i
                                         class="flaticon-finance"></i>
                                 </a> -->
                                 <div class=" image">
-                                    <img *ngIf="!order.resturant?.image"
-                                        src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
-                                    <img *ngIf="order.resturant?.image"
-                                        [src]="ImageBaseUrl + '/' + order.for + '/' + order.name">
+                                    <img *ngIf="!order.resturant?.image" src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
+                                    <img *ngIf="order.resturant?.image" [src]="ImageBaseUrl + '/' + order.for + '/' + order.name">
                                 </div>
                                 <div>
                                     <h5> {{order.resturant?.name}} </h5>
@@ -36,7 +33,7 @@
                                             <span> : {{order.total_price}} {{'SAR' | translate}} </span>
                                         </li>
                                         <li>
-                                            <strong> {{'No of meals' | translate}} </strong>
+                                            <strong> {{'No of products' | translate}} </strong>
                                             <span> : {{order.total_items}} </span>
                                         </li>
                                         <li>
@@ -55,25 +52,20 @@
 
                                     <a class="order_details" [routerLink]="['/order/tracking/' + order.id]"> <span> <i
                                                 class="flaticon-left-arrow"></i>
-                                        </span>
-                                        {{'Order details' | translate | translate}} </a>
+                                        </span> {{'Order details' | translate | translate}} </a>
                                 </div>
                             </div>
 
                             <div class="text-center mt-4">
-                                <pagination-controls *ngIf="counter > 10" id="first"
-                                    (pageChange)="loadMore($event, 'current')" previousLabel="" nextLabel="">
+                                <pagination-controls *ngIf="counter > 10" id="first" (pageChange)="loadMore($event, 'current')" previousLabel="" nextLabel="">
                                 </pagination-controls>
                             </div>
                         </tab>
                         <tab [heading]="'Previous orders' | translate">
-                            <div class="order_item d-flex mt-4"
-                                *ngFor="let order of orders | paginate: { itemsPerPage: 10, currentPage: pPage, id: 'second' }">
+                            <div class="order_item d-flex mt-4" *ngFor="let order of orders | paginate: { itemsPerPage: 10, currentPage: pPage, id: 'second' }">
                                 <div class=" image">
-                                    <img *ngIf="!order.resturant?.image"
-                                        src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
-                                    <img *ngIf="order.resturant?.image"
-                                        [src]="ImageBaseUrl + '/' + order.for + '/' + order.name">
+                                    <img *ngIf="!order.resturant?.image" src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
+                                    <img *ngIf="order.resturant?.image" [src]="ImageBaseUrl + '/' + order.for + '/' + order.name">
                                 </div>
                                 <div>
                                     <h5> {{order.resturant?.name}} </h5>
@@ -88,7 +80,7 @@
                                             <span> : {{order.total_price}} {{'SAR' | translate}} </span>
                                         </li>
                                         <li>
-                                            <strong> {{'No of meals' | translate}} </strong>
+                                            <strong> {{'No of products' | translate}} </strong>
                                             <span> : {{order.total_items}} </span>
                                         </li>
                                         <li>
@@ -111,13 +103,11 @@
 
                                     <a class="order_details" [routerLink]="['/order/tracking/' + order.id]"> <span> <i
                                                 class="flaticon-left-arrow"></i>
-                                        </span>
-                                        {{'Order details' | translate}} </a>
+                                        </span> {{'Order details' | translate}} </a>
                                 </div>
 
                                 <div class="text-center mt-4">
-                                    <pagination-controls *ngIf="pCounter > 10" id="second"
-                                        (pageChange)="loadMore($event, '')" previousLabel="" nextLabel="">
+                                    <pagination-controls *ngIf="pCounter > 10" id="second" (pageChange)="loadMore($event, '')" previousLabel="" nextLabel="">
                                     </pagination-controls>
                                 </div>
                             </div>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { isLoggedIn } from './shared/auth/isLoggedIn.service';
 import { RemeberUserService } from './shared/auth/remeber-user.service';
+import { ResturantGuard } from './shared/auth/resturant.guard';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { PrivacyComponent } from './shared/components/privacy/privacy.component';
 import { ScanCodeComponent } from './shared/components/scan-code/scan-code.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
         pathMatch: 'full',
         loadChildren: () =>
           import('./pages/home/home.module').then((mod) => mod.HomeModule),
+        canActivate: [ResturantGuard],
       },
       {
         path: 'product',

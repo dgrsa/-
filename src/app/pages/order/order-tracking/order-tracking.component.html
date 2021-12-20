@@ -20,7 +20,7 @@
                             <span> : {{orderData.total_price}} {{'SAR' | translate}} </span>
                         </li>
                         <li>
-                            <strong> {{'No of meals' | translate}} </strong>
+                            <strong> {{'No of products' | translate}} </strong>
                             <span> : {{orderData.total_items}} </span>
                         </li>
                         <li>
@@ -45,14 +45,10 @@
                     </div>
                     <div class="row btn_group">
                         <div class="col-sm-6" *ngIf="orderData.payment_id != 3 && orderData.status !='paid'">
-                            <a href="javascript:void(0)" (click)="callWaiter('check')" class="myBtn primary"> <i
-                                    class="flaticon-finance"></i>
-                                {{'Checkout' | translate}} </a>
+                            <a href="javascript:void(0)" (click)="callWaiter('check')" class="myBtn primary"> <i class="flaticon-finance"></i> {{'Checkout' | translate}} </a>
                         </div>
                         <div class="col-sm-6">
-                            <a href="javascript:void(0)" (click)="callWaiter('call')" class="myBtn secondry"> <img
-                                    src="./assets/imgs/chef.svg">
-                                {{'Call waiter' | translate}} </a>
+                            <a href="javascript:void(0)" (click)="callWaiter('call')" class="myBtn secondry"> <img src="./assets/imgs/chef.svg"> {{'Call waiter' | translate}} </a>
                         </div>
                     </div>
 
@@ -131,8 +127,7 @@
                                     <i class="flaticon-star-1"></i>
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" id="rate"
-                                        [placeholder]="'Enter your comment' | translate" rows="3"></textarea>
+                                    <textarea class="form-control" id="rate" [placeholder]="'Enter your comment' | translate" rows="3"></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -150,8 +145,8 @@
 <div class="my_meals ptb-40">
     <div class="container">
         <div class="ptb-15 text-center">
-            <h5> {{'Your meals' | translate}} </h5>
-            <p class="dark_color"> {{'What meals you ordered' | translate}} </p>
+            <h5> {{'Your products' | translate}} </h5>
+            <p class="dark_color"> {{'What products you ordered' | translate}} </p>
         </div>
 
         <div class="row">

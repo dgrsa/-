@@ -35,6 +35,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { MessagingService } from './shared/services/messaging.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AsyncPipe } from '@angular/common';
+import { ResturantGuard } from './shared/auth/resturant.guard';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -87,6 +88,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     CookieService,
     AuthGuard,
+    ResturantGuard,
     MessagingService,
     AsyncPipe,
     {

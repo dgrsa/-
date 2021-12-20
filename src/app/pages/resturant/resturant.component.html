@@ -11,15 +11,12 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-sm-6"
-                    *ngFor="let resturant of Specialresturants | paginate: { itemsPerPage: 10,totalItems: counter,currentPage: page, id: 'first' }">
+                <div class="col-sm-6" *ngFor="let resturant of Specialresturants | paginate: { itemsPerPage: 10,totalItems: counter,currentPage: page, id: 'first' }">
                     <div class="featured_item">
-                        <a [routerLink]="['/resturant/details/' + resturant.id]">
-                            <img *ngIf="resturant.image"
-                                [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name "
-                                [alt]="resturant.image?.alt" [title]="resturant.image?.description">
-                            <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
-                        </a>
+                        <!-- <a [routerLink]="['/resturant/details/' + resturant.id]"> -->
+                        <img *ngIf="resturant.image" [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name " [alt]="resturant.image?.alt" [title]="resturant.image?.description">
+                        <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
+                        <!-- </a> -->
                         <h5 class="mt-2" *ngIf="translate.currentLang == 'ar'"> {{resturant.name}} </h5>
                         <h5 class="mt-2" *ngIf="translate.currentLang == 'en'"> {{resturant.nameEn}} </h5>
                         <p *ngIf="translate.currentLang == 'ar'"> {{ resturant.subtitle }} </p>
@@ -29,8 +26,7 @@
                     </div>
                 </div>
                 <div class="text-center col-12">
-                    <pagination-controls *ngIf="counter > 10" id="first" (pageChange)="loadMore($event, 'special')"
-                        previousLabel="" nextLabel="">
+                    <pagination-controls *ngIf="counter > 10" id="first" (pageChange)="loadMore($event, 'special')" previousLabel="" nextLabel="">
                     </pagination-controls>
                 </div>
             </div>
@@ -47,23 +43,19 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-sm-6"
-                    *ngFor="let resturant of resturants | paginate: { itemsPerPage: 10,totalItems: counter, currentPage: page, id: 'second' }">
+                <div class="col-sm-6" *ngFor="let resturant of resturants | paginate: { itemsPerPage: 10,totalItems: counter, currentPage: page, id: 'second' }">
                     <div class="featured_item">
-                        <a [routerLink]="['/resturant/details/' + resturant.id]">
-                            <img *ngIf="resturant.image"
-                                [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name "
-                                [alt]="resturant.image?.alt" [title]="resturant.image?.description">
-                            <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
-                        </a>
+                        <!-- <a [routerLink]="['/resturant/details/' + resturant.id]"> -->
+                        <img *ngIf="resturant.image" [src]="imageBaseURL + '/' + resturant.image?.for + '/' + resturant.image?.name " [alt]="resturant.image?.alt" [title]="resturant.image?.description">
+                        <img *ngIf="!resturant.image" src="https://dummyimage.com/200x200/f0f0f0/f0f0f0">
+                        <!-- </a> -->
                         <h5 class="mt-2"> {{resturant.name}} </h5>
                         <p> {{ resturant.subtitle }} </p>
                         <span> <img src="./assets/imgs/products/Location.svg">
                             {{ resturant.Governorate?.name }}, {{ resturant.city?.name }} </span>
                     </div>
                 </div>
-                <pagination-controls *ngIf="counter > 10" id="second" (pageChange)="loadMore($event, '')"
-                    previousLabel="" nextLabel="">
+                <pagination-controls *ngIf="counter > 10" id="second" (pageChange)="loadMore($event, '')" previousLabel="" nextLabel="">
                 </pagination-controls>
             </div>
         </div>

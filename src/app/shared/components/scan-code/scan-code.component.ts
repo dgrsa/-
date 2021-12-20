@@ -121,9 +121,9 @@ export class ScanCodeComponent implements OnInit {
     this.cartService.resturantId = resultString
       .split('details/')[1]
       .split('?')[0];
-    this.cookieService.set('tableId', this.cartService.tableId, 1);
-    this.cookieService.set('tableNumber', this.cartService.tableNumber, 1);
-    this.cookieService.set('resturantId', this.cartService.resturantId, 1);
+    this.cookieService.set('tableId', this.cartService.tableId, 1, '/');
+    this.cookieService.set('tableNumber', this.cartService.tableNumber, 1, '/');
+    this.cookieService.set('resturantId', this.cartService.resturantId, 1, '/');
     if (this.previousUrl) {
       this.router.navigate([this.previousUrl]);
     } else {

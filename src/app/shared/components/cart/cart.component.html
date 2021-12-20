@@ -10,9 +10,7 @@
             <div class="image">
                 <span> {{cart_data['meals'][i].quantity}} </span>
                 <img *ngIf="!meal.images[0]" src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
-                <img *ngIf="meal.images[0]"
-                    [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name "
-                    [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
+                <img *ngIf="meal.images[0]" [src]="imageBaseURL + '/' + meal.images[0]?.for + '/' + meal.images[0]?.name " [alt]="meal.images[0]?.alt" [title]="meal.images[0]?.description">
             </div>
             <div class="cart_info">
                 <span class="d-block"> {{meal.name}} </span>
@@ -21,13 +19,11 @@
                 <div class="quantity mt-3">
                     <form>
                         <em (click)="onChangeQuantity(cart_data['meals'][i] , 1 , i)"> + </em>
-                        <input type="text" class="form-control" placeholder="2"
-                            [value]="cart_data['meals'][i].quantity">
+                        <input type="text" class="form-control" placeholder="2" [value]="cart_data['meals'][i].quantity">
                         <em (click)="onChangeQuantity(cart_data['meals'][i] , -1 , i)"> - </em>
                     </form>
                 </div>
-                <a class="cart_remove" href="javascript:void(0)" (click)="deleteCatrItem(i)"> <i
-                        class="flaticon-rubbish-bin"></i> </a>
+                <a class="cart_remove" href="javascript:void(0)" (click)="deleteCatrItem(i)"> <i class="flaticon-rubbish-bin"></i> </a>
             </div>
         </div>
 
@@ -39,16 +35,15 @@
                         <td> {{cart_data['totalPrice']}} {{ "SAR" | translate }} </td>
                     </tr>
                     <tr>
-                        <th> {{'No of meals' | translate}} </th>
+                        <th> {{'No of products' | translate}} </th>
                         <td> {{ cart_data['totalItems'] }} </td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="d-flex justify-content-between text-center">
-                <a [routerLink]="['/resturant/details/' + meal_data[0].resturant_id]" (click)="bsModalRef.hide()"
-                    class="myBtn secondry">
-                    {{'Add meals' | translate}} </a>
+                <a [routerLink]="['/resturant/details/' + meal_data[0].resturant_id]" (click)="bsModalRef.hide()" class="myBtn secondry">
+                    {{'Add products' | translate}} </a>
                 <a href="#" class="myBtn primary"> {{'Checkout' | translate}} </a>
             </div>
         </div>
