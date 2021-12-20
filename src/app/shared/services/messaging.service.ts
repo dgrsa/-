@@ -108,7 +108,6 @@ export class MessagingService {
   receiveMessage() {
     firebase.messaging().onMessage((payload) => {
       // console.log('new message received.', payload);
-      this.emitChange(1);
       this.currentMessage.next(payload);
     });
   }

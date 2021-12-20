@@ -36,6 +36,10 @@ export class AppComponent {
       this.sio.socket.get(`/socket/joinUser`, async (data) => {
         console.log(data);
       });
+
+      this.sio.socket.on("updatedOrder", async (data) => {
+        this.messagingService.emitChange(1);
+      });
     }
     this.router.events
       .pipe(
