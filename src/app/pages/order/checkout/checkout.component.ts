@@ -111,6 +111,7 @@ export class CheckoutComponent implements OnInit {
             );
             this.cartService.getCartItems();
             this.cartService.UpdateCart();
+            this.resturantService.emitOrderChange(data['data']['id'])
             if (this.orderForm.value.payment_id == 4) {
               this.payOnline(data['data']['id']);
             } else {
