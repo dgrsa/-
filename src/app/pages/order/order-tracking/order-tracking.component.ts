@@ -7,6 +7,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { GeneralService } from 'src/app/shared/services/general.service';
 import { HelperToolsService } from 'src/app/shared/services/helper-tools.service';
+import { MessagingService } from 'src/app/shared/services/messaging.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -28,14 +29,21 @@ export class OrderTrackingComponent implements OnInit {
     private authService: AuthService,
     private route: ActivatedRoute,
     private generalService: GeneralService,
-    private helperTool: HelperToolsService
+    private helperTool: HelperToolsService,
+    private messagingService: MessagingService,
   ) {
     this.route.params.subscribe((params) => {
       this.getOrders(params['id']);
     });
+
+    this.messagingService.changeEmitted$.subscribe(data => {
+      if (data['data']['id'] == this.orderData['id']) {
+        this.orderData['status'] = data['data']['status'];
+      }
+    })
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
