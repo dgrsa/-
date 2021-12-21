@@ -11,7 +11,7 @@
                 <div class="col-12">
                     <tabset>
                         <tab [heading]="'Current orders' | translate" id="tab1">
-                            <div class="order_item d-flex mt-4" *ngFor="let order of currentOrders | paginate: { itemsPerPage: 10, currentPage: page, id: 'first' }">
+                            <div class="order_item d-flex mt-4" *ngFor="let order of currentOrders | paginate: { itemsPerPage: 10,totalItems: counter, currentPage: page, id: 'first' }">
                                 <!-- <a href="javascript:void(0)" (click)="payOnline(order.id)"
                                     *ngIf="order.status != 'paid'" class="pay-order" [title]="'Pay now' | translate"> <i
                                         class="flaticon-finance"></i>
@@ -62,7 +62,7 @@
                             </div>
                         </tab>
                         <tab [heading]="'Previous orders' | translate">
-                            <div class="order_item d-flex mt-4" *ngFor="let order of orders | paginate: { itemsPerPage: 10, currentPage: pPage, id: 'second' }">
+                            <div class="order_item d-flex mt-4" *ngFor="let order of orders | paginate: { itemsPerPage: 10,totalItems:pCounter, currentPage: pPage, id: 'second' }">
                                 <div class=" image">
                                     <img *ngIf="!order.resturant?.image" src="https://dummyimage.com/200x200/f5f5f5/f5f5f5">
                                     <img *ngIf="order.resturant?.image" [src]="ImageBaseUrl + '/' + order.for + '/' + order.name">

@@ -42,10 +42,14 @@ export class OrdersComponent implements OnInit {
       if (router.url == '/order/history') {
         if (data['data']['status'] == 'paid') {
           const index = this.orders.findIndex(x => x.id == data['data']['id']);
-          this.orders[index]['status'] = data['data']['status'];
+          if (index >= 0) {
+            this.orders[index]['status'] = data['data']['status'];
+          }
         } else {
           const index = this.currentOrders.findIndex(x => x.id == data['data']['id']);
-          this.currentOrders[index]['status'] = data['data']['status'];
+          if (index >= 0) {
+            this.currentOrders[index]['status'] = data['data']['status'];
+          }
         }
       }
     })
@@ -69,7 +73,7 @@ export class OrdersComponent implements OnInit {
         (data) => {
           this.spinner.hide();
           if (data['success']) {
-            this.counter = data['count'];
+            this.counter = data['data']['count'];
             this.currentOrders = data['data']['rows'];
           }
         },
