@@ -9,10 +9,16 @@ import { environment } from 'src/environments/environment';
 export class ResturantService {
   private resturantChange = new Subject<any>();
   changeEmitted$ = this.resturantChange.asObservable();
+  private orderChange = new Subject<any>();
+  orderEmitted$ = this.orderChange.asObservable();
   constructor(private http: HttpClient) {}
 
   emitChange(change: any) {
     this.resturantChange.next(change);
+  }
+
+  emitOrderChange(change: any) {
+    this.orderChange.next(change);
   }
 
   getResturant(skip, special, name = undefined) {
