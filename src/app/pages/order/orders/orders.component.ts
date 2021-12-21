@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/auth/auth.service';
+import { MessagingService } from 'src/app/shared/services/messaging.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -32,8 +34,22 @@ export class OrdersComponent implements OnInit {
     private authService: AuthService,
     private spinner: NgxSpinnerService,
     private cookieService: CookieService,
-    private coockieService: CookieService
-  ) {}
+    private coockieService: CookieService,
+    private router: Router,
+    private messagingService: MessagingService
+  ) {
+    this.messagingService.changeEmitted$.subscribe(data => {
+      if (router.url == '/order/history') {
+        if (data['data']['status'] == 'paid') {
+          const index = this.orders.findIndex(x => x.id == data['data']['id']);
+          this.orders[index]['status'] = data['data']['status'];
+        } else {
+          const index = this.currentOrders.findIndex(x => x.id == data['data']['id']);
+          this.currentOrders[index]['status'] = data['data']['status'];
+        }
+      }
+    })
+  }
 
   ngOnInit(): void {
     this.getCurrentOrders();
