@@ -10,6 +10,7 @@ import { MessagingService } from './shared/services/messaging.service';
 import { CookieService } from 'ngx-cookie-service';
 import * as io from 'socket.io-client';
 import sailsIo from 'sails.io.js';
+import { ResturantService } from './shared/services/resturant.service';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,8 @@ export class AppComponent {
     public deviceService: DeviceDetectorService,
     public messagingService: MessagingService,
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private resturantService: ResturantService
   ) {
     if (this.cookieService.get('BuserId')) {
       this.sio.sails.query = `id=${this.cookieService.get('BuserId')}`;
@@ -38,9 +40,16 @@ export class AppComponent {
       });
 
       this.sio.socket.on("updatedOrder", async (data) => {
-        this.messagingService.emitChange(1);
+        this.messagingService.emitChange({ counter: 1, data: data });
       });
     }
+
+    this.resturantService.orderEmitted$.subscribe(orderId => {
+      this.sio.socket.get(`/client/${orderId}/orderNotification`, async (data) => {
+        console.log(data)
+      })
+    })
+
     this.router.events
       .pipe(
         filter((evt: any) => evt instanceof RoutesRecognized),
