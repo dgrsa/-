@@ -107,6 +107,13 @@ export class AuthService {
     });
   }
 
+  markAllNotificationsRea(clientId) {
+    let URL = `${
+      environment.BASE_URL
+    }/client/${clientId}/notification/read?isRead=${true}`;
+    return this.http.put(URL, {}, this.httpOptions.headers);
+  }
+
   payOnline(clientId, orderId) {
     const URL = `${environment.BASE_URL}/client/${clientId}/order/${orderId}/checkout`;
     return this.http.post(URL, {}, this.httpOptions);
