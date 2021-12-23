@@ -44,11 +44,11 @@ export class AppComponent {
       });
     }
 
-    this.resturantService.orderEmitted$.subscribe(orderId => {
-      this.sio.socket.get(`/client/${orderId}/orderNotification`, async (data) => {
-        console.log(data)
-      })
-    })
+    // this.resturantService.orderEmitted$.subscribe(orderId => {
+    //   this.sio.socket.get(`/client/${orderId}/orderNotification`, async (data) => {
+    //     console.log(data)
+    //   })
+    // })
 
     this.router.events
       .pipe(

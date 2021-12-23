@@ -59,12 +59,18 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.messagingService.changeEmitted$.subscribe((counter) => {
-      if (counter['counter'] > 0) {
-        this.myCounter += counter;
-      } else {
-        this.myCounter = 0;
-      }
+      this.getNotifications();
     });
+  }
+
+  getNotifications(): void {
+    this.authService
+      .getNotifications(0, this.cookieService.get('BuserId'))
+      .subscribe(
+        (data) => {
+          this.myCounter = data['data']['count']['unReadCount'];
+        }
+      )
   }
 
   toggleNav(e: any) {

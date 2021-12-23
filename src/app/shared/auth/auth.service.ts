@@ -107,7 +107,7 @@ export class AuthService {
     });
   }
 
-  markAllNotificationsRea(clientId) {
+  markAllNotificationsRead(clientId) {
     let URL = `${
       environment.BASE_URL
     }/client/${clientId}/notification/read?isRead=${true}`;
