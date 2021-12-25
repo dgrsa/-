@@ -172,7 +172,7 @@
                         <p *ngIf="translate.currentLang == 'en'" [innerHTML]="meal.ingrediantsEn?.slice(0,100)"></p>
                     </div>
 
-                    <div class="scan_join">
+                    <div class="scan_join" *ngIf="resturant.type == 'order'">
                         <a class="bg_main_color" href="javascript:void(0)" (click)="addToCart(meal)"><em><i
                                     class="flaticon-shopping-cart-1"></i></em>
                             {{'Add to cart' | translate}}
@@ -209,7 +209,7 @@
                         <strong class="d-block dark_color"> {{ meal.price }} {{ 'SAR' | translate }} </strong>
                         <p *ngIf="translate.currentLang == 'ar'" [innerHTML]="meal.ingrediants?.slice(0,100)"></p>
                         <p *ngIf="translate.currentLang == 'en'" [innerHTML]="meal.ingrediantsEn?.slice(0,100)"></p>
-                        <div class="scan_join">
+                        <div class="scan_join" *ngIf="resturant.type == 'order'">
                             <a class="bg_main_color" href="javascript:void(0)" (click)="addToCart(meal)"><em><i
                                         class="flaticon-shopping-cart-1"></i></em>
                                 {{'Add to cart' | translate}}

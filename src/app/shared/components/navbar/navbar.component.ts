@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
     private changeLanguage: LanguageEmitterService,
     private modalService: BsModalService,
     private authService: AuthService,
-    private cookieService: CookieService,
+    public cookieService: CookieService,
     private cartService: CartService,
     private router: Router,
     private messagingService: MessagingService,

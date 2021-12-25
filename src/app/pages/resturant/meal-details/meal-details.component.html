@@ -11,8 +11,7 @@
                     <div class="swiper-container" [swiper]="config">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" *ngFor="let image of meal['images']">
-                                <img [src]="imageBaseUrl + '/' + image.for + '/' + image.name"
-                                    [alt]="'Meal image' | translate">
+                                <img [src]="imageBaseUrl + '/' + image.for + '/' + image.name" [alt]="'Meal image' | translate">
                             </div>
                             <!-- <div class="swiper-slide">
                                 <img *ngIf="meal['images']?.length == 0"
@@ -36,11 +35,9 @@
                                 <span class="calory"> {{meal.preparing_time}} {{ 'minute' | translate}}
                                 </span>
                             </div>
-                            <a *ngIf="translate.currentLang == 'ar'"
-                                [routerLink]="['/resturant/meal-details/'+ meal.id]">
+                            <a *ngIf="translate.currentLang == 'ar'" [routerLink]="['/resturant/meal-details/'+ meal.id]">
                                 {{ meal.name }} </a>
-                            <a *ngIf="translate.currentLang == 'en'"
-                                [routerLink]="['/resturant/meal-details/'+ meal.id]">
+                            <a *ngIf="translate.currentLang == 'en'" [routerLink]="['/resturant/meal-details/'+ meal.id]">
                                 {{ meal.nameEn }} </a>
                         </div>
                         <p class="text-left" *ngIf="translate.currentLang == 'ar'" [innerHTML]="meal.ingrediants"></p>
@@ -52,8 +49,7 @@
                             <h5 class="mb-3 text-left"> {{ 'Another additions' | translate }} </h5>
                             <form>
                                 <div class="custom-control custom-checkbox mb-3" *ngFor="let option of meal['options']">
-                                    <input type="checkbox" class="custom-control-input" [id]="option.nameEn + option.id"
-                                        [value]="option" (change)="onCheckChange($event,option)">
+                                    <input type="checkbox" class="custom-control-input" [id]="option.nameEn + option.id" [value]="option" (change)="onCheckChange($event,option)">
                                     <label class="custom-control-label" [for]="option.nameEn + option.id">
                                         <div>
                                             <img
@@ -74,13 +70,12 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" *ngIf="cookieService.get('resType') == 'order'">
                         <div class="d-flex justify-content-center">
                             <div class="quantity mt-3">
                                 <form>
                                     <em (click)="changeQuantity('+')"> + </em>
-                                    <input class="form-control" placeholder="1" [id]="'quantity' + meal.id"
-                                        [value]="meal.selectedQuantity" disabled>
+                                    <input class="form-control" placeholder="1" [id]="'quantity' + meal.id" [value]="meal.selectedQuantity" disabled>
                                     <em (click)="changeQuantity('-')"> - </em>
                                 </form>
                             </div>

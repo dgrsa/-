@@ -114,7 +114,7 @@
     "All products": "كل المنتجات",
     "This product has been updated": "تم تحديث كمية هذا المنتج",
     "Cart has been updated": "تم تحديث السلة",
-    "This product added to cart": "تم إضافة هذا المنتج إلي السلة",
+    "This meal added to cart": "تم إضافة هذه الوجبة إلي السلة",
     "What you have added to your cart of products": "ما أضفته إلى عربة المنتجات الخاصة بك",
     "Shopping cart": "عربة التسوق",
     "Total order": "إجمالي الطلب",
@@ -183,5 +183,6 @@
     "Subtotal": "المجموع الفرعي",
     "VAT": "الضريبة",
     "Load more": "رؤية المزيد",
-    "Current restaurant": "المطعم الحالي"
+    "Current restaurant": "المطعم الحالي",
+    "Mark all as read": "الكل مقروء"
 }

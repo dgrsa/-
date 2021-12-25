@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { CartService } from 'src/app/shared/services/cart.service';
@@ -24,7 +25,8 @@ export class MealDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private resturantService: ResturantService,
     private cartService: CartService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public cookieService: CookieService
   ) {
     route.params.subscribe((params) => {
       this.getItem(params['id']);

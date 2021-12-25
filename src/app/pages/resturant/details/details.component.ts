@@ -136,6 +136,7 @@ export class DetailsComponent implements OnInit {
         if (data['success']) {
           this.spinner.hide();
           this.resturant = data['data'];
+          this.coockieService.set('resType', this.resturant.type);
         }
       },
       (err) => {

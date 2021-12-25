@@ -32,7 +32,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li>
+                    <li *ngIf="cookieService.get('resType') == 'order'">
                         <a [routerLink]="['/cart']">
                             <span> {{cartCount}} </span>
                             <i class="flaticon-shopping-cart-1"></i>
