@@ -99,4 +99,9 @@ export class ResturantService {
     const URL = `${environment.BASE_URL}/favorite/create`;
     return this.http.post(URL, sentData, this.httpOptions);
   }
+
+  removeFromFav(sentData) {
+    const URL = `${environment.BASE_URL}/favorite/remove`;
+    return this.http.post(URL, sentData, this.httpOptions);
+  }
 }
