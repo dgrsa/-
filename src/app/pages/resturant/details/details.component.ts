@@ -205,7 +205,8 @@ export class DetailsComponent implements OnInit {
         this.resturant_id,
         this.catId,
         this.subCatId,
-        this.offset - 1
+        this.offset - 1,
+        this.coockieService.get('BuserId')
       )
       .subscribe(
         (data) => {
@@ -347,5 +348,27 @@ export class DetailsComponent implements OnInit {
     // this.offset = event;
     this.offset++;
     this.getItems();
+  }
+
+  addToFav(item_id): void {
+    if (this.coockieService.get('Btoken')) {
+      this.resturantService
+        .addToFav({
+          resturant_id: this.resturant_id,
+          client_id: this.coockieService.get('BuserId'),
+          item_id: item_id,
+          type: 'menuItem',
+        })
+        .subscribe(
+          (data) => {
+            console.log(data);
+          },
+          (err) => {
+            console.error(err);
+          }
+        );
+    } else {
+      this.helperTool.showAlertWithTranslation('','Please, Sign in first','warning')
+    }
   }
 }
