@@ -36,6 +36,7 @@ import { MessagingService } from './shared/services/messaging.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AsyncPipe } from '@angular/common';
 import { ResturantGuard } from './shared/auth/resturant.guard';
+import { SnotifyModule, SnotifyService, ToastDefaults } from "ng-snotify";
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -72,6 +73,7 @@ export function createTranslateLoader(http: HttpClient) {
     AngularFireMessagingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     SwiperModule,
+    SnotifyModule,
     ModalModule.forRoot(),
     NgxSpinnerModule,
     NgQrScannerModule,
@@ -95,6 +97,8 @@ export function createTranslateLoader(http: HttpClient) {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG,
     },
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
+    SnotifyService,
   ],
   bootstrap: [AppComponent],
 })
