@@ -61,16 +61,17 @@ export class NavbarComponent implements OnInit {
     this.messagingService.changeEmitted$.subscribe((counter) => {
       this.getNotifications();
     });
+    if (this.cookieService.get('Btoken')) {
+      this.getNotifications();
+    }
   }
 
   getNotifications(): void {
     this.authService
       .getNotifications(0, this.cookieService.get('BuserId'))
-      .subscribe(
-        (data) => {
-          this.myCounter = data['data']['count']['unReadCount'];
-        }
-      )
+      .subscribe((data) => {
+        this.myCounter = data['data']['count']['unReadCount'];
+      });
   }
 
   toggleNav(e: any) {

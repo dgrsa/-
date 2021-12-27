@@ -100,7 +100,7 @@ export class AuthService {
 
   getNotifications(skip, userId) {
     const params = { skip } as any;
-    let URL = `${environment.BASE_URL}/client/${userId}/notification`;
+    let URL = `${environment.BASE_URL}/client/notification`;
     return this.http.get(URL, {
       params: params,
       headers: this.httpOptions.headers,
@@ -111,7 +111,7 @@ export class AuthService {
     let URL = `${
       environment.BASE_URL
     }/client/${clientId}/notification/read?isRead=${true}`;
-    return this.http.put(URL, {}, this.httpOptions.headers);
+    return this.http.put(URL, {}, this.httpOptions);
   }
 
   payOnline(clientId, orderId) {

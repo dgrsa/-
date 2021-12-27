@@ -27,11 +27,13 @@ export class NotificationsComponent implements OnInit {
     public messagingService: MessagingService,
     private router: Router
   ) {
-    this.messagingService.changeEmitted$.subscribe(count => {
+    this.messagingService.changeEmitted$.subscribe((count) => {
       if (router.url == '/notifications') {
+        this.offset = 1;
+        this.notifications = [];
         this.getNotifications();
       }
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -44,14 +46,31 @@ export class NotificationsComponent implements OnInit {
       .subscribe(
         (data) => {
           if (data['success'] && data['data']['rows'].length > 0) {
-            this.messagingService.emitChange(0);
+            // this.messagingService.emitChange(0);
             if (this.offset == 1) {
               this.notifications = data['data']['rows'];
             } else {
-              this.notifications = this.notifications.concat(data['data']['rows']);
+              this.notifications = this.notifications.concat(
+                data['data']['rows']
+              );
               this.infiniteScroll.ngOnDestroy();
               this.infiniteScroll.setup();
             }
+          }
+        },
+        (err) => {
+          console.error(err);
+        }
+      );
+  }
+
+  markAllAsRead(): void {
+    this.authService
+      .markAllNotificationsRead(this.cookieService.get('BuserId'))
+      .subscribe(
+        (data) => {
+          if (data['success']) {
+            this.messagingService.emitChange(0);
           }
         },
         (err) => {
