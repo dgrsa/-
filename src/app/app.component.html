@@ -1,6 +1,7 @@
 <div *ngIf="!deviceService.isDesktop()" class="main" [dir]="options.direction">
     <ngx-spinner></ngx-spinner>
     <app-navbar></app-navbar>
+    <ng-snotify [ngClass]="{'arabicStyle': translate.currentLang == 'ar'}"></ng-snotify>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
 </div>

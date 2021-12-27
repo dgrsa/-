@@ -213,6 +213,21 @@ canvas {
     background: #dddddd;
 }
 
+.snotifyToast__title {
+    font-size: 1em !important;
+    width: 100% !important;
+    color: #666666 !important;
+}
+
+.snotifyToast__body {
+    width: 100% !important;
+}
+
+.arabicStyle .snotifyToast__title,
+.arabicStyle .snotifyToast__body {
+    text-align: right;
+}
+
 
 /* End of main style */
 

@@ -11,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 import * as io from 'socket.io-client';
 import sailsIo from 'sails.io.js';
 import { ResturantService } from './shared/services/resturant.service';
+import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 
 @Component({
   selector: 'app-root',
@@ -24,13 +25,14 @@ export class AppComponent {
   previousUrl;
   sio = sailsIo(io);
   constructor(
-    private translate: TranslateService,
+    public translate: TranslateService,
     private changeLang: LanguageEmitterService,
     public deviceService: DeviceDetectorService,
     public messagingService: MessagingService,
     private router: Router,
     private cookieService: CookieService,
-    private resturantService: ResturantService
+    private resturantService: ResturantService,
+    private snotifyService: SnotifyService
   ) {
     if (this.cookieService.get('BuserId')) {
       this.sio.sails.query = `id=${this.cookieService.get('BuserId')}`;
@@ -39,8 +41,14 @@ export class AppComponent {
         console.log(data);
       });
 
-      this.sio.socket.on("updatedOrder", async (data) => {
-        this.messagingService.emitChange({ counter: 1, data: data });
+      this.sio.socket.on('updatedOrder', async (data) => {
+        this.messagingService.emitChange({ counter: 1, data: data['data'] });
+        this.showNotification(
+          `${translate.instant('Changing in order status')}`,
+          `${translate.instant(
+            'Your order’s status has been updated to '
+          )}( ${translate.instant(data['data']['status'])})`
+        );
       });
     }
 
@@ -98,5 +106,27 @@ export class AppComponent {
       );
       this.messagingService.receiveMessage();
     }
+  }
+
+  showNotification(title, body) {
+    this.snotifyService.simple(body, title, {
+      timeout: 15000,
+      showProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      titleMaxLength: 50,
+      position: SnotifyPosition.leftBottom,
+      icon: 'assets/imgs/favicon/favicon.ico',
+    });
+    setTimeout(() => {
+      this.playAudio();
+    }, 200);
+  }
+
+  playAudio() {
+    let audio = new Audio();
+    audio.src = 'assets/img/noti-sound.mp3';
+    audio.load();
+    audio.play();
   }
 }

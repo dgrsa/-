@@ -184,5 +184,8 @@
     "VAT": "الضريبة",
     "Load more": "رؤية المزيد",
     "Current restaurant": "المطعم الحالي",
-    "Mark all as read": "الكل مقروء"
+    "Mark all as read": "الكل مقروء",
+    "Your order’s status has been updated to ": "تم تغير حالة طلبك إلي ",
+    "Changing in order status": "تغيير في حالة الطلب",
+    "Mark all read": "قراءة الكل"
 }
