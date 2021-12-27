@@ -350,7 +350,7 @@ export class DetailsComponent implements OnInit {
     this.getItems();
   }
 
-  addToFav(item_id): void {
+  addToFav(item_id, index): void {
     if (this.coockieService.get('Btoken')) {
       this.resturantService
         .addToFav({
@@ -361,14 +361,42 @@ export class DetailsComponent implements OnInit {
         })
         .subscribe(
           (data) => {
-            console.log(data);
+            this.meals[index]['fav'] = true;
           },
           (err) => {
             console.error(err);
           }
         );
     } else {
-      this.helperTool.showAlertWithTranslation('','Please, Sign in first','warning')
+      this.helperTool.showAlertWithTranslation(
+        '',
+        'Please, Sign in first',
+        'warning'
+      );
+    }
+  }
+
+  removeFav(item_id, index): void {
+    if (this.coockieService.get('Btoken')) {
+      this.resturantService
+        .removeFromFav({
+          client_id: this.coockieService.get('BuserId'),
+          item_id: item_id,
+        })
+        .subscribe(
+          (data) => {
+            this.meals[index]['fav'] = false;
+          },
+          (err) => {
+            console.error(err);
+          }
+        );
+    } else {
+      this.helperTool.showAlertWithTranslation(
+        '',
+        'Please, Sign in first',
+        'warning'
+      );
     }
   }
 }
