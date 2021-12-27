@@ -55,10 +55,14 @@ export class ResturantService {
 
   getResturantItems(
     resturant_id = undefined,
+    category_id = undefined,
     subcategory_id = undefined,
     offset = undefined
   ) {
     const params = {} as any;
+    if (category_id != undefined && category_id != '') {
+      params['category_id'] = category_id;
+    }
     if (subcategory_id != undefined && subcategory_id != '') {
       params['subcategory_id'] = subcategory_id;
     }

@@ -36,6 +36,7 @@ export class DetailsComponent implements OnInit {
   counter: number;
   page;
   offset = 1;
+  catId;
   constructor(
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
@@ -163,12 +164,16 @@ export class DetailsComponent implements OnInit {
   }
 
   onCatChanges(event): void {
+    console.log(event);
     if (event == '') {
       this.subCatId = undefined;
+      this.catId = undefined;
       this.subCats = [];
       this.getItems();
     } else {
+      this.catId = event.target.value;
       this.getSubCategory(event.target.value);
+      this.getItems();
     }
   }
 
@@ -196,7 +201,12 @@ export class DetailsComponent implements OnInit {
   getItems(): void {
     this.spinner.show();
     this.resturantService
-      .getResturantItems(this.resturant_id, this.subCatId, this.offset - 1)
+      .getResturantItems(
+        this.resturant_id,
+        this.catId,
+        this.subCatId,
+        this.offset - 1
+      )
       .subscribe(
         (data) => {
           if (data['success']) {
