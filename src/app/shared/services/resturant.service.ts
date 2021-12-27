@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -11,7 +12,14 @@ export class ResturantService {
   changeEmitted$ = this.resturantChange.asObservable();
   private orderChange = new Subject<any>();
   orderEmitted$ = this.orderChange.asObservable();
-  constructor(private http: HttpClient) {}
+  httpOptions;
+  constructor(private http: HttpClient, private cookieService: CookieService) {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'bearer ' + cookieService.get('Btoken'),
+      }),
+    };
+  }
 
   emitChange(change: any) {
     this.resturantChange.next(change);
@@ -57,7 +65,8 @@ export class ResturantService {
     resturant_id = undefined,
     category_id = undefined,
     subcategory_id = undefined,
-    offset = undefined
+    offset = undefined,
+    clientId = undefined
   ) {
     const params = {} as any;
     if (category_id != undefined && category_id != '') {
@@ -72,6 +81,9 @@ export class ResturantService {
     if (offset != undefined && offset != '') {
       params['skip'] = offset;
     }
+    if (clientId != undefined && clientId != '') {
+      params['clientId'] = clientId;
+    }
     const URL = `${environment.BASE_URL}/item`;
     return this.http.get(URL, {
       params: params,
@@ -81,5 +93,10 @@ export class ResturantService {
   getItemById(id) {
     const URL = `${environment.BASE_URL}/item/${id}`;
     return this.http.get(URL);
+  }
+
+  addToFav(sentData) {
+    const URL = `${environment.BASE_URL}/favorite/create`;
+    return this.http.post(URL, sentData, this.httpOptions);
   }
 }
