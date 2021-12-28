@@ -12,6 +12,7 @@ import * as io from 'socket.io-client';
 import sailsIo from 'sails.io.js';
 import { ResturantService } from './shared/services/resturant.service';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
+import { AuthService } from './shared/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,8 @@ export class AppComponent {
   options = { direction: 'ltr' };
   deviceInfo;
   previousUrl;
-  sio = sailsIo(io);
+  user = {} as any;
+  sio;
   constructor(
     public translate: TranslateService,
     private changeLang: LanguageEmitterService,
@@ -32,31 +34,21 @@ export class AppComponent {
     private router: Router,
     private cookieService: CookieService,
     private resturantService: ResturantService,
-    private snotifyService: SnotifyService
+    private snotifyService: SnotifyService,
+    private authService: AuthService
   ) {
-    if (this.cookieService.get('BuserId')) {
-      this.sio.sails.query = `id=${this.cookieService.get('BuserId')}`;
-      this.sio.sails.url = 'http://api.test.brodone.net:13381';
-      this.sio.socket.get(`/socket/joinUser`, async (data) => {
-        console.log(data);
-      });
+    firebase.initializeApp(firebaseConfig);
+    authService.changeEmitted$.subscribe((data) => {
+      this.user = data['user_data'];
+    });
+    authService.tokenChangeEmitted$.subscribe((data) => {
+      this.user['token'] = data;
+      this.initSocket();
+      this.initFireBase();
+    });
 
-      this.sio.socket.on('updatedOrder', async (data) => {
-        this.messagingService.emitChange({ counter: 1, data: data['data'] });
-        this.showNotification(
-          `${translate.instant('Changing in order status')}`,
-          `${translate.instant(
-            'Your order’s status has been updated to '
-          )}( ${translate.instant(data['data']['status'])})`
-        );
-      });
-    }
-
-    // this.resturantService.orderEmitted$.subscribe(orderId => {
-    //   this.sio.socket.get(`/client/${orderId}/orderNotification`, async (data) => {
-    //     console.log(data)
-    //   })
-    // })
+    this.initSocket();
+    this.initFireBase();
 
     this.router.events
       .pipe(
@@ -66,7 +58,6 @@ export class AppComponent {
       .subscribe((events: RoutesRecognized[]) => {
         this.changeLang.previousUrl = events[0].urlAfterRedirects;
       });
-    firebase.initializeApp(firebaseConfig);
     if (this.deviceService.isDesktop()) {
       window.location.href = 'http://brodone.net';
     }
@@ -98,15 +89,36 @@ export class AppComponent {
     }
   }
 
-  ngOnInit(): void {
-    if (this.cookieService.get('Btoken')) {
+  ngOnInit(): void {}
+
+  initFireBase(): void {
+    if (this.cookieService.get('Btoken') || this.user['token']) {
       this.messagingService.getPermission(
-        this.cookieService.get('BuserId'),
-        this.cookieService.get('Btoken')
+        this.cookieService.get('BuserId') || this.user['id'],
+        this.cookieService.get('Btoken') || this.user['token']
       );
       this.messagingService.receiveMessage();
     }
   }
+
+  initSocket(): void {
+    const id = this.cookieService.get('BuserId') || this.user['id'];
+    if (id) {
+      this.sio = sailsIo(io);
+      this.sio.sails.query = `id=${id}`;
+      this.sio.sails.url = 'http://api.test.brodone.net:13381';
+      this.sio.socket.get(`/socket/joinUser`);
+      this.sio.socket.on('updatedOrder', async (data) => {
+        this.messagingService.emitChange({ counter: 1, data: data['data'] });
+        this.showNotification(
+          `${this.translate.instant('Changing in order status')}`,
+          `${this.translate.instant(
+            'Your order’s status has been updated to '
+          )}( ${this.translate.instant(data['data']['status'])})`
+        );
+      });
+    }
+  } //end of intializing socket
 
   showNotification(title, body) {
     this.snotifyService.simple(body, title, {
